@@ -12,12 +12,12 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="search">
                     <i class="fas fa-globe-americas"></i>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="myprojects">
                     <i class="fas fa-folder-open"></i>
                 </a>
             </li>

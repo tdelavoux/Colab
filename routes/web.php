@@ -15,3 +15,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'AppsController\DashBoardController@execute');
 Route::get('/dashboard', 'AppsController\DashBoardController@execute');
+Route::get('/search', 'AppsController\RechercheController@execute');
+Route::get('/myprojects', 'AppsController\MesProjetsController@execute');
