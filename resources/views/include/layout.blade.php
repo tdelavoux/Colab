@@ -10,7 +10,7 @@
         <link rel="stylesheet" type="text/css" href="{{env('DIRLIB')}}bootstrap-4.4.1/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="{{env('DIRLIB')}}css/datatables.min.css">
         <link rel="stylesheet" type="text/css" href="{{env('DIRLIB')}}bootstrap-4.4.1/css/bootstrap-select.min.css">
-        <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="{{env('DIR')}}css/main.css">
         @yield('addCSS')
 
         </head>
@@ -20,9 +20,7 @@
 
         <div id="content">
             @include('include.partials._navLeft')
-            <div id="content-page">
-                @yield('content')
-            </div>
+            @yield('content')
         </div>
 
 

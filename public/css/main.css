@@ -1,21 +1,116 @@
+/*------------- STYLE RESET BASICS ----------------*/
+ul{list-style-type: none;padding:0;margin:0;}
+a, ul, li, form {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+a, a:hover{
+  color:#5e5d5d;
+text-decoration: none;
+}
+
+/*------------- CONTENT PAGE ----------------*/
 body,html{width:100%;height:100%;}
 body{display:flex;flex-direction: column;}
 i{margin:0 0.5em;}
 #content{flex:1; width:100%;display:flex;}
 #content-page{flex:1;height:100%; padding: 2em;}
-.small-text{font-size:11px;color:#818181;}
-h2{color: #CE7A77; padding: 0.5em;}
+.content-page-inline{display:flex;flex-direction:inline;}
+.option-content-page{padding: 0 !important;}
+
+
+/* ------------- FONTS AND COLORS -----------*/
+.small-text{font-size:13px;color:#818181;}
+
+.c-red{color:#CE7A77;}
+.bc-red{background-color:#CE7A77;}
+.c-black{color:#5E5E5E;}
+.bc-black{background-color:#5E5E5E;}
+.c-yellow{color:#F2EBA9;}
+.bc-yellow{background-color:#F2EBA9;}
+.c-green{color:#B8C39F;}
+.bc-green{background-color:#B8C39F;}
+.c-green-heavy{color:#787B73;}
+.bc-green-heavy{background-color:#787B73;}
+.c-purple{color:#444366;}
+.bc-purple{background-color:#444366;}
+.c-yellow-heavy{color:#b3b31d;}
+.bc-yellow-heavy{background-color:#b3b31d;}
+
+.w100{width:100%;}
+.h100{height:100%;}
+.center{text-align:center;}
+
+.m-2{margin:2em !important;}
+.m-1{margin:1em!important ;}
+.m-05{margin:0.5em!important;}
+.mv-2{margin:2em 0 !important;}
+.mv-1{margin:1em 0 !important;}
+.mv-05{margin:0.5em 0 !important;}
+.mh-2{margin: 0 2em !important;}
+.mh-1{margin: 0 1em !important;}
+.mh-05{margin: 0 0.5em !important;}
+.mt-2{margin-top:2em !important;}
+.mt-1{margin-top:1em !important;}
+.mt-05{margin-top:0.5em !important;}
+.ml-2{margin-left:2em !important;}
+.ml-1{margin-left:1em !important;}
+.ml-05{margin-left:0.5em !important;}
+.mr-2{margin-right:2em !important;}
+.mr-1{margin-right:1em !important;}
+.mr-05{margin-right:0.5em !important;}
+.mb-2{margin-bottom:2em !important;}
+.mb-1{margin-bottom:1em !important;}
+.mb-05{margin-bottom:0.5em !important;}
+
+.p-2{padding:2em !important;}
+.p-1{padding:1em !important;}
+.p-05{padding:0.5em !important;}
+.pv-2{padding:2em 0 !important;}
+.pv-1{padding:1em 0 !important;}
+.pv-05{padding:0.5em 0 !important;}
+.ph-2{padding: 0 2em !important;}
+.ph-1{padding: 0 1em !important;}
+.ph-05{padding: 0 0.5em !important;}
+.pt-2{padding-top:2em !important;}
+.pt-1{padding-top:1em !important;}
+.pt-05{padding-top:0.5em !important;}
+.pl-2{padding-left:2em !important;}
+.pl-1{padding-left:1em !important;}
+.pl-05{padding-left:0.5em !important;}
+.pr-2{padding-right:2em !important;}
+.pr-1{padding-right:1em !important;}
+.pr-05{padding-right:0.5em !important;}
+.pb-2{padding-bottom:2em !important;}
+.pb-1{padding-bottom:1em !important;}
+.pb-05{padding-bottom:0.5em !important;}
+
+.italic{font-style: italic;}
+
+label{font-weight:bold; color:#929292}
+
+/* ----------------- TITLES -----------------*/
+h2{color: #CE7A77; padding: 0.5em; font-size:25px;font-weight:bold;}
+
+
+
 
 /*
     COLOR SHEME
     #CE7A77 -- top red
     #5E5E5E -- side left
     #F2EBA9 -- Yellow
+    #b3b31d -- Heavy Yellow
     #B8C39F -- Light green
     #787B73 -- Heavy Green
     #444366 -- Purple
     #F4F7F8 -- White
     #EBEBEB -- light grey
+    #f5f5f5 -- heavy light grey
     #929292 -- heavy grey
     #5e5d5d -- Title grey
 */
@@ -43,3 +138,144 @@ h2{color: #CE7A77; padding: 0.5em;}
 /* ######################### MES PROJETS #################################### */
 .myprojects-title{background-color:#EBEBEB;padding:0.3em 1em;font-weight: lighter;}
 .dashboard-project-bio{color:#929292;font-size:15px;margin-bottom: 0;max-width:100%}
+
+/* ######################### USER PROFIL #################################### */
+.left-bar-option{Width:200px;height:100%;border-right:solid 1px #EBEBEB;background-color:#f5f5f5;}
+.option-menu-list-item{text-align:center;border-bottom: solid 1px #EBEBEB;}
+.option-menu-list-item-link{width:100%;height:100%;height:100%;text-align: center;padding:1em;display:inline-block;}
+.option-menu-list-item-link:hover{background-color:#EBEBEB;}
+
+
+.option-page-body{flex:1;padding:2em;}
+.column-info{display:flex; flex-direction: column;align-items:center;}
+.column-info-sub{display:flex; flex-direction: column;align-items:center;}
+.info-txt{font-size:20px;padding:0.5em;border-bottom:solid 1px #EBEBEB;}
+
+.profile-img-lg{
+  width:200px;
+  height: 200px;
+  margin: 0.5em;
+}
+
+.profile-img{
+  width:120px;
+  height: 120px;
+  margin: 0.5em;
+  display:flex;
+  text-align:center;
+  align-items: center;
+  background-position: center;background-repeat: no-repeat;background-size: cover;
+}
+
+.profile-img-sm{
+  width:75px;
+  height: 75px;
+  margin: 0.5em;
+  background-position: center;background-repeat: no-repeat;background-size: cover;
+}
+
+.profile-img-xs{
+  width:50px;
+  height: 50px;
+  margin: 0.5em;
+  background-position: center;background-repeat: no-repeat;background-size: cover;
+}
+
+/* ######################## CARTES DES PROJETS ############################### */
+.card {
+    width:100%;
+    height: 150px;
+    background-color: #fff;
+    background: linear-gradient(#f8f8f8, #fff);
+    box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
+    border-radius: 6px;
+    
+    position: relative;
+    margin: 1.5rem;
+}
+
+.card .project-cards-title {
+  /* text-align: center; */
+  font-size:20px;
+  font-weight: bold;
+}
+
+.card .additional {
+  position: absolute;
+  width: 50px;
+  height: 100%;
+  background: linear-gradient(#dE685E, #EE786E);
+  transition: width 0.4s;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.card.green .additional {
+  background: linear-gradient(#92bCa6, #A2CCB6) !important;
+}
+
+.card:hover .additional {
+  width: 100%;
+  border-radius: 0 5px 5px 0;
+}
+
+.card .additional .more-info {
+  width: 4000px;
+  float: left;
+  position: absolute;
+  left: 75px;
+  height: 100%;
+}
+
+.card .additional .more-info .project-cards-title {
+  color: #fff;
+  margin-bottom: 0;
+}
+
+.card .additional .stats {
+  font-size: 1rem;
+  display: flex;
+  justify-content: start;
+  position: absolute;
+  bottom: 1rem;
+  width: 100%;
+  top: auto;
+  color: #fff;
+}
+
+.card .additional .stats > div {
+  margin-right:  1em;
+  text-align: center;
+}
+
+.card .additional .stats i {
+  display: block;
+}
+
+.card .additional .stats div.title {
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.card .additional .stats div.value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1.5rem;
+}
+
+.card .additional .stats div.value.infinity {
+  font-size: 2.5rem;
+}
+
+.card .general {
+  width: calc(100% - 50px);
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 50px;
+  z-index: 1;
+  box-sizing: border-box;
+  padding: 1rem;
+  padding-top: 0;
+}

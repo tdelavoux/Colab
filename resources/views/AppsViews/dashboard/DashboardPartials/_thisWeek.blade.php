@@ -11,14 +11,14 @@
         <span class="dashboard-project-square" style="background-color:#D56060"></span>
         <div class="dashboard-project-group">
             <label class="dashboard-project-name">Projet 1</label>
-            <span class="dashboard-project-bio">Libellé de la tâche</span>
+            <span class="dashboard-tache-name">Libellé de la tâche</span>
         </div>
     </div>
     <div class="dashboard-project-line">
         <span class="dashboard-project-square" style="background-color:#9CCC9F"></span>
         <div class="dashboard-project-group">
             <label class="dashboard-project-name">Projet 1</label>
-            <span class="dashboard-project-bio">Libellé de la tâche</span>
+            <span class="dashboard-tache-name">Libellé de la tâche</span>
         </div>
     </div>
 </div>

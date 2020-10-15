@@ -8,6 +8,6 @@ use App\Http\Controllers\Controller;
 class MesProjetsController extends Controller
 {
     public function execute(){
-        return view('AppsViews.myprojects');
+        return view('AppsViews.myprojects.myprojects');
     }
 }

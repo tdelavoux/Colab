@@ -8,6 +8,6 @@ use App\Http\Controllers\Controller;
 class RechercheController extends Controller
 {
     public function execute(){
-        return view('AppsViews.search');
+        return view('AppsViews.search.search');
     }
 }
