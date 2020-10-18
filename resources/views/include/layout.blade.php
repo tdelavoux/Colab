@@ -10,10 +10,13 @@
         <link rel="stylesheet" type="text/css" href="{{env('DIRLIB')}}bootstrap-4.4.1/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="{{env('DIRLIB')}}css/datatables.min.css">
         <link rel="stylesheet" type="text/css" href="{{env('DIRLIB')}}bootstrap-4.4.1/css/bootstrap-select.min.css">
-    <link rel="stylesheet" type="text/css" href="{{env('DIR')}}css/main.css">
+        <link rel="stylesheet" type="text/css" href="{{env('DIRLIB')}}css/datepicker.css">
+        <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
         @yield('addCSS')
 
-        </head>
+    </head>
+
+
     <body>
 
         @include('include.partials._navTop')
@@ -23,15 +26,16 @@
             @yield('content')
         </div>
 
-
-        <script src="{{env('DIRLIB')}}jquery/jquery-3.5.1.min.js"></script>
-        <script src="{{env('DIRLIB')}}js/notify.min.js"></script>
-        <script src="{{env('DIRLIB')}}js/popper.min.js"></script>
-        <script src="{{env('DIRLIB')}}bootstrap-4.4.1/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="{{env('DIRLIB')}}js/datatables.min.js"></script>
-        <script type="text/javascript" src="{{env('DIRLIB')}}js/formHandler.js"></script>
-        <script type="text/javascript" src="{{env('DIRLIB')}}bootstrap-4.4.1/js/bootstrap-select.min.js"></script>
-        @yield('addJS')
+    <script src="{{env('DIRLIB')}}jquery/jquery-3.5.1.min.js"></script>
+    <script src="{{env('DIRLIB')}}js/notify.min.js"></script>
+    <script src="{{env('DIRLIB')}}js/popper.min.js"></script>
+    <script src="{{env('DIRLIB')}}bootstrap-4.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{{env('DIRLIB')}}js/datatables.min.js"></script>
+    <script type="text/javascript" src="{{env('DIRLIB')}}js/formHandler.js"></script>
+    <script type="text/javascript" src="{{env('DIRLIB')}}bootstrap-4.4.1/js/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="{{env('DIRLIB')}}js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
+    @yield('addJS')
 
     </body>
 </html>

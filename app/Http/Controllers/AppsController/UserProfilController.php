@@ -18,4 +18,8 @@ class  UserProfilController extends Controller
     public function showNotifs(){
         return view('AppsViews.userprofile.notifisInfos');
     }
+
+    public function showParams(){
+        return view('AppsViews.userprofile.paramsInfo');
+    }
 }

@@ -22,15 +22,22 @@ Route::get('dashboard', 'AppsController\DashBoardController@execute')->name('das
 Route::get('search', 'AppsController\RechercheController@execute')->name('search');
 
 
-/* --------------------- PROJECTS -------------------------------------------------------- */
+/* --------------------- MY PROJECTS -------------------------------------------------------- */
 Route::get('myprojects', 'AppsController\MesProjetsController@execute')->name('myprojects');
 
 
 
-/* --------------------- PROJECTS -------------------------------------------------------- */
+/* --------------------- USER INFOS -------------------------------------------------------- */
 Route::group(['prefix' => 'userprofile'], function(){
     Route::get('personalInfos', 'AppsController\UserProfilController@execute')->name('personalInfos');
     Route::get('passwdInfos', 'AppsController\UserProfilController@showPassword')->name('passwdInfos');
     Route::get('notifisInfos', 'AppsController\UserProfilController@showNotifs')->name('notifisInfos');
+    Route::get('paramsInfo', 'AppsController\UserProfilController@showParams')->name('paramsInfo');
+});
+
+
+/* --------------------- BOARDS -------------------------------------------------------- */
+Route::group(['prefix' => 'board'], function(){
+    Route::get('scrumView/{fkBoard}', 'AppsController\BoardScrumController@execute')->name('scrumView');
 });
 

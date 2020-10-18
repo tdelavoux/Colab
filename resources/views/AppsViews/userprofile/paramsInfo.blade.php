@@ -6,7 +6,7 @@
 <div id="content-page" class="content-page-inline option-content-page">
 
     @include('AppsViews.userprofile.UserPartials._optionMenu')
-    @include('AppsViews.userprofile.UserPartials._optionContentNotify')
+    @include('AppsViews.userprofile.UserPartials._optionContentParams')
      
 </div>
 @stop
