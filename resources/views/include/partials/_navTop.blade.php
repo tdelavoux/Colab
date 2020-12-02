@@ -28,8 +28,8 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('personalInfos') }}">
-                    Nom Random
-                    <i class="fas fa-user"></i>
+                    Nom RANDOM
+                    <div class="rounded-circle profile-img-xs" style="background-image:url('{{asset('/img/user/3.jpg')}}');background-position: center;background-repeat: no-repeat;background-size: cover;"></div>
                 </a>
             </li>
         </ul>

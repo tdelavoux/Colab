@@ -36,8 +36,11 @@ Route::group(['prefix' => 'userprofile'], function(){
 });
 
 
-/* --------------------- BOARDS -------------------------------------------------------- */
+/* --------------------- PROJECTS BOARDS -------------------------------------------------------- */
 Route::group(['prefix' => 'board'], function(){
     Route::get('scrumView/{fkBoard}', 'AppsController\BoardScrumController@execute')->name('scrumView');
+    Route::get('kabanView/{fkBoard}', 'AppsController\BoardKabanController@execute')->name('kabanView');
+    Route::get('BugsView/{fkBoard}', 'AppsController\BoardBugsController@execute')->name('bugsView');
+    Route::get('TeamView/{fkBoard}', 'AppsController\BoardTeamController@execute')->name('teamboardView');
 });
 
