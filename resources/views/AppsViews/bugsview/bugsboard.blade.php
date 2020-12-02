@@ -1,6 +1,6 @@
 @extends('include.layout')
 
-@section('title_page', 'Scrum Board')
+@section('title_page', 'Bugs Board')
 
 @section('content')
 <div id="content-page">
