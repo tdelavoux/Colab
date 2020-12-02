@@ -6,7 +6,8 @@
 <div id="content-page">
     <h1>Projet 1 / Sous Projet 1 / Tableau</h1>
 
-    <button class="btn btn-success">Ajouter un Sprint</button>
+    <button class="btn btn-success">Ajouter une catégorie</button>
+    <button class="btn btn-primary">Ouvrir un ticket</button>
 
     <hr>
 
@@ -24,8 +25,7 @@
                     <th class="sprint-table-task">Libelle</th>
                     <th class="sprint-table-col-std">Affectation</th>
                     <th class="sprint-table-col-std">Status</th>
-                    <th class="sprint-table-col-std">Priority</th>
-                    <th class="sprint-table-col-std">deadline</th>
+                    <th class="sprint-table-col-std">Details</th>
                 </tr>       
             </thead>
 
@@ -49,49 +49,66 @@
 
                     <!---------------------- STATUS --------------------------->
                     <td  class="sprint-table-col-std pointer sprintSelector tdSelector statusSelector" style="background-color:#444366;"data-toggle="popover" >
-                        Libelle1
+                        En Cours
                     </td>     
 
-                    <!---------------------- PRIORITE --------------------------->
-                    <td class="sprint-table-col-std pointer sprintSelector tdSelector statusSelector" style="background-color:#444366;"data-toggle="popover" >
-                        Libelle1
+                    <!---------------------- DETAILS --------------------------->
+                    <td class="sprint-table-col-std">
+                       <button class="btn btn-link" data-toggle="modal" data-target="#ticketsInfos"> Voir le ticket </button>
                     </td>
 
-                    <!---------------------- DATE PICKER--------------------------->
-                    <td class="sprint-table-col-std">
-                        <div class="datePickerInput">
-                            <input  type="text" 
-                                    name="deadline" 
-                                    class="datepicker inputFull" 
-                                    style="max-width:170px;"/>
-                            <i class="fa fa-calendar date-picker-icon"></i>
-                        </div>
-                    </td>
                 </tr>  
-              
-                <!---------------------- NOUVELLE TACHE --------------------------->
-                <tr class="sprint-table-row">
-                    <td class="sprint-table-lither"></td>
-                    <td class="sprint-table-task"> 
-                        <input  placeholder=" + Ajouter une tache ici" 
-                                class="form-control inputFull" 
-                                data-tache-id=""
-                                data-comparative-value=""
-                                data-target-modif="" />
-                    </td>
-                    <td class="sprint-table-col-std"></td>
-                    <td class="sprint-table-col-std"></td>
-                    <td class="sprint-table-col-std"></td>
-                    <td class="sprint-table-col-std">
-                    </td>
-                </tr>  
+
             </tbody>        
         </table>
     </div>
 
 </div>
+
+
+
+<!----------------------------------------------- MODALE ---------------------------------------------------------->
+<div id="ticketsInfos" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h4 class="modal-title">Modal Header</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>       
+            </div>
+
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Nom du demandeur</label>
+                    <input class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>Contact du demandeur</label>
+                    <input class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>Date de soumission</label>
+                    <input class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>Détails</label>
+                    <textarea class="form-control"></textarea>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+  
+    </div>
+</div>
+
 <script>
-    var statusPopoverContent = '<a class="btn BtnSelector sprint-table-col-std" style="color:#fff; background-color:#929292;">Libelle2</a>';
-    var statusPopoverContent = '<a class="btn BtnSelector sprint-table-col-std" style="color:#fff; background-color:#929292;">Libelle2</a>';
+    var statusPopoverContent = '<a class="btn BtnSelector sprint-table-col-std" style="color:#fff; background-color:#929292;">Cloturé</a>';
 </script>
 @stop

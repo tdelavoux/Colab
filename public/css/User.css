@@ -4,141 +4,35 @@
 
 /* Boutons radio de norification*/
 .notif-project-line{margin: 1em 0;}
-.inline-radio {
-	display: flex;
-    border-radius: 3px;
-	overflow: hidden;
-    border: 1px solid #b6b6b6;
-}
-
-.inline-radio-option {
-    position: relative;
-    flex: 1;
-}
-
-.inline-radio-option .funkyRadio {
-    width: 100%;
-    height: 40px;
-    opacity: 0;
-}
-
-.inline-radio-option label {
-    position: absolute;
-    top: 0; left: 0;
-    color: #b6b6b6;
-    width: 100%;
-    height: 100%;
-    background: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    pointer-events: none;
-    border-right: 1px solid #b6b6b6;
-}
-
-.inline-radio-option:last-child label {
-    border-right: 0;
-}
-
-.funkyRadio:checked + label {
-    background: #8fa2bf;
-    font-weight: 20px;
-    color: #fff;
-}
-
+.inline-radio {display: flex; border-radius: 3px;overflow: hidden; border: 1px solid #8fa2bf; max-width: 500px;}
+.inline-radio-option {position: relative;flex: 1;}
+.inline-radio-option .funkyRadio {width: 100%;opacity: 0;cursor:pointer;}
+.inline-radio-option label {position: absolute;top: 0; left: 0;color: #8fa2bf;width: 100%;height: 100%;background: #fff;display: flex;align-items: center;justify-content: center;
+    pointer-events: none;border-right: 1px solid #8fa2bf;}
+.inline-radio-option:last-child label {border-right: 0;}
+.funkyRadio{padding: 1em;}
+.funkyRadio:checked + label {background: #8fa2bf;font-weight: 20px;color: #fff;}
 
 
 /* ############################# FILES INPUT ########################################*/
 
-.img-picker{
-    height: 100px;
-    width:100px;
-}
+.img-picker{ height: 100px; width:100px;}
 
 /* Bouton d'ajout */
-.img-upload-btn { 
-    position: relative; 
-    overflow: hidden; 
-    padding-top: 95%;
-    color: #333;
-    background-color:#fff;
-    border-color:#ccc;
-} 
-.img-upload-btn:hover { 
-    background-color:#b0b0b0;
-} 
-.img-upload-btn input[type=file] { 
-    position: absolute; 
-    top: 0; 
-    right: 0; 
-    min-width: 100%; 
-    min-height: 100%; 
-    font-size: 100px; 
-    text-align: right; 
-    filter: alpha(opacity=0); 
-    opacity: 0; 
-    outline: none; 
-    background: white; 
-    cursor: inherit; 
-    display: block; 
-} 
-.img-upload-btn i { 
-    position: absolute;
-    height: 16px;
-    width: 16px;
-    top: 50%;
-    left: 50%;
-    margin-top: -8px;
-    margin-left: -8px;
-}
-
-.img-picker-body{
-    margin: 2em 0
-}
-
-
-.input-file-container {
-    position: relative;
-    width: 225px;
-} 
-.js .input-file-trigger {
-    display: block;
-    padding: 14px 45px;
-    background: #39D2B4;
-    color: #fff;
-    font-size: 1em;
-    transition: all .4s;
-    cursor: pointer;
-}
-.js .input-file {
-    position: absolute;
-    top: 0; left: 0;
-    width: 225px;
-    opacity: 0;
-    padding: 14px 0;
-    cursor: pointer;
-}
+.img-upload-btn {  position: relative;  overflow: hidden;  padding-top: 95%; color: #333; background-color:#fff; border-color:#ccc;} 
+.img-upload-btn:hover {  background-color:#b0b0b0;} 
+.img-upload-btn input[type=file] { position: absolute; top: 0; right: 0; min-width: 100%; min-height: 100%; font-size: 100px; text-align: right; filter: alpha(opacity=0);
+    opacity: 0; outline: none; background: white;  cursor: inherit;  display: block; } 
+.img-upload-btn i {  position: absolute;height: 16px; width: 16px;top: 50%; left: 50%;margin-top: -8px;margin-left: -8px;}
+.img-picker-body{margin: 2em 0}
+.input-file-container {position: relative;width: 225px;} 
+.js .input-file-trigger {display: block;padding: 14px 45px;background: #39D2B4;color: #fff;font-size: 1em;transition: all .4s;cursor: pointer;}
+.js .input-file {position: absolute;top: 0; left: 0;width: 225px;opacity: 0;padding: 14px 0;cursor: pointer;}
 .js .input-file:hover + .input-file-trigger,
 .js .input-file:focus + .input-file-trigger,
 .js .input-file-trigger:hover,
-.js .input-file-trigger:focus {
-    background: #34495E;
-    color: #39D2B4;
-}
-
-.file-return {
-    margin: 0;
-}
-.file-return:not(:empty) {
-    margin: 1em 0;
-}
-.js .file-return {
-    font-style: italic;
-    font-size: .9em;
-    font-weight: bold;
-}
-.js .file-return:not(:empty):before {
-    content: "Selected file: ";
-    font-style: normal;
-    font-weight: normal;
-}
+.js .input-file-trigger:focus { background: #34495E; color: #39D2B4;}
+.file-return {margin: 0;}
+.file-return:not(:empty) {margin: 1em 0;}
+.js .file-return {font-style: italic;font-size: .9em;font-weight: bold;}
+.js .file-return:not(:empty):before {content: "Selected file: ";font-style: normal;font-weight: normal;}
