@@ -9,5 +9,5 @@
     <a class="nav-link-left left-bar-tooltips" data-toggle="tooltip" title="Chat" href="{{route('chatView',1) }}"><i class="fas fa-comment-dots"></i></a>
     <a class="nav-link-left left-bar-tooltips" data-toggle="tooltip" title="Statistiques" href="#"><i class="fas fa-chart-bar"></i></a>
     <a class="nav-link-left left-bar-tooltips" data-toggle="tooltip" title="Equipes" href="{{route('teamView',1) }}"><i class="fas fa-users"></i></a>
-    <a class="nav-link-left left-bar-tooltips" data-toggle="tooltip" title="Paramètres" href="#"><i class="fas fa-cogs"></i></a>
+    <a class="nav-link-left left-bar-tooltips" data-toggle="tooltip" title="Paramètres" href="{{route('paramsView', ['general', 1]) }}"><i class="fas fa-cogs"></i></a>
 </div>

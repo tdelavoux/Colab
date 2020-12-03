@@ -6,7 +6,22 @@
 <div id="content-page" class="content-page-inline option-content-page">
 
     @include('AppsViews.userprofile.UserPartials._optionMenu')
-    @include('AppsViews.userprofile.UserPartials._optionContentInfos')
+
+    @switch($tab)
+        @case('notify')
+            @include('AppsViews.userprofile.UserPartials._optionContentNotify')
+            @break
+        @case('params')
+            @include('AppsViews.userprofile.UserPartials._optionContentParams')
+            @break
+        @case('access')
+            @include('AppsViews.userprofile.UserPartials._optionContentPasswd')
+            @break
+        @default
+            @include('AppsViews.userprofile.UserPartials._optionContentInfos')
+            @break
+    @endswitch
+    
      
 </div>
 @stop

@@ -29,10 +29,7 @@ Route::get('myprojects', 'AppsController\MesProjetsController@execute')->name('m
 
 /* --------------------- USER INFOS -------------------------------------------------------- */
 Route::group(['prefix' => 'userprofile'], function(){
-    Route::get('personalInfos', 'AppsController\UserProfilController@execute')->name('personalInfos');
-    Route::get('passwdInfos', 'AppsController\UserProfilController@showPassword')->name('passwdInfos');
-    Route::get('notifisInfos', 'AppsController\UserProfilController@showNotifs')->name('notifisInfos');
-    Route::get('paramsInfo', 'AppsController\UserProfilController@showParams')->name('paramsInfo');
+    Route::get('userProfile/{Tab}', 'AppsController\UserProfilController@execute')->name('personalInfos');
 });
 
 
@@ -44,5 +41,5 @@ Route::group(['prefix' => 'board'], function(){
     Route::get('TeamView/{fkBoard}', 'AppsController\BoardTeamController@execute')->name('teamView');
     Route::get('ChatView/{fkBoard}', 'AppsController\BoardChatController@execute')->name('chatView');
     Route::get('LogsView/{fkBoard}', 'AppsController\BoardLogsController@execute')->name('logsView');
+    Route::get('ParamsView/{Tab}/{fkBoard}', 'AppsController\BoardParamsController@execute')->name('paramsView');
 });
-

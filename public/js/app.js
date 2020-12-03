@@ -42,7 +42,8 @@ $('body').on('click', function (e) {
 ############################################################### */
 $('.left-bar-tooltips').tooltip({
     delay: {"show": 700, "hide" : 100},
-    placement : 'right'
+    placement : 'right',
+    trigger : 'hover'
 });
 
 

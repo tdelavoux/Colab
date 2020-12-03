@@ -7,19 +7,8 @@ use App\Http\Controllers\Controller;
 
 class  UserProfilController extends Controller
 {
-    public function execute(){
-        return view('AppsViews.userprofile.userprofile');
+    public function execute($Tab){
+        return view('AppsViews.userprofile.userprofile')->with('tab', $Tab);
     }
 
-    public function showPassword(){
-        return view('AppsViews.userprofile.passwdInfos');
-    }
-
-    public function showNotifs(){
-        return view('AppsViews.userprofile.notifisInfos');
-    }
-
-    public function showParams(){
-        return view('AppsViews.userprofile.paramsInfo');
-    }
 }
