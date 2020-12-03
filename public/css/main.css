@@ -194,6 +194,13 @@ nav{padding:0.2em !important; }
 .chat-answer-user-name{margin:0;}
 
 
+/* ######################## LOGS ############################################### */
+
+.logs-infos{padding-left:1em;padding-top:0;flex:1;}
+.logs-user-bloc-line{align-items: center;}
+.log-links, .log-links:hover{color:#5d8bd1;}
+.log-value{color:#929292; font-weight:bold;}
+
 /* ######################## PROJECTS ########################################### */
 
 /* ----------------- SCRUM ------------------*/
