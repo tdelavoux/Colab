@@ -43,5 +43,6 @@ Route::group(['prefix' => 'board'], function(){
     Route::get('BugsView/{fkBoard}', 'AppsController\BoardBugsController@execute')->name('bugsView');
     Route::get('TeamView/{fkBoard}', 'AppsController\BoardTeamController@execute')->name('teamView');
     Route::get('ChatView/{fkBoard}', 'AppsController\BoardChatController@execute')->name('chatView');
+    Route::get('LogsView/{fkBoard}', 'AppsController\BoardLogsController@execute')->name('logsView');
 });
 
