@@ -3,7 +3,7 @@
     
     <div class="row">
         <div class="col-12 col-lg-4">
-            <div class="card">
+            <div class="card card-projet">
                 <div class="additional">
                     
                     <div class="more-info">
@@ -35,7 +35,7 @@
         </div>
 
         <div class="col-12 col-lg-4">
-            <div class="card green">
+            <div class="card card-projet green">
                 <div class="additional">
                     
                     <div class="more-info">
@@ -67,7 +67,7 @@
         </div>
 
         <div class="col-12 col-lg-4">
-            <div class="card">
+            <div class="card card-projet">
                 <div class="additional">
                     
                     <div class="more-info">
