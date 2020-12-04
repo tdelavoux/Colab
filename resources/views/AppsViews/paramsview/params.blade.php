@@ -28,3 +28,7 @@
 @section('addCSS')
 <link rel="stylesheet" type="text/css" href="{{asset('css/User.css')}}">
 @stop
+
+@section('addJS')
+<script type="text/javascript" src="{{ asset('js/Params.js') }}"></script>
+@stop

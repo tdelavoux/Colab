@@ -166,40 +166,6 @@ nav{padding:0.2em !important; }
 
 .notif-project-name{color:#929292;display:flex;align-items: center; justify-content: center;font-size:20px;font-weight: bold;}
 
-/* ######################## TEAMS ############################################## */
-
-.btn-option-team{color:#929292;text-decoration: none;}
-.btn-option-team:hover{color:#929292;}
-.team-user-bloc{flex:1; margin-left: 1em;}
-.team-user-bloc-line{display:flex; border-bottom: solid 1px #EBEBEB;}
-.team-user-infos{display:flex;flex-direction:column;padding-top:0.5em;}
-.team-user-delete{padding: 0;color:#CE7A77;}
-.team-user-delete:hover{color:#CE7A77; text-decoration: none;}
-.team-user-name{margin-left:0.5em; font-weight:bold; color:#929292;}
-.team-user-roles{font-size:12px;margin-left:0.7em; color:#929292;}
-
-/* ######################## CHATROOM ########################################### */
-
-.chat-express-bloc{padding:1.5em 1.5em 1em 1.5em;}
-.chat-header-card{display:flex; flex-direction:row; align-items: center; justify-content: space-between;}
-.user-chating{flex:1;display:flex;align-items: center;}
-.chat-card{margin-bottom:1em;}
-.chat-card-timer{font-size:12px;color:#929292;}
-.chat-card .card-body{padding-top: 0.2em;}
-.card-body-media{padding:0;}
-.chat-media-btn-line{display:flex; justify-content: flex-end;}
-.chat-media-btn-line > *{font-size:13px;}
-.card-body-media-answer-line{margin-top:0.5em;display:flex;}
-.card-body-media-answer-line-text{flex:1;margin-left:0.5em;}
-.chat-answer-user-name{margin:0;}
-
-
-/* ######################## LOGS ############################################### */
-
-.logs-infos{padding-left:1em;padding-top:0;flex:1;}
-.logs-user-bloc-line{align-items: center;}
-.log-links, .log-links:hover{color:#5d8bd1;}
-.log-value{color:#929292; font-weight:bold;}
 
 /* ######################## PROJECTS ########################################### */
 
@@ -227,8 +193,46 @@ nav{padding:0.2em !important; }
 .kaban-task{background-color:#fff;display: flex; flex-direction: column; padding: 0.5em; margin: 0.5em 0;}
 .kaban-task-bottom{display:flex;justify-content: space-between;align-items: center;}
 
+/* ---------------- LOGS ------------------------------ */
+
+.logs-infos{padding-left:1em;padding-top:0;flex:1;}
+.logs-user-bloc-line{align-items: center;}
+.log-links, .log-links:hover{color:#5d8bd1;}
+.log-value{color:#929292; font-weight:bold;}
+
+/* ---------------- CHATROOM ------------------------------ */
+
+.chat-express-bloc{padding:1.5em 1.5em 1em 1.5em;}
+.chat-header-card{display:flex; flex-direction:row; align-items: center; justify-content: space-between;}
+.user-chating{flex:1;display:flex;align-items: center;}
+.chat-card{margin-bottom:1em;}
+.chat-card-timer{font-size:12px;color:#929292;}
+.chat-card .card-body{padding-top: 0.2em;}
+.card-body-media{padding:0;}
+.chat-media-btn-line{display:flex; justify-content: flex-end;}
+.chat-media-btn-line > *{font-size:13px;}
+.card-body-media-answer-line{margin-top:0.5em;display:flex;}
+.card-body-media-answer-line-text{flex:1;margin-left:0.5em;}
+.chat-answer-user-name{margin:0;}
+
+/* ---------------- TEAMS ------------------------------ */
+
+.btn-option-team{color:#929292;text-decoration: none;}
+.btn-option-team:hover{color:#929292;}
+.team-user-bloc{flex:1; margin-left: 1em;}
+.team-user-bloc-line{display:flex; border-bottom: solid 1px #EBEBEB;}
+.team-user-infos{display:flex;flex-direction:column;padding-top:0.5em;}
+.team-user-delete{padding: 0;color:#CE7A77;}
+.team-user-delete:hover{color:#CE7A77; text-decoration: none;}
+.team-user-name{margin-left:0.5em; font-weight:bold; color:#929292;}
+.team-user-roles{font-size:12px;margin-left:0.7em; color:#929292;}
+
+/* --------------- PARAM ---------------------- */
+.param-product-owner{cursor: pointer;}
+.admin-project{margin-bottom:1em;cursor: pointer;}
 
 /* ######################## CARTES DES PROJETS ############################### */
+
 .card.card-projet {
     width:100%;
     height: 150px;
