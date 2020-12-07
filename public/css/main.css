@@ -154,8 +154,14 @@ nav{padding:0.2em !important; }
 .option-menu-list-item-link{width:100%;height:100%;height:100%;text-align: center;padding:1em;display:inline-block;}
 .option-menu-list-item-link:hover{background-color:#EBEBEB;}
 
-.option-page-body{flex:1;padding:2em;}
-.column-info{display:flex; flex-direction: column;align-items:center;}
+.left-bar-option-second-level{background-color:#818181;}
+.option-menu-list-item-second-level{border-bottom-color: #EEE;}
+.option-menu-list-item-link-second-level{border-bottom-color: #5E5E5E;}
+.option-menu-list-item-link-second-level{color:#fff;}
+.option-menu-list-item-link-second-level.active{background-color:#EBEBEB;color:#5E5E5E;border-bottom-color: #EBEBEB;}
+
+.option-page-body{flex:1;padding:1em 2em 2em 2em;}
+.column-info{display:flex; flex-direction: column;align-items:center; min-width:230px;}
 .column-info-sub{display:flex; flex-direction: column;align-items:center;}
 .info-txt{font-size:20px;padding:0.5em;border-bottom:solid 1px #EBEBEB;}
 
@@ -230,6 +236,22 @@ nav{padding:0.2em !important; }
 /* --------------- PARAM ---------------------- */
 .param-product-owner{cursor: pointer;}
 .admin-project{margin-bottom:1em;cursor: pointer;}
+
+/* ---- general ----- */
+.color-project-preview{width:100px;height:100px; margin-top: 1em;}
+
+/* ---- Modules ----- */
+.module-bloc-line{padding: 1.5em ; display:flex; border-bottom:solid 1px #EBEBEB;}
+.module-logo{font-size:25px;align-items: center; justify-content: center; margin: 0 1em;}
+.module-logo > i{color:#818181; }
+.module-description{flex:1; display: flex; align-items: center; justify-content: center;}
+.module-activate{align-items: center; justify-content: center;}
+
+/* ---- Habilitations ------- */
+.habilitation-bloc-header, .habilitation-bloc-body{ display:flex;}
+.habilitation-bloc-header{cursor: pointer;}
+
+
 
 /* ######################## CARTES DES PROJETS ############################### */
 
@@ -328,3 +350,10 @@ nav{padding:0.2em !important; }
   padding: 1rem;
   padding-top: 0;
 }
+
+/* ###################### INPUTS ##############################*/
+/* on off button */
+.btn-default.btn-on, .btn-default.btn-off{border:solid 1px #818181; font-weight:bold;}
+.btn-default.btn-on.active{background-color: #5BB75B;color: white;}
+.btn-default.btn-off.active{background-color: #DA4F49;color: white;}
+.radio-selector{display: none;}

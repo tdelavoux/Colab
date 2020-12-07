@@ -17,6 +17,9 @@
         @case('access')
             @include('AppsViews.paramsview.ParamsPartials._paramsAccess')
             @break
+        @case('mods')
+            @include('AppsViews.paramsview.ParamsPartials._paramsModules')
+            @break
         @default
             @include('AppsViews.paramsview.ParamsPartials._paramsGeneral')
             @break
