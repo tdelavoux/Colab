@@ -1,5 +1,5 @@
 
-<div class="row team-user-bloc">
+<div class="option-page-body">
 
     <div class="col-md-12 team-user-bloc-line">
         <div class="rounded-circle profile-img-sm" style="background-image:url('{{asset('/img/user/3.jpg')}}');background-position: center;background-repeat: no-repeat;background-size: cover;"></div>
