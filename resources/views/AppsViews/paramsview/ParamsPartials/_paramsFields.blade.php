@@ -66,4 +66,16 @@
         </div>
     </div>
 
+    <div class="habilitation-line">
+        <div class="habilitation-bloc-header" >
+            <span class="fields-bloc-title"> Métrique de coût</span>
+        </div>
+
+        <div class="inline-radio mt-1">
+            <div class="inline-radio-option"><input type="radio" class="funkyRadio" name="visit2"><label>Heures (H)</label></div>
+            <div class="inline-radio-option"><input type="radio" class="funkyRadio" name="visit2"><label>Jours (J)</label></div>
+            <div class="inline-radio-option"><input type="radio" class="funkyRadio" name="visit2"checked><label>Points (Pts)</label></div>
+        </div>
+    </div>
+
 </div>

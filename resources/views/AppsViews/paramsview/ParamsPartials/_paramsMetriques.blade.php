@@ -2,7 +2,7 @@
     <h2>Metriques</h2>
     <div class="row">
 
-        <label>Métrique de calcul d'avancement</label>
+        <label>Métrique de coût</label>
         <div class="col-md-6">
             <div class="inline-radio">
                 <div class="inline-radio-option"><input type="radio" class="funkyRadio" name="visit2"><label>Heures</label></div>

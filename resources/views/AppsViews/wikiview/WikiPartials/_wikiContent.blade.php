@@ -1,6 +1,8 @@
 <div class="option-page-body">
     <h2>GENERAL</h2>
-    <div id="customable-ccontent-page"></div>
+    <div id="customable-ccontent-page">
+      <div id="wiki-note-content"></div>
+    </div>
 </div>
 
 <!-- Inclusion de la librairie de modification des contenus -->
@@ -18,7 +20,7 @@ const editor = new EditorJS({
   /**
    * Id of Element that should contain Editor instance
    */
-  holder: 'customable-ccontent-page',
+  holder: 'wiki-note-content',
 
   /** 
    * Available Tools list. 
