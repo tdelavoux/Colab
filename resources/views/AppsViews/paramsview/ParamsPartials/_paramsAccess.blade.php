@@ -10,6 +10,57 @@
 <div class="option-page-body">
     <h2>Habilitations</h2>
 
+    <!-- --------------- Wiki ------------------------->
+    <div class="habilitation-bloc col-md-12">
+        <div class="habilitation-line">
+            <div class="habilitation-bloc-header collapsable" data-toggle="collapse" data-target="#habs-Stats">
+                <span><i class="fas fa-chart-bar"></i> Wiki</span>
+                <span class="collapse-arrrow" ><i class="fas fa-chevron-right"></i></span>      
+            </div>
+            <div class="habilitation-bloc-body collapse" id="habs-Stats">
+                <div class="habilitation-body-line">
+                    <span>Accès au contenu</span>
+                    <div class="btn-group radio-selector-group" id="status" data-toggle="buttons">
+                        <label class="btn btn-default btn-on btn-xs active">
+                        <input type="radio" value="1" name="multifeatured_module[module_id][status]" checked="checked" class="radio-selector"><i class="fas fa-check"></i></label>
+                        <label class="btn btn-default btn-off btn-xs ">
+                        <input type="radio" value="0" name="multifeatured_module[module_id][status]" class="radio-selector"><i class="fas fa-times"></i></label>
+                    </div>
+                </div>
+
+                <div class="habilitation-body-line">
+                    <span>Créer des pages</span>
+                    <div class="btn-group radio-selector-group" id="status" data-toggle="buttons">
+                        <label class="btn btn-default btn-on btn-xs active">
+                        <input type="radio" value="1" name="multifeatured_module[module_id][status]" checked="checked" class="radio-selector"><i class="fas fa-check"></i></label>
+                        <label class="btn btn-default btn-off btn-xs ">
+                        <input type="radio" value="0" name="multifeatured_module[module_id][status]" class="radio-selector"><i class="fas fa-times"></i></label>
+                    </div>
+                </div>
+
+                <div class="habilitation-body-line">
+                    <span>Modifier des pages (d'autres utilisateurs)</span>
+                    <div class="btn-group radio-selector-group" id="status" data-toggle="buttons">
+                        <label class="btn btn-default btn-on btn-xs active">
+                        <input type="radio" value="1" name="multifeatured_module[module_id][status]" checked="checked" class="radio-selector"><i class="fas fa-check"></i></label>
+                        <label class="btn btn-default btn-off btn-xs ">
+                        <input type="radio" value="0" name="multifeatured_module[module_id][status]" class="radio-selector"><i class="fas fa-times"></i></label>
+                    </div>
+                </div>
+
+                <div class="habilitation-body-line">
+                    <span>Supprimer  des pages (d'autres utilisateurs)</span>
+                    <div class="btn-group radio-selector-group" id="status" data-toggle="buttons">
+                        <label class="btn btn-default btn-on btn-xs active">
+                        <input type="radio" value="1" name="multifeatured_module[module_id][status]" checked="checked" class="radio-selector"><i class="fas fa-check"></i></label>
+                        <label class="btn btn-default btn-off btn-xs ">
+                        <input type="radio" value="0" name="multifeatured_module[module_id][status]" class="radio-selector"><i class="fas fa-times"></i></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- --------------- LOGS ------------------------->
     <div class="habilitation-bloc col-md-12">
         <div class="habilitation-line">

@@ -1,7 +1,7 @@
 <!-- Side navigation -->
 <div class="sidenav">
-    <a class="nav-link-left left-bar-tooltips" data-toggle="tooltip" title="Disabled" href="#"><i class="fas fa-book-reader"></i></a>
-    <a class="nav-link-left left-bar-tooltips" data-toggle="tooltip" title="Disabled" href="#"><i class="fas fa-eye"></i></a>
+    <a class="nav-link-left left-bar-tooltips" data-toggle="tooltip" title="Racine du projet" href=""><i class="fas fa-home"></i></a>
+    <a class="nav-link-left left-bar-tooltips" data-toggle="tooltip" title="Wiki" href="{{route('wikiView',1) }}"><i class="fas fa-book-reader"></i></a>
     <a class="nav-link-left left-bar-tooltips" data-toggle="tooltip" title="Historique" href="{{route('logsView',1) }}"><i class="fas fa-bars"></i></a>
     <a class="nav-link-left left-bar-tooltips" data-toggle="tooltip" title="Gestionnaire Scrum" href="{{route('scrumView',1) }}"><i class="far fa-window-maximize"></i></a>
     <a class="nav-link-left left-bar-tooltips" data-toggle="tooltip" title="Gestionnaire Kaban" href="{{route('kabanView',1) }}"><i class="fab fa-trello"></i></a>

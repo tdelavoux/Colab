@@ -13,7 +13,7 @@
     <div class="habilitation-bloc col-md-12">
         <div class="habilitation-line">
             <div class="habilitation-bloc-header" >
-                <span> Status</span>
+                <span class="fields-bloc-title"> Status</span>
                 <button class="btn btn-secondary">Ajouter une valeur</button>
             </div>
             <table class="table">
@@ -28,35 +28,35 @@
                 <tbody>
                     <tr>
                         <td>En attente</td>
-                        <td>rouge</td>
+                        <td><div class="color-picker"></div></td>
                         <td><input type="checkbox" /></td>
                         <td><button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>
                     </tr> 
 
                     <tr>
                         <td>En cours</td>
-                        <td>rouge</td>
+                        <td><div class="color-picker"></div></td>
                         <td><input type="checkbox" /></td>
                         <td><button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>
                     </tr> 
 
                     <tr>
                         <td>En attente de tests</td>
-                        <td>rouge</td>
+                        <td><div class="color-picker"></div></td>
                         <td><input type="checkbox" /></td>
                         <td><button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>
                     </tr> 
 
                     <tr>
                         <td>Cloturé</td>
-                        <td>rouge</td>
+                        <td><div class="color-picker"></div></td>
                         <td><input type="checkbox" /></td>
                         <td><button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>
                     </tr>
 
                     <tr>
                         <td>Bloqué</td>
-                        <td>rouge</td>
+                        <td><div class="color-picker"></div></td>
                         <td><input type="checkbox" /></td>
                         <td><button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>
                     </tr> 

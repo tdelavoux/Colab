@@ -10,6 +10,7 @@
         <link rel="stylesheet" type="text/css" href="{{env('DIRLIB')}}bootstrap-4.4.1/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="{{env('DIRLIB')}}css/datatables.min.css">
         <link rel="stylesheet" type="text/css" href="{{env('DIRLIB')}}bootstrap-4.4.1/css/bootstrap-select.min.css">
+        <link rel="stylesheet" type="text/css" href="{{env('DIRLIB')}}colorPicker/colorPick.css">
         <link rel="stylesheet" type="text/css" href="{{env('DIRLIB')}}css/datepicker.css">
         <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
         @yield('addCSS')
@@ -33,6 +34,7 @@
     <script type="text/javascript" src="{{env('DIRLIB')}}js/datatables.min.js"></script>
     <script type="text/javascript" src="{{env('DIRLIB')}}js/formHandler.js"></script>
     <script type="text/javascript" src="{{env('DIRLIB')}}bootstrap-4.4.1/js/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="{{env('DIRLIB')}}colorPicker/colorPick.min.js"></script>
     <script type="text/javascript" src="{{env('DIRLIB')}}js/bootstrap-datepicker.js"></script>
     <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
     

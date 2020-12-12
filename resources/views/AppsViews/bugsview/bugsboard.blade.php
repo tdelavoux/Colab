@@ -4,7 +4,7 @@
 
 @section('content')
 <div id="content-page">
-    <h1>Projet 1 / Sous Projet 1 / Tableau</h1>
+    <h1 class="prohect-map-title"><i class="fas fa-sitemap"></i><a href="#">Projet 1</a> / <a href="#">Sous Projet 1</a> / <a href="#" style="color:#546bc7">Tableau</a></h1>
 
     <button class="btn btn-success">Ajouter une catégorie</button>
     <button class="btn btn-primary">Ouvrir un ticket</button>
@@ -74,7 +74,7 @@
         <div class="modal-content">
 
             <div class="modal-header">
-                <h4 class="modal-title">Modal Header</h4>
+                <h4 class="modal-title">ISSUE #INC0000001</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>       
             </div>
 
@@ -101,7 +101,7 @@
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
   

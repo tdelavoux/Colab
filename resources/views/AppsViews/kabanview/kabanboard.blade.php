@@ -4,7 +4,7 @@
 
 @section('content')
 <div id="content-page">
-    <h1>Projet 1 / Sous Projet 1 / Tableau</h1>
+    <h1 class="prohect-map-title"><i class="fas fa-sitemap"></i><a href="#">Projet 1</a> / <a href="#">Sous Projet 1</a> / <a href="#" style="color:#546bc7">Tableau</a></h1>
 
     <div class="btn-line-right">
         <button class="btn btn-success">Ajouter un Sprint</button>

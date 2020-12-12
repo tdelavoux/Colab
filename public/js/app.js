@@ -65,3 +65,22 @@ $('.faders').click(function(){
         $(this).addClass('fa-chevron-circle-right');
     }
 });
+
+
+/* ############################################################
+                GESTION DES COLLAPS
+############################################################### */
+
+// ---- Mise en place du color picker avec les données en BDD
+$(".color-picker").colorPick({
+    'initialColor' : '#74b9ff',
+    'palette': [
+        "#000", 
+        "#fff", 
+        "#fff000"
+    ],
+    'onColorSelected': function() {
+        this.element.css({'backgroundColor': this.color, 'color': this.color});
+    },
+    'paletteLabel': 'Couleur du sprint'
+});
