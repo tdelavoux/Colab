@@ -8,9 +8,6 @@
     @include('AppsViews.paramsview.ParamsPartials._paramsMenu')
 
     @switch($tab)
-        @case('metrics')
-            @include('AppsViews.paramsview.ParamsPartials._paramsMetriques')
-            @break
         @case('fields')
             @include('AppsViews.paramsview.ParamsPartials._paramsFields')
             @break
