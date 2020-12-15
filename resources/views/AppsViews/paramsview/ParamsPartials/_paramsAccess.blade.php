@@ -272,6 +272,17 @@
                         <input type="radio" value="0" name="multifeatured_module[module_id][status]" class="radio-selector"><i class="fas fa-times"></i></label>
                     </div>
                 </div>
+
+                <div class="habilitation-body-line">
+                    <span>Epingler des contenus</span>
+                    <div class="btn-group radio-selector-group" id="status" data-toggle="buttons">
+                        <label class="btn btn-default btn-on btn-xs active">
+                        <input type="radio" value="1" name="multifeatured_module[module_id][status]" checked="checked" class="radio-selector"><i class="fas fa-check"></i></label>
+                        <label class="btn btn-default btn-off btn-xs ">
+                        <input type="radio" value="0" name="multifeatured_module[module_id][status]" class="radio-selector"><i class="fas fa-times"></i></label>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

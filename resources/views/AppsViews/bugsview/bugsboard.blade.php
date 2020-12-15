@@ -6,25 +6,43 @@
 <div id="content-page">
     <h1 class="prohect-map-title"><i class="fas fa-sitemap"></i><a href="#">Projet 1</a> / <a href="#">Sous Projet 1</a> / <a href="#" style="color:#546bc7">Tableau</a></h1>
 
-    <button class="btn btn-success">Ajouter une catégorie</button>
-    <button class="btn btn-primary">Ouvrir un ticket</button>
+    <div class="btn-line-right">
+        <button class="btn btn-success"><i class="fas fa-grip-lines"></i>Ajouter une catégorie</button>
+        <button class="btn btn-primary"  data-toggle="modal" data-target="#ticketsInfos"><i class="fas fa-ticket-alt"></i>Ouvrir un ticket</button>
+    </div>
 
     <hr>
 
+    <div class="scrum-option-line" >
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fas fa-cog"></i></a>
+        <ul class="dropdown-menu scrum-option-dropdown">
+            <li class="scrum-option-column active" column-target="status">
+                <span>Status</span> 
+                <i class="fas fa-check"></i>
+            </li>
+            <div class="divider"></div>
+            <li class="scrum-option-column active" column-target="priority">
+                <span>Priority</span> 
+                <i class="fas fa-check"></i>
+            </li>
+        </ul>
+    </div>
+
     <div class="row sprint">
 
-        <label class="sprint-name" style="color:#787B73">
-            <i class="fas fa-chevron-circle-right sprint-fold pointer faders" data-target="tableSprint" style="color:#787B73"></i>sprint 1
-        </label>
+        <div role="button" class="sprint-name collapsable" style="color:#787B73" data-toggle="collapse" data-target="#tableSprint">
+            <span class="collapse-arrrow" ><i class="fas fa-chevron-circle-down"></i></span>
+            <span>sprint 1</span>
+        </div>
 
-        <table id="tableSprint" class="sprint-table col-md-12 show">
+        <table id="tableSprint" class="sprint-table col-md-12 collapse show">
             
             <thead >
                 <tr class="sprint-table-row sprint-table-header">
                     <th class="sprint-table-lither"></th>
                     <th class="sprint-table-task">Libelle</th>
                     <th class="sprint-table-col-std">Affectation</th>
-                    <th class="sprint-table-col-std">Status</th>
+                    <th class="sprint-table-col-std status">Status</th>
                     <th class="sprint-table-col-std">Details</th>
                 </tr>       
             </thead>
@@ -48,7 +66,7 @@
                     </td>
 
                     <!---------------------- STATUS --------------------------->
-                    <td  class="sprint-table-col-std pointer sprintSelector tdSelector statusSelector" style="background-color:#444366;"data-toggle="popover" >
+                    <td  class="sprint-table-col-std pointer sprintSelector tdSelector statusSelector status" style="background-color:#444366;"data-toggle="popover" >
                         En Cours
                     </td>     
 
@@ -91,7 +109,7 @@
 
                 <div class="form-group">
                     <label>Date de soumission</label>
-                    <input class="form-control" />
+                    <input class="form-control datepicker" />
                 </div>
 
                 <div class="form-group">
@@ -157,4 +175,9 @@
 <script>
     var statusPopoverContent = '<a class="btn BtnSelector sprint-table-col-std" style="color:#fff; background-color:#929292;">Cloturé</a>';
 </script>
+@stop
+
+
+@section('addJS')
+<script type="text/javascript" src="{{ asset('js/Scrum.js') }}"></script>
 @stop

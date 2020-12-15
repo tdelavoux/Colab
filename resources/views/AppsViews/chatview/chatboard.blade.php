@@ -39,24 +39,30 @@
                         </div> 
                     </div>
                     <span class="card-text">Salut les asticots. y en a qui savent comment on fait ? :)</span>
+                    <a role="button" class="likes-message liked" data-likes="5"><i class="far fa-thumbs-up"></i> 5 personnes aiment ça</a>
 
                     <hr>
 
-                    <div class="card-body-media-answer-line">
-                        <div class="rounded-circle profile-img-xs" style="background-image:url('{{asset('/img/user/3.jpg')}}');background-position: center;background-repeat: no-repeat;background-size: cover;"></div>
-                        <div class="card-body-media-answer-line-text">
-                            <span class="team-user-name chat-answer-user-name">Thibault Delavoux</span>
-                            <div class="">Nan laissez tombé j'ai trouvé.</div>
+                    <div class="chat-reponses">
+                        <div class="card-body-media-answer-line">
+                            <div class="rounded-circle profile-img-xs" style="background-image:url('{{asset('/img/user/3.jpg')}}');background-position: center;background-repeat: no-repeat;background-size: cover;"></div>
+                            <div class="card-body-media-answer-line-text">
+                                <span class="team-user-name chat-answer-user-name">Thibault Delavoux</span>
+                                <div>Nan laissez tombé j'ai trouvé.</div>
+                                <a role="button" class="likes-message" data-likes="5"><i class="far fa-thumbs-up"></i> Liker</a>
+                            </div>
+                        </div>
+    
+                        <div class="card-body-media-answer-line">
+                            <div class="rounded-circle profile-img-xs" style="background-image:url('{{asset('/img/user/3.jpg')}}');background-position: center;background-repeat: no-repeat;background-size: cover;"></div>
+                            <div class="card-body-media-answer-line-text">
+                                <span class="team-user-name chat-answer-user-name">Thibault Delavoux</span>
+                                <div>C'était simple finalement :p.</div>
+                                <a role="button" class="likes-message" data-likes="5"><i class="far fa-thumbs-up"></i> Liker</a>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="card-body-media-answer-line">
-                        <div class="rounded-circle profile-img-xs" style="background-image:url('{{asset('/img/user/3.jpg')}}');background-position: center;background-repeat: no-repeat;background-size: cover;"></div>
-                        <div class="card-body-media-answer-line-text">
-                            <span class="team-user-name chat-answer-user-name">Thibault Delavoux</span>
-                            <div class="">C'était simple finalement :p.</div>
-                        </div>
-                    </div>
+                    
 
                 </div>
 
@@ -86,7 +92,7 @@
                         </div> 
                     </div>
                     <span class="card-text"><img src="{{asset('/img/test.jpg')}}" class="img-thumbnail" /></span>
-
+                    <a role="button" class="likes-message" data-likes="5"><i class="far fa-thumbs-up"></i> Liker</a>
                 </div>
 
                 <div class="card-footer">
@@ -101,4 +107,9 @@
 
     </div>
 </div>
+@stop
+
+
+@section('addJS')
+<script type="text/javascript" src="{{ asset('js/Chat.js') }}"></script>
 @stop

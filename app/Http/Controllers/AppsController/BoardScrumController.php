@@ -11,4 +11,8 @@ class BoardScrumController extends Controller
     {
         return view('AppsViews.scrumview.scrumboard');
     }
+
+    public function getLine(){
+        return view('AppsViews.scrumview.scrumPartials._emptyLineSprint');
+    }
 }

@@ -10,4 +10,8 @@ class DashBoardController extends Controller
     public function execute(){
         return view('AppsViews.dashboard.dashboard');
     }
+
+    public function postouille(){
+        die('ok');
+    }
 }

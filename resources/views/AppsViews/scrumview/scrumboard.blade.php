@@ -6,7 +6,9 @@
 <div id="content-page">
     <h1 class="prohect-map-title"><i class="fas fa-sitemap"></i><a href="#">Projet 1</a> / <a href="#">Sous Projet 1</a> / <a href="#" style="color:#546bc7">Tableau</a></h1>
 
-    <button class="btn btn-success">Ajouter un Sprint</button>
+    <div class="btn-line-right">
+        <button class="btn btn-success" onclick="addSprint()">Ajouter un groupe de tâches</button>
+    </div>
 
     <hr>
 
@@ -26,15 +28,14 @@
         </ul>
     </div>
 
-
-
     <div class="row sprint">
 
-        <label class="sprint-name" style="color:#787B73">
-            <i class="fas fa-chevron-circle-right sprint-fold pointer faders" data-target="tableSprint" style="color:#787B73"></i>sprint 1
-        </label>
+        <div role="button" class="sprint-name collapsable" style="color:#787B73" data-toggle="collapse" data-target="#tableSprint">
+            <span class="collapse-arrrow" ><i class="fas fa-chevron-circle-down"></i></span>
+            <span>sprint 1</span>
+        </div>
 
-        <table id="tableSprint" class="sprint-table col-md-12 show">
+        <table id="tableSprint" class="sprint-table col-md-12 collapse show">
             
             <thead >
                 <tr class="sprint-table-row sprint-table-header">
@@ -78,7 +79,11 @@
 
                     <!---------------------- COST --------------------------->
                     <td class="sprint-table-col-std">
-                        1H
+                        <div class="numeric-cell-compnent">
+                            <div class="editable-component">
+                                <span class="numeric-value intval_12_14">12</span><span class="metric-unit">Heures</span>
+                            </div>
+                        </div>
                     </td>
 
                     <!---------------------- DATE PICKER--------------------------->
@@ -124,7 +129,7 @@
                     <td class="sprint-table-col-std">
                         <div class="numeric-cell-compnent">
                             <div class="editable-component">
-                                <span class="numeric-value">12</span><span class="metric-unit">Heures</span>
+                                <span class="numeric-value intval_12_14">12</span><span class="metric-unit">Heures</span>
                             </div>
                         </div>
                     </td>
@@ -146,17 +151,15 @@
                     <td class="sprint-table-lither"></td>
                     <td class="sprint-table-task"> 
                         <input  placeholder=" + Ajouter une tache ici" 
-                                class="form-control inputFull" 
-                                data-tache-id=""
-                                data-comparative-value=""
-                                data-target-modif="" />
+                                class="form-control inputFull inputAddTaskInput" 
+                                data-target="{{route('scrum.projectLine') }}" />
                     </td>
                     <td class="sprint-table-col-std"></td>
                     <td class="sprint-table-col-std"></td>
+                    <td class="sprint-table-col-std" style="background-color:#f5f5f5"><span class="numeric-value total-int" data-ref="intval_12_14">24</span> Heures</td>
                     <td class="sprint-table-col-std"></td>
-                    <td class="sprint-table-col-std">
-                    </td>
                 </tr>  
+
             </tbody>        
         </table>
     </div>

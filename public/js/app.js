@@ -1,4 +1,3 @@
-
 /* Gestion des DatePiskers*/
 $('.datepicker').datepicker({autoclose: true});
 
@@ -37,6 +36,7 @@ $('body').on('click', function (e) {
 });
 
 
+
 /* ############################################################
                 GESTION DES TOOLTIPS
 ############################################################### */
@@ -47,28 +47,8 @@ $('.left-bar-tooltips').tooltip({
 });
 
 
-
 /* ############################################################
-                GESTION DES COLLAPS
-############################################################### */
-
-$('.faders').click(function(){
-    if($('#' + $(this).attr('data-target')).hasClass('show')){
-        $('#' + $(this).attr('data-target')).hide(400);
-        $('#' + $(this).attr('data-target')).removeClass('show');
-        $(this).addClass('fa-chevron-circle-down');
-        $(this).removeClass('fa-chevron-circle-right');
-    }else{
-        $('#' + $(this).attr('data-target')).show(400);
-        $('#' + $(this).attr('data-target')).addClass('show');
-        $(this).removeClass('fa-chevron-circle-down');
-        $(this).addClass('fa-chevron-circle-right');
-    }
-});
-
-
-/* ############################################################
-                GESTION DES COLLAPS
+                GESTION DES Color Picker
 ############################################################### */
 
 // ---- Mise en place du color picker avec les données en BDD
@@ -84,3 +64,4 @@ $(".color-picker").colorPick({
     },
     'paletteLabel': 'Couleur du sprint'
 });
+

@@ -35,12 +35,14 @@ Route::group(['prefix' => 'userprofile'], function(){
 
 /* --------------------- PROJECTS BOARDS -------------------------------------------------------- */
 Route::group(['prefix' => 'board'], function(){
-    Route::get('wikiView/{fkBoard}', 'AppsController\BoardWikiController@execute')->name('wikiView');
-    Route::get('scrumView/{fkBoard}', 'AppsController\BoardScrumController@execute')->name('scrumView');
-    Route::get('kabanView/{fkBoard}', 'AppsController\BoardKabanController@execute')->name('kabanView');
-    Route::get('BugsView/{fkBoard}', 'AppsController\BoardBugsController@execute')->name('bugsView');
-    Route::get('TeamView/{fkBoard}', 'AppsController\BoardTeamController@execute')->name('teamView');
-    Route::get('ChatView/{fkBoard}', 'AppsController\BoardChatController@execute')->name('chatView');
-    Route::get('LogsView/{fkBoard}', 'AppsController\BoardLogsController@execute')->name('logsView');
-    Route::get('ParamsView/{Tab}/{fkBoard}', 'AppsController\BoardParamsController@execute')->name('paramsView');
+    Route::get('wikiView/{fkBoard}', 'AppsController\BoardWikiController@execute')->name('wiki.view');
+    Route::get('scrumView/{fkBoard}', 'AppsController\BoardScrumController@execute')->name('scrum.view');
+    Route::get('kabanView/{fkBoard}', 'AppsController\BoardKabanController@execute')->name('kaban.view');
+    Route::get('BugsView/{fkBoard}', 'AppsController\BoardBugsController@execute')->name('bugs.view');
+    Route::get('TeamView/{fkBoard}', 'AppsController\BoardTeamController@execute')->name('team.view');
+    Route::get('ChatView/{fkBoard}', 'AppsController\BoardChatController@execute')->name('chat.view');
+    Route::get('LogsView/{fkBoard}', 'AppsController\BoardLogsController@execute')->name('logs.view');
+    Route::get('ParamsView/{Tab}/{fkBoard}', 'AppsController\BoardParamsController@execute')->name('params.view');
+
+    Route::post('scrum/getLine', 'AppsController\BoardScrumController@getLine')->name('scrum.projectLine');
 });
