@@ -7,8 +7,8 @@
     <h1 class="prohect-map-title"><i class="fas fa-sitemap"></i><a href="#">Projet 1</a> / <a href="#">Sous Projet 1</a> / <a href="#" style="color:#546bc7">Tableau</a></h1>
 
     <div class="btn-line-right">
-        <button class="btn btn-success"><i class="fas fa-grip-lines"></i>Ajouter une catégorie</button>
-        <button class="btn btn-primary"  data-toggle="modal" data-target="#ticketsInfos"><i class="fas fa-ticket-alt"></i>Ouvrir un ticket</button>
+        <button class="btn btn-sm btn-success">Ajouter une catégorie</button>
+        <button class="btn btn-sm btn-primary"  data-toggle="modal" data-target="#ticketsInfos">Ouvrir un ticket</button>
     </div>
 
     <hr>
@@ -32,7 +32,7 @@
 
         <div role="button" class="sprint-name collapsable" style="color:#787B73" data-toggle="collapse" data-target="#tableSprint">
             <span class="collapse-arrrow" ><i class="fas fa-chevron-circle-down"></i></span>
-            <span>sprint 1</span>
+            <span>Erreurs fonctionnelles</span>
         </div>
 
         <table id="tableSprint" class="sprint-table col-md-12 collapse show">

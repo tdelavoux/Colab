@@ -12,7 +12,13 @@ class BoardScrumController extends Controller
         return view('AppsViews.scrumview.scrumboard');
     }
 
-    public function getLine(){
+    public function getEmptyLine(){
+        /* TODO réaliser l'insert en BDD pour la ligne a renvoyer */
         return view('AppsViews.scrumview.scrumPartials._emptyLineSprint');
+    }
+
+    public function getEmptySprint(){
+        /* TODO réaliser l'insert en BDD pour le bloc a renvoyer */
+        return view('AppsViews.scrumview.scrumPartials._emptyBoardSprint');
     }
 }

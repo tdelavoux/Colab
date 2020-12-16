@@ -1,62 +1,84 @@
-$('.scrum-option-column').click(function(){
-    if($(this).hasClass('active')){
-        $(this).removeClass('active');
-        $('.' + $(this).attr('column-target')).hide();
-    }else{
-        $(this).addClass('active');
-        $('.' + $(this).attr('column-target')).show();
-    }
-});
-
-$('.editable-component').click(function(){
-
-    var content = $(this);
-
-    var input = $("<input />");
-    input.addClass('number-component');
-    input.attr('type', 'number');
-    input.val(content.find(">:first-child").text());
-    content.html(input);
-    input.focus();
-
-    content.has("input").css('border', 'none');
-
-    input.focusout(function(){
-        var contentVal = $('<span class="numeric-value intval_12_14">' + $(this).val() + '</span><span class="metric-unit">Heures</span>');
-        content.html(contentVal);
-        content.removeAttr('style');
-        calcResColumns();
+/* -------- Gestion de l'input de création d'une ligne de sprint -----------*/
+function initListeners(){
+    $('.inputAddTaskInput').focusout(function(){
+        var self = $(this);
+        var rows = $(this).parent().parent();
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('input[name="_token"]').val()
+            },
+            url: $(this).attr('data-target'),
+            type:"post",
+            //data:{id:'testouille'},
+            success: function (result) {
+                rows.before(result);
+                self.val('');
+            }
+        });  
     });
-});
-
-function addSprint(){
-    // Ajax - faire l'ajout en BDD et si  tout c'est bien passé, retourner le contenu d'une partial avec un sprint vide
-}
-
-$('.inputAddTaskInput').focusout(function(){
-    var rows = $(this).parent().parent();
-    $.ajax({
-        headers: {
-            'X-CSRF-TOKEN': $('input[name="_token"]').val()
-        },
-        url: $(this).attr('data-target'),
-        type:"post",
-        //data:{id:'testouille'},
-        success: function (result) {
-            rows.before(result);
-            console.log(result);
+    $('.inputAddTaskInput').keyup(function(event) {
+        if (event.keyCode === 13) {
+            $(this).blur();
+            $(this).val('');
         }
-    });  
-});
+    });
 
+    $('.addSprint').click(function(){
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('input[name="_token"]').val()
+            },
+            url: $(this).attr('data-target'),
+            type:"post",
+            //data:{id:'testouille'},
+            success: function (result) {
+                $('#sprints-collum').prepend(result);
+            }
+        }); 
+    });
+
+    $('.editable-component').click(function(){
+
+        var content = $(this);
+        var input = $("<input />");
+        input.addClass('number-component');
+        input.attr('type', 'number');
+        input.val(content.find(">:first-child").text());
+        content.html(input);
+        input.focus();
+    
+        content.has("input").css('border', 'none');
+    
+        input.focusout(function(){
+            var contentVal = $('<span class="numeric-value intval_12_14">' + $(this).val() + '</span><span class="metric-unit">Heures</span>');
+            content.html(contentVal);
+            content.removeAttr('style');
+            calcResColumns();
+        });
+    });
+
+    $('.scrum-option-column').click(function(){
+        if($(this).hasClass('active')){
+            $(this).removeClass('active');
+            $('.' + $(this).attr('column-target')).hide();
+        }else{
+            $(this).addClass('active');
+            $('.' + $(this).attr('column-target')).show();
+        }
+    });
+
+    $('.datepicker').datepicker();
+    
+}
+initListeners();
+
+
+/* ---------- Calcul des sommes de INT en bas de colones ------------------ */
 function calcResColumns(){
     $('.total-int').each(function(){
         var sum = 0;
-        $('.intval_12_14').each(function(){
-            
-            sum += parseFloat($(this).text());
-            console.log(parseFloat($(this).text()));
-        });
+        $('.intval_12_14').each(function(){ sum += parseFloat($(this).text());});
         $(this).html(sum);
     });
 }
+calcResColumns();

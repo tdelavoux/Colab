@@ -44,5 +44,6 @@ Route::group(['prefix' => 'board'], function(){
     Route::get('LogsView/{fkBoard}', 'AppsController\BoardLogsController@execute')->name('logs.view');
     Route::get('ParamsView/{Tab}/{fkBoard}', 'AppsController\BoardParamsController@execute')->name('params.view');
 
-    Route::post('scrum/getLine', 'AppsController\BoardScrumController@getLine')->name('scrum.projectLine');
+    Route::post('scrum/getLine', 'AppsController\BoardScrumController@getEmptyLine')->name('scrum.projectLine');
+    Route::post('scrum/getSprint', 'AppsController\BoardScrumController@getEmptySprint')->name('scrum.projectSprint');
 });

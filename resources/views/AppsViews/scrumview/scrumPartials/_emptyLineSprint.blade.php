@@ -41,4 +41,8 @@
             <i class="fa fa-calendar date-picker-icon"></i>
         </div>
     </td>
-</tr>  
+</tr>
+
+<script>
+    initListeners();
+</script>
