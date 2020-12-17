@@ -1,45 +1,25 @@
+var containers = [document.getElementById("one"), document.getElementById("two")];
 
-var dragContainer = document.querySelector('.drag-container');
-var itemContainers = [].slice.call(document.querySelectorAll('.board-column-content'));
-var columnGrids = [];
-var boardGrid;
-
-// Init the column grids so we can drag those items around.
-itemContainers.forEach(function (container) {
-  var grid = new Muuri(container, {
-    items: '.board-item',
-    dragEnabled: true,
-    dragSort: function () {
-      return columnGrids;
-    },
-    layoutOnResize: false,
-    
-    dragContainer: dragContainer,
-    dragAutoScroll: {
-      targets: (item) => {
-        return [
-          { element: window, priority: 0 },
-          { element: item.getGrid().getElement().parentNode, priority: 1 },
-        ];
-      }
-    },
-  })
-  .on('dragInit', function (item) {
-    item.getElement().style.width = item.getWidth() + 'px';
-    item.getElement().style.height = item.getHeight() + 'px';
-  })
-  .on('dragReleaseEnd', function (item) {
-    item.getElement().style.width = '';
-    item.getElement().style.height = '';
-    item.getGrid().refreshItems([item]);
-  })
-  .on('layoutStart', function () {
-    boardGrid.refreshItems().layout();
-  });
-
-  columnGrids.push(grid);
-});
-
-// Init board grid so we can drag those columns around.
-boardGrid = new Muuri('.board', {
+dragula(containers, {
+  isContainer: function (el) {
+    return false; // only elements in drake.containers will be taken into account
+  },
+  moves: function (el, source, handle, sibling) {
+    return true; // elements are always draggable by default
+  },
+  accepts: function (el, target, source, sibling) {
+    return true; // elements can be dropped in any of the `containers` by default
+  },
+  invalid: function (el, handle) {
+    return false; // don't prevent any drags from initiating by default
+  },
+  direction: 'vertical',             // Y axis is considered when determining where an element would be dropped
+  copy: false,                       // elements are moved by default, not copied
+  copySortSource: false,             // elements in copy-source containers can be reordered
+  revertOnSpill: false,              // spilling will put the element back where it was dragged from, if this is true
+  removeOnSpill: false,              // spilling will `.remove` the element, if this is true
+  mirrorContainer: document.body,    // set the element that gets mirror elements appended
+  ignoreInputTextSelection: true,     // allows users to select input text, see details below
+  slideFactorX: 10,               // allows users to select the amount of movement on the X axis before it is considered a drag instead of a click
+  slideFactorY: 10,               // allows users to select the amount of movement on the Y axis before it is considered a drag instead of a click
 });
