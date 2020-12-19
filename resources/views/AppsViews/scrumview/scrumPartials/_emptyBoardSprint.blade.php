@@ -1,8 +1,9 @@
 <div class="row sprint">
 
-    <div role="button" class="sprint-name collapsable" style="color:#787B73" data-toggle="collapse" data-target="#tableSprint">
-        <span class="collapse-arrrow" ><i class="fas fa-chevron-circle-down"></i></span>
-        <span>sprint 1</span>
+    <div role="button" class="sprint-name" style="color:#787B73">
+        <span class="collapse-arrrow collapsable"  data-toggle="collapse" data-target="#tableSprint" ><i class="fas fa-chevron-circle-down"></i></span>
+        <span >sprint 1</span>
+        <a class="sprint-name-modify" data-toggle="modal" data-target="#reorgLine"><i class="fas fa-pencil-alt"></i></a>
     </div>
 
     <table id="tableSprint" class="sprint-table col-md-12 collapse show">

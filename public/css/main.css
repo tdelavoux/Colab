@@ -54,6 +54,7 @@ i{margin:0 0.5em;}
 .bc-purple{background-color:#444366;}
 .c-yellow-heavy{color:#b3b31d;}
 .bc-yellow-heavy{background-color:#b3b31d;}
+.bc-grey{background-color:#EBEBEB;}
 
 .w100{width:100%;}
 .h100{height:100%;}
@@ -193,29 +194,40 @@ nav{padding:0.2em !important; }
 /* ----------------- SCRUM ------------------*/
 .sprint{padding:1em 2em;}
 .sprint-name{display:flex; cursor: pointer; padding: 0.5em; display:flex;justify-content: space-between; align-items:center;}
+.sprint-name-modify{visibility: hidden;}
+.sprint-name:hover .sprint-name-modify{visibility: visible;}
 .inputFull{border: none; height:100%;}
 .inputFull:focus{border: none;box-shadow: none; outline: none;background-color:#F4F7F8}
 .sprint-table-row{display:flex;}
 .sprint-table-header{border-bottom: solid 2px #5e5d5d;padding: 0.3em;}
 .sprint-table-line{border-bottom: solid 1px #EBEBEB;}
 .sprint-table-lither{width:7px !important;}
+.sprint-table-action{width:25px !important;}
 .sprint-table-task{flex:1;}
 .sprint-table-col-std{min-width: 170px; display:flex; align-items: center; justify-content: center;}
 .pointer{cursor: pointer;}
 .statusSelector{color:#fff;}
 .sprintSelector:hover{filter:brightness(85%);}
 
-.sprint-name[data-toggle="collapse"][aria-expanded="true"] > .collapse-arrrow{transform: rotate(0deg); transition-duration:500ms;}
-.sprint-name[data-toggle="collapse"][aria-expanded="false"] > .collapse-arrrow{transform: rotate(-90deg); transition-duration:500ms;}
+.sprint-table-action a {visibility: hidden; cursor: pointer;}
+.sprint-table-row:hover > .sprint-table-action a{visibility: visible;}
+.scrum-action-dropdown{left:50px;}
+
+.collapse-arrrow[data-toggle="collapse"][aria-expanded="true"] {transform: rotate(0deg); transition-duration:500ms;}
+.collapse-arrrow[data-toggle="collapse"][aria-expanded="false"] {transform: rotate(-90deg); transition-duration:500ms;}
 
 .scrum-option-line{text-align:right;padding: 0 1.5em;}
 .scrum-option-dropdown{min-width: 230px; left: -50px !important; box-shadow: -5px 6px 15px -1px #666666;}
 .scrum-option-column{padding:0.5em; display:flex;justify-content: space-between;align-items: center; font-size: 14px; color:#787B73;cursor:pointer;}
+.scrum-action-column{padding:0.5em; display:flex;justify-content: space-between;align-items: center; font-size: 14px; color:#787B73;cursor:pointer;}
+.scrum-action-column-title{padding: 0 5px 5px 10px;}
 .scrum-option-column.active{color:#5d8bd1;}
 .scrum-option-column i{visibility:hidden;}
 .scrum-option-column.active i{visibility:visible;}
+.scrum-option-column:hover{background-color:#EBEBEB;}
 .divider{border-bottom: solid 1px #EBEBEB;}
-
+.list-sprints{width:100%;padding:0.5em;cursor:pointer;}
+.list-sprints:hover{background-color:#EBEBEB;}
 
 /*  -- Components -- */
 .numeric-cell-compnent{width:100%;height:100%; padding:2px 5px;}

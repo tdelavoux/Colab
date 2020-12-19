@@ -1,5 +1,14 @@
 /* -------- Gestion de l'input de création d'une ligne de sprint -----------*/
 function initListeners(){
+
+    /* Reinitialiser les listeners */
+    $('.inputAddTaskInput').unbind();
+    $('.inputAddTaskInput').unbind();
+    $('.addSprint').unbind();
+    $('.editable-component').unbind();
+    $('.scrum-option-column').unbind();
+    $('.deleteScrumLine').unbind();
+
     $('.inputAddTaskInput').focusout(function(){
         var self = $(this);
         var rows = $(this).parent().parent();
@@ -66,6 +75,11 @@ function initListeners(){
             $('.' + $(this).attr('column-target')).show();
         }
     });
+
+    $('.deleteScrumLine').click(function(){
+        // TODO supprimer en BDD
+        $($(this).attr('data-line-target')).detach();
+    })
 
     $('.datepicker').datepicker();
     

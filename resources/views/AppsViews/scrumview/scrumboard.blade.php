@@ -30,15 +30,17 @@
 
     <div id="sprints-collum">
         <div  class="row sprint">
-            <div role="button" class="sprint-name collapsable" style="color:#787B73" data-toggle="collapse" data-target="#tableSprint">
-                <span class="collapse-arrrow" ><i class="fas fa-chevron-circle-down"></i></span>
-                <span>sprint 1</span>
+            <div role="button" class="sprint-name" style="color:#787B73">
+                <span class="collapse-arrrow collapsable"  data-toggle="collapse" data-target="#tableSprint" ><i class="fas fa-chevron-circle-down"></i></span>
+                <span >sprint 1</span>
+                <a class="sprint-name-modify" data-toggle="modal" data-target="#Modifysprint"><i class="fas fa-pencil-alt"></i></a>
             </div>
     
             <table id="tableSprint" class="sprint-table col-md-12 collapse show">
             
                 <thead >
                     <tr class="sprint-table-row sprint-table-header">
+                        <th class="sprint-table-action"></th>
                         <th class="sprint-table-lither"></th>
                         <th class="sprint-table-task">Libelle</th>
                         <th class="sprint-table-col-std center">Affectation</th>
@@ -50,7 +52,17 @@
                 </thead>
     
                 <tbody >
-                    <tr class="sprint-table-row sprint-table-line">
+                    <tr class="sprint-table-row sprint-table-line" id="125">
+                        <td href="#" data-toggle="dropdown" class="sprint-table-action" >
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fas fa-sort-down"></i></a>
+                            <ul class="dropdown-menu scrum-action-dropdown">
+                                <li class="scrum-action-column-title">Actions sur la tâche</li>
+                                <div class="divider"></div>
+                                <li class="scrum-action-column" data-toggle="modal" data-target="#reorgLine"><span>Envoyer vers</span></li>
+                                <li class="scrum-action-column deleteScrumLine" data-line-target="#125"><span>Archiver</span></li>
+                            </ul>
+                        </td>
+
                         <td class="sprint-table-lither" style="background-color:#787B73"></td>
     
                         <!---------------------- LIBELLE DE TACHE --------------------------->
@@ -99,6 +111,17 @@
                     </tr>  
     
                     <tr class="sprint-table-row sprint-table-line">
+                        
+                        <td href="#" data-toggle="dropdown" class="sprint-table-action" >
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fas fa-sort-down"></i></a>
+                            <ul class="dropdown-menu scrum-action-dropdown">
+                                <li class="scrum-action-column-title">Actions sur la tâche</li>
+                                <div class="divider"></div>
+                                <li class="scrum-action-column" data-toggle="modal" data-target="#reorgLine"><span>Envoyer vers</span></li>
+                                <li class="scrum-action-column deleteScrumLine" data-line-target="#125"><span>Archiver</span></li>
+                            </ul>
+                        </td>
+
                         <td class="sprint-table-lither" style="background-color:#787B73"></td>
     
                         <!---------------------- LIBELLE DE TACHE --------------------------->
@@ -168,49 +191,9 @@
    
 </div>
 
-
-
-<!-------------------------------------------------- Modal ---------------------------------------------------------------------------->
-<div class="modal fade" id="AssignModale" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Ajouter une assignation</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-
-                <h5>Dejà effecté</h5>
-
-                <div class="user-chating admin-project" data-toggle="modal" data-target="#AssignModale">
-                    <div class="rounded-circle profile-img-xs admin-target" style="background-image:url('{{asset('/img/user/3.jpg')}}');background-position: center;background-repeat: no-repeat;background-size: cover;"></div>
-                    <span class="team-user-name">Thibault Delavoux</span>
-                </div>
-
-                <hr>
-
-                <h5>Ajouter</h5>
-
-                <div class="user-chating admin-project" data-toggle="modal" data-target="#AssignModale">
-                    <div class="rounded-circle profile-img-xs admin-target" style="background-image:url('{{asset('/img/user/1.jpg')}}');background-position: center;background-repeat: no-repeat;background-size: cover;"></div>
-                    <span class="team-user-name">Paul Ochon</span>
-                </div>
-
-                <div class="user-chating admin-project" data-toggle="modal" data-target="#AssignModale">
-                    <div class="rounded-circle profile-img-xs admin-target" style="background-image:url('{{asset('/img/user/3.jpg')}}');background-position: center;background-repeat: no-repeat;background-size: cover;"></div>
-                    <span class="team-user-name">Rachida Dati</span>
-                </div>
-
-                
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-            </div>
-        </div>
-    </div>
-</div>
+@include('AppsViews.scrumview.scrumPartials._modaleAssignUser')
+@include('AppsViews.scrumview.scrumPartials._modaleReorgScrumLine')
+@include('AppsViews.scrumview.scrumPartials._modaleScrumSprint')
 
 <script>
     var statusPopoverContent = '<a class="btn BtnSelector sprint-table-col-std" style="color:#fff; background-color:#929292;">Libelle2</a>';

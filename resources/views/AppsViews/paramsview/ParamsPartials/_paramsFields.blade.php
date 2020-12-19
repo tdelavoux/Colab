@@ -9,12 +9,15 @@
 <div class="option-page-body">
     <h2>CHAMPS PERSONNALISEES</h2>
 
-    <!-- --------------- LOGS ------------------------->
+    <div class="btn-line-right mb-1">
+        <button class="btn btn-sm btn-success" data-toggle="modal" data-target="#addFieldModal">Ajouter un champ</button>
+    </div>
+    
     <div class="habilitation-bloc col-md-12">
         <div class="habilitation-line">
             <div class="habilitation-bloc-header" >
                 <span class="fields-bloc-title"> Status</span>
-                <button class="btn btn-secondary">Ajouter une valeur</button>
+                <button class="btn btn-secondary" data-toggle="modal" data-target="#addValueModal">Ajouter une valeur</button>
             </div>
             <table class="table">
                 <thead>
@@ -78,4 +81,71 @@
         </div>
     </div>
 
+</div>
+
+
+
+<!-------------------------------------------------- Modal ---------------------------------------------------------------------------->
+<div class="modal fade" id="addFieldModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Ajouter un champ</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <div class="form-group">
+                    <label>Libelle colone</label>
+                    <input class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>type</label>
+                    <select class="form-control">
+                        <option>Numérique</option>
+                        <option>Liste</option>
+                        <option>Texte</option>
+                        <option>Date</option>
+                    </select>
+                </div>     
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" >Ajouter</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-------------------------------------------------- Modal ---------------------------------------------------------------------------->
+<div class="modal fade" id="addValueModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Ajouter une valeur</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <div class="form-group">
+                    <label>Libelle</label>
+                    <input class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>Couleur</label>
+                    <div class="color-picker"></div>
+                </div>     
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" >Ajouter</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+            </div>
+        </div>
+    </div>
 </div>

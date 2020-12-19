@@ -1,4 +1,17 @@
 <tr class="sprint-table-row sprint-table-line">
+
+    <!---------------------- MODIFIER LIGNE --------------------------->
+    <td href="#" data-toggle="dropdown" class="sprint-table-action" >
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fas fa-sort-down"></i></a>
+        <ul class="dropdown-menu scrum-action-dropdown">
+            <li class="scrum-action-column-title">Actions sur la tâche</li>
+            <div class="divider"></div>
+            <li class="scrum-action-column" data-toggle="modal" data-target="#reorgLine"><span>Envoyer vers</span></li>
+            <li class="scrum-action-column deleteScrumLine" data-line-target="#125"><span>Archiver</span></li>
+        </ul>
+    </td>
+
+
     <td class="sprint-table-lither" style="background-color:#787B73"></td>
 
     <!---------------------- LIBELLE DE TACHE --------------------------->
