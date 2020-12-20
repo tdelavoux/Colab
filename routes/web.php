@@ -13,6 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/* --------------------- AUTHENTIFICATION ---------------------------------------------- */
+Route::get('/login', 'Auth\AuthentificationController@execute')->name('login');
+Route::get('/register', 'Auth\AuthentificationController@register')->name('register');
+Route::get('/logout', 'Auth\AuthentificationController@logout')->name('logout');
+
+Route::post('/login/etablishLogin', 'Auth\AuthentificationController@login')->name('verifyLogin');
+Route::post('/register/newUser', 'Auth\AuthentificationController@createUser')->name('newUser');
+
 /* --------------------- DASHBOARD ----------------------------------------------------- */
 Route::get('/', 'AppsController\DashBoardController@execute');
 Route::get('dashboard', 'AppsController\DashBoardController@execute')->name('dashboard');

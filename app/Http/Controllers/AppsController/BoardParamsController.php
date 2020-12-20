@@ -7,6 +7,11 @@ use App\Http\Controllers\Controller;
 
 class  BoardParamsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function execute($Tab, $fkBoard){
         return view('AppsViews.paramsview.params')->with('tab', $Tab);
     }

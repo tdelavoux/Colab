@@ -1,0 +1,50 @@
+/* Specific to Login Page */
+
+/* ------------  2 Blocs --------------------------*/
+#login-Page-left{height:100%; max-width: 700px; width:50%; background-color:#fff;}
+#login-Page-right{
+    flex:1; 
+    height:100%; 
+    background-image:url("../img/login.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#inscription-Page-right{
+    flex:1; 
+    height:100%; 
+    background-image:url("../img/inscription.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.login-link{color:dodgerblue;}
+
+
+/* ------------  Bloc Gauche --------------------------*/
+
+#login-Page-101{justify-content: center; align-items: center; height:100%; width: 100%; flex: 1; display: flex; }
+h3{padding-bottom: 0.5em;border-bottom: solid 1px #d1d1d1;}
+.form101-line{ display: flex;}
+img{ margin: 0 1em;}
+#centered-bloc{
+	padding: 1em;
+	vertical-align: middle;
+	margin-top: -1em;
+	background-clip: padding-box;
+}
+
+.inscription-content{
+    display:flex;
+    padding:0;
+}
+
+@media only screen and (max-width : 576px) {
+    .inscription-content{
+        flex-direction: column;
+    }
+    
+    #login-Page-left{width:100%;}
+    #inscription-Page-right{width:100%;}
+    #login-Page-right{width:100%;}
+}

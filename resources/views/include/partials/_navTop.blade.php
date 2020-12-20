@@ -27,8 +27,13 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="{{ route('logout') }}">
+                    <i class="fas fa-lock-open"></i>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="{{ route('personalInfos', 'general') }}">
-                    Nom RANDOM
+                    {{ Auth::user()->name }}
                     <div class="rounded-circle profile-img-xs" style="background-image:url('{{asset('/img/user/3.jpg')}}');background-position: center;background-repeat: no-repeat;background-size: cover;"></div>
                 </a>
             </li>
