@@ -21,6 +21,7 @@ Route::get('/logout', 'Auth\AuthentificationController@logout')->name('logout');
 Route::post('/login/etablishLogin', 'Auth\AuthentificationController@login')->name('verifyLogin');
 Route::post('/register/newUser', 'Auth\AuthentificationController@createUser')->name('newUser');
 
+
 /* --------------------- DASHBOARD ----------------------------------------------------- */
 Route::get('/', 'AppsController\DashBoardController@execute');
 Route::get('dashboard', 'AppsController\DashBoardController@execute')->name('dashboard');
@@ -34,10 +35,11 @@ Route::get('search', 'AppsController\RechercheController@execute')->name('search
 Route::get('myprojects', 'AppsController\MesProjetsController@execute')->name('myprojects');
 
 
-
 /* --------------------- USER INFOS -------------------------------------------------------- */
 Route::group(['prefix' => 'userprofile'], function(){
-    Route::get('userProfile/{Tab}', 'AppsController\UserProfilController@execute')->name('personalInfos');
+    Route::get('userProfile/{Tab}', 'AppsController\UserProfilController@execute')->name('user.personalInfos');
+    Route::post('userProfile/updatePwd', 'AppsController\UserProfilController@updatePwd')->name('user.updatePwd');
+    Route::post('userProfile/updateAccount', 'AppsController\UserProfilController@updateAccount')->name('user.updateAccount');
 });
 
 

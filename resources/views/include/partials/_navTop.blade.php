@@ -32,9 +32,9 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('personalInfos', 'general') }}">
-                    {{ Auth::user()->name }}
-                    <div class="rounded-circle profile-img-xs" style="background-image:url('{{asset('/img/user/3.jpg')}}');background-position: center;background-repeat: no-repeat;background-size: cover;"></div>
+                <a class="nav-link" href="{{ route('user.personalInfos', 'general') }}">
+                    {{ strtoupper(Auth::user()->name) }}
+                    <div class="rounded-circle profile-img-xs" style="background-image:url('{{ asset(env('DIRUSER')) . '/' . Auth::user()->img }}');background-position: center;background-repeat: no-repeat;background-size: cover;"></div>
                 </a>
             </li>
         </ul>

@@ -3,7 +3,7 @@
     <div class="row">
         <div class="column-info col-md-2">
             <div class="column-info-sub">
-                <div class="rounded-circle profile-img" style="background-image:url('{{asset('/img/user/3.jpg')}}');background-position: center;background-repeat: no-repeat;background-size: cover;"></div>
+                <div class="rounded-circle profile-img" style="background-image:url('{{ asset(env('DIRUSER')) . '/' . Auth::user()->img }}');background-position: center;background-repeat: no-repeat;background-size: cover;"></div>
                 <button class="btn btn-secondary mv-1" data-toggle="modal" data-target="#changePict"><i class="fas fa-camera-retro"></i>Changer la photo</button>
                 <a href="#" class="small-text mb-2 italic">image par défault</a>
                 <span class="info-txt c-red"><i class="fas fa-project-diagram"></i>10 Projets</span>
@@ -11,36 +11,32 @@
             </div>
         </div>
 
-        <form class="form-infos col-md-6 p-1">
+        <form method="post" action="{{ route('user.updateAccount') }} " class="form-infos col-md-6 p-1">
+            @csrf
             <div class="form-group">
                 <label>Nom d'utilisateur</label>
-                <input type="text" class="form-control" name="name" value="Glopulus"/>
-            </div>
-
-            <div class="form-group">
-                <label>Nom Prenom</label>
-                <input type="text" class="form-control" name="name" value="Glopulus"/>
+                <input type="text" class="form-control" name="nom" value="{{ Auth::user()->name }}"/>
             </div>
 
             <div class="form-group">
                 <label>Email</label>
-                <input type="text" class="form-control" name="name" value="Glopulus"/>
+                <input type="email" class="form-control" name="email" value="{{ Auth::user()->email }}"/>
             </div>
 
             <div class="form-group">
                 <label>Theme</label>
-                <select type="text" class="form-control" name="name" value="Glopulus">
+                <select type="text" class="form-control" name="theme" disabled>
                     <option>Classique</option>
                 </select>
             </div>
 
             <div class="form-group">
                 <label>Bio</label>
-                <textarea class="form-control" name="name" value="Glopulus"></textarea>
+                <textarea class="form-control" name="bio">{{ Auth::user()->bio }}</textarea>
             </div>
 
             <div class="w100 center">
-                <button class="btn btn-success w100"><i class="far fa-save"></i>SAUVEGARDER</button>
+                <button class="btn btn-info w100"><i class="far fa-save"></i>SAUVEGARDER</button>
             </div>
             
         </form>

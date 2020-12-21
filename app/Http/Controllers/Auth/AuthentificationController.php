@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\User;
-use Illuminate\Support\Facades\DB;
 
 class  AuthentificationController extends Controller
 {
@@ -33,10 +32,11 @@ class  AuthentificationController extends Controller
             'password' => 'required'
         ]);
         
-        $user = User::where('email', $request->input('email'))->first();
-        $validCredentials = Hash::check($request->input('password'), $user->getAuthPassword());
+        $user = User::where('email', $request->input('email'))
+                    ->where('active', 1)
+                    ->first();
 
-        if (!$validCredentials) {
+        if (!$user || !Hash::check($request->input('password'), $user->getAuthPassword())) {
             return redirect()->intended('login')->withErrors(["Email/Password" => "L'email ou le mot de passe est incorrect"])->withInput();
         }else{
             Auth::login($user);
@@ -48,16 +48,18 @@ class  AuthentificationController extends Controller
     public function createUser(Request $request){
 
         $validate = $request->validate([
-            'Nom' => 'required',
-            'email' => 'required|email|unique:users',
+            'Nom' => 'required|max:250',
+            'email' => 'required|email|unique:users|max:250',
             'password' => 'required',
             'password_confirmation' => 'required_with:password|same:password'
         ]);
 
         $user = new User();
-        $user->password = Hash::make( $request->input('password'));
-        $user->email =  $request->input('email');
-        $user->name =  $request->input('Nom');
+        $user->password   = Hash::make( $request->input('password'));
+        $user->email      = $request->input('email');
+        $user->name       = $request->input('Nom');
+        $user->status     = 0;
+        $user->active     = 1;
         $user->save();
         
         return redirect()->intended('login')->with('confirmMessage', 'Compte créé avec succès');

@@ -35,6 +35,7 @@ i{margin:0 0.5em;}
 #content-page{flex:1; padding: 2em;overflow-y:auto;}
 .content-page-inline{display:flex;flex-direction:row;}
 .option-content-page{padding: 0 !important;}
+.notifyjs-corner{top:50px !important; right: 10px !important;}
 
 
 /* ------------- FONTS AND COLORS -----------*/

@@ -36,6 +36,8 @@
     <script type="text/javascript" src="{{env('DIRLIB')}}colorPicker/colorPick.min.js"></script>
     <script type="text/javascript" src="{{env('DIRLIB')}}js/bootstrap-datepicker.js"></script>
     <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
+
+    @include('include.partials._messages')
     
     @yield('addJS')
 
