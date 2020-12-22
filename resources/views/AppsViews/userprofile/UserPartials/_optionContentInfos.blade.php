@@ -5,7 +5,7 @@
             <div class="column-info-sub">
                 <div class="rounded-circle profile-img" style="background-image:url('{{ asset(env('DIRUSER')) . '/' . Auth::user()->img }}');background-position: center;background-repeat: no-repeat;background-size: cover;"></div>
                 <button class="btn btn-secondary mv-1" data-toggle="modal" data-target="#changePict"><i class="fas fa-camera-retro"></i>Changer la photo</button>
-                <a href="#" class="small-text mb-2 italic">image par défault</a>
+                <a href="{{ route('user.resetPic') }}" class="small-text mb-2 italic">image par défault</a>
                 <span class="info-txt c-red"><i class="fas fa-project-diagram"></i>10 Projets</span>
                 <span class="info-txt c-yellow-heavy"><i class="far fa-star"></i>125 Stars</span>
             </div>

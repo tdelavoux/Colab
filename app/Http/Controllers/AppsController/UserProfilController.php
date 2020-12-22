@@ -66,6 +66,8 @@ class  UserProfilController extends Controller
             ]);
         }
 
+        $this->removeCurrentPicture();
+
         $image = $request->file('images');
         $destinationPath = env('DIRUSER');
         $name = Auth::user()->id.'.'.$image->getClientOriginalExtension();
@@ -76,6 +78,24 @@ class  UserProfilController extends Controller
         $user->save();
 
         return redirect()->route('user.personalInfos', 'general')->with('confirmMessage', 'Profil mis à jour avec succès');
+    }
+
+    public function resetPic(){
+
+        $this->removeCurrentPicture();
+        $user = Auth::user();
+        $user->img = 'defaut.png';
+        $user->save();
+
+        return redirect()->route('user.personalInfos', 'general')->with('confirmMessage', 'Profil mis à jour avec succès');
+
+    }
+
+
+    private function removeCurrentPicture(){
+        if(file_exists(env('DIRUSER') . Auth::user()->img)){
+            unlink(env('DIRUSER') . Auth::user()->img);
+        }
     }
 
 }
