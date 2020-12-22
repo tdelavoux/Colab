@@ -40,6 +40,7 @@ Route::group(['prefix' => 'userprofile'], function(){
     Route::get('userProfile/{Tab}', 'AppsController\UserProfilController@execute')->name('user.personalInfos');
     Route::post('userProfile/updatePwd', 'AppsController\UserProfilController@updatePwd')->name('user.updatePwd');
     Route::post('userProfile/updateAccount', 'AppsController\UserProfilController@updateAccount')->name('user.updateAccount');
+    Route::post('userProfile/updatePic', 'AppsController\UserProfilController@updatePic')->name('user.updatePic');
 });
 
 

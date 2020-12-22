@@ -11,7 +11,7 @@
             </div>
         </div>
 
-        <form method="post" action="{{ route('user.updateAccount') }} " class="form-infos col-md-6 p-1">
+        <form method="post" action="{{ route('user.updateAccount') }}" class="form-infos col-md-6 p-1">
             @csrf
             <div class="form-group">
                 <label>Nom d'utilisateur</label>
@@ -45,7 +45,8 @@
 
 
     <!------------------------------ CHANGEMENT DE PHOTO ------------------------------------------------->
-    <form role="form" action="#" method="POST" enctype="multipart/form-data"> 
+    <form action="{{ route('user.updatePic') }}" method="POST" enctype="multipart/form-data"> 
+        @csrf
         <div class="modal fade" id="changePict" tabindex="-1" role="dialog" aria-labelledby="changePict" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -57,14 +58,14 @@
                     </div>
                     <div class="modal-body">
                     <div class="col-md-12">  
-                            <legend>Ajouter une image</legend> 
-                            <div class="row justify-content-md-center img-picker-body">
-                                <div class="form-group col-3 flex-center"> 
-                                    <div class="img-picker"></div>
-                                </div>   
+                        <legend>Ajouter une image</legend> 
+                        <div class="row justify-content-md-center img-picker-body">
+                            <div class="form-group col-3 flex-center"> 
+                                <div class="img-picker"></div>
                             </div>   
-                            
-                            <div id="test" style="display:none;"></div>
+                        </div>   
+                        
+                        <div id="test" style="display:none;"></div>
                     </div>
                     </div>
                     <div class="modal-footer">

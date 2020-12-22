@@ -57,4 +57,25 @@ class  UserProfilController extends Controller
         return redirect()->route('user.personalInfos', 'general')->with('confirmMessage', 'Informations mises à jour avec succès');
     }
 
+    public function updatePic(Request $request){
+
+        if($request->hasFile('images') && $request->file('images')->isValid()){
+            $validated = $request->validate([
+                'name' => 'string|max:40',
+                'image' => 'mimes:jpeg,png|max:2048',
+            ]);
+        }
+
+        $image = $request->file('images');
+        $destinationPath = env('DIRUSER');
+        $name = Auth::user()->id.'.'.$image->getClientOriginalExtension();
+        $image->move($destinationPath, $name);
+
+        $user = Auth::user();
+        $user->img = $name;
+        $user->save();
+
+        return redirect()->route('user.personalInfos', 'general')->with('confirmMessage', 'Profil mis à jour avec succès');
+    }
+
 }
