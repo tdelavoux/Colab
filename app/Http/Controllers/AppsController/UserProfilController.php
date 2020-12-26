@@ -93,7 +93,7 @@ class  UserProfilController extends Controller
 
 
     private function removeCurrentPicture(){
-        if(file_exists(env('DIRUSER') . Auth::user()->img)){
+        if(Auth::user()->img  !== 'defaut.png' && file_exists(env('DIRUSER') . Auth::user()->img )){
             unlink(env('DIRUSER') . Auth::user()->img);
         }
     }

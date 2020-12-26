@@ -10,20 +10,22 @@ function initListeners(){
     $('.deleteScrumLine').unbind();
 
     $('.inputAddTaskInput').focusout(function(){
-        var self = $(this);
-        var rows = $(this).parent().parent();
-        $.ajax({
-            headers: {
-                'X-CSRF-TOKEN': $('input[name="_token"]').val()
-            },
-            url: $(this).attr('data-target'),
-            type:"post",
-            //data:{id:'testouille'},
-            success: function (result) {
-                rows.before(result);
-                self.val('');
-            }
-        });  
+        if($(this).val()){
+            var self = $(this);
+            var rows = $(this).parent().parent();
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('input[name="_token"]').val()
+                },
+                url: $(this).attr('data-target'),
+                type:"post",
+                //data:{id:'testouille'},
+                success: function (result) {
+                    rows.before(result);
+                    self.val('');
+                }
+            }); 
+        } 
     });
     $('.inputAddTaskInput').keyup(function(event) {
         if (event.keyCode === 13) {

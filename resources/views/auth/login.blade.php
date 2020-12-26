@@ -15,7 +15,7 @@
 
                 <div class="form-group">
                     <label for="email">email</label>
-                    <input id="email" placeholder="Dupont" name="email" type="text" class="form-control" data-name="email" value="{{ old('email') }}">
+                    <input id="email" placeholder="Dupont" name="email" type="text" class="form-control" data-name="email" value="{{ old('email') ? old('email') : 'thibault.delavoux@gmail.com' }}">
                 </div>
                 
                 <div class="form-group">
