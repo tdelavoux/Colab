@@ -162,7 +162,8 @@ nav{padding:0.2em !important; }
 
 /* ######################### MES PROJETS #################################### */
 
-.myprojects-title{background-color:#EBEBEB;padding:0.3em 1em;font-weight: lighter;}
+.myprojects-title{background-color:#EBEBEB;display:flex; padding:0.5em 1em; justify-content: space-between;}
+.myprojects-title h4{font-weight: lighter; padding: 0;}
 .dashboard-project-bio{color:#929292;font-size:15px;margin-bottom: 0;max-width:100%}
 
 /* ######################### USER PROFIL #################################### */

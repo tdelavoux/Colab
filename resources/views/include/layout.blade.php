@@ -27,6 +27,14 @@
             @yield('content')
         </div>
    
+    <script>
+        // global app configuration object
+        var config = {
+            routes: {
+                colors: "{{ route('application.getColors')}}"
+            }
+        };
+    </script>
     <script type="text/javascript" src="{{env('DIRLIB')}}jquery/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="{{env('DIRLIB')}}js/popper.min.js"></script>
     <script type="text/javascript" src="{{env('DIRLIB')}}bootstrap-4.4.1/js/bootstrap.min.js"></script>

@@ -44,6 +44,10 @@ Route::group(['prefix' => 'userprofile'], function(){
     Route::get('updateProfil/resetPic', 'AppsController\UserProfilController@resetPic')->name('user.resetPic');
 });
 
+/* --------------------- PROJECTS BOARDS -------------------------------------------------------- */
+Route::group(['prefix' => 'projects'], function(){
+    Route::post('project/createProject', 'AppsController\ProjectController@createProject')->name('project.createProject');
+});
 
 /* --------------------- PROJECTS BOARDS -------------------------------------------------------- */
 Route::group(['prefix' => 'board'], function(){
@@ -60,3 +64,10 @@ Route::group(['prefix' => 'board'], function(){
     Route::post('scrum/getLine', 'AppsController\BoardScrumController@getEmptyLine')->name('scrum.projectLine');
     Route::post('scrum/getSprint', 'AppsController\BoardScrumController@getEmptySprint')->name('scrum.projectSprint');
 });
+
+/* --------------------- Applications Infos -------------------------------------------------------- */
+Route::group(['prefix' => 'Application'], function(){
+    Route::get('getColors', 'AppsController\AppController@getColors')->name('application.getColors');
+});
+
+ 

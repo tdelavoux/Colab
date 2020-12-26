@@ -44,7 +44,7 @@ class  UserProfilController extends Controller
 
         $validate = $request->validate([
             'nom' => 'required|max:250',
-            'email' => 'required|max:250',
+            'email' => 'required|email|max:250',
             'bio' => 'max:500'
         ]);
 

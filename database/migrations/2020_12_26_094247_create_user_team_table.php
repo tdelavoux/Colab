@@ -19,6 +19,8 @@ class CreateUserTeamTable extends Migration
                 $table->foreign('fk_users')->references('id')->on('users');
                 $table->integer('fk_equipe')->unsigned();
                 $table->foreign('fk_equipe')->references('id')->on('equipe');
+                $table->timestamp('created_at')->nullable();
+                $table->timestamp('updated_at')->nullable();
             });
         }
     }

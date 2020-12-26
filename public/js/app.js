@@ -6,6 +6,7 @@ $('.datepicker').datepicker({autoclose: true});
 ############################################################### */
 
 $('.statusSelector[data-toggle="popover"]').popover({
+
     placement: 'bottom',
     content: typeof statusPopoverContent != 'undefined' ? statusPopoverContent : '',
     sanitize:false,
@@ -50,18 +51,31 @@ $('.left-bar-tooltips').tooltip({
 /* ############################################################
                 GESTION DES Color Picker
 ############################################################### */
+function loadColors(){
+    $.ajax({
+        url: config.routes.colors,
+        type:"get",
+        success: function (result) {
+            console.log("colorPicker has loaded");
+            return  result;
+        }
+    });
+}
 
 // ---- Mise en place du color picker avec les données en BDD
 $(".color-picker").colorPick({
-    'initialColor' : '#74b9ff',
-    'palette': [
-        "#000", 
-        "#fff", 
-        "#fff000"
-    ],
+    'palette': loadColors(),
     'onColorSelected': function() {
         this.element.css({'backgroundColor': this.color, 'color': this.color});
     },
-    'paletteLabel': 'Couleur du sprint'
+    'paletteLabel': 'Colors'
+});
+
+  // Mise en input de la valeur Hexa de la couleur sélectionée
+  $(".color-picker").click(function() {
+    var target = $(this).attr('data-target');
+    $(".colorPickButton").click(function() {
+        $(target).val($(this).attr('hexvalue'));
+  })
 });
 

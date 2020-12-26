@@ -24,6 +24,8 @@ class CreateProjectTable extends Migration
                 $table->char('dateCloture', 8)->nullable()->default('NULL');
                 $table->integer('fk_user_cloture')->nullable()->unsigned();
                 $table->foreign('fk_user_cloture')->references('users')->on('id')->onDelete('set null');
+                $table->timestamp('created_at')->nullable();
+                $table->timestamp('updated_at')->nullable();
             });
         }
     }
