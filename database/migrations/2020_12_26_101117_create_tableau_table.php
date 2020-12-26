@@ -23,6 +23,7 @@ class CreateTableauTable extends Migration
             $table->char('dateCloture', 8)->nullable()->default('NULL');
             $table->integer('fk_user_cloture')->unsigned()->nullable();
             $table->foreign('fk_user_cloture')->nullable()->references('id')->on('users');
+            $table->string('description', 500)->nullable()->default('NULL');
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
         });

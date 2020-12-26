@@ -19,6 +19,11 @@
                     </div>
 
                     <div class="form-group">
+                        <label>description</label>
+                        <textarea class="form-control" name="description" maxlength="500"></textarea>
+                    </div>
+
+                    <div class="form-group">
                         <label>Couleur</label>
                         <div class="color-picker" data-target="#inputPicker"></div>
                         <input type="hidden" id="inputPicker" name="hexaColor" value="">

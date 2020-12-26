@@ -19,6 +19,7 @@ class ProjectController extends Controller
     {
         $validate = $request->validate([
             'projectName' => 'required|max:100',
+            'description' => 'max:500',
             'hexaColor' => 'required|max:10'
         ]);
 
@@ -30,6 +31,7 @@ class ProjectController extends Controller
         // Put User as owner
         $project = new Project();
         $project->libelle = $request->input('projectName');
+        $project->description = $request->input('description');
         $project->fk_user = Auth::id();
         $project->fk_color = $color->id;
         $project->save();
