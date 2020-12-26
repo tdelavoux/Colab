@@ -14,6 +14,6 @@ class BoardTeamController extends Controller
     
     public function execute($fkBoard)
     {
-        return view('AppsViews.teamView.teamboard');
+        return view('AppsViews.boards.teamView.teamboard');
     }
 }

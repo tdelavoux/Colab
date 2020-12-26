@@ -191,9 +191,9 @@
    
 </div>
 
-@include('AppsViews.scrumview.scrumPartials._modaleAssignUser')
-@include('AppsViews.scrumview.scrumPartials._modaleReorgScrumLine')
-@include('AppsViews.scrumview.scrumPartials._modaleScrumSprint')
+@include('AppsViews.boards.scrumview.scrumPartials._modaleAssignUser')
+@include('AppsViews.boards.scrumview.scrumPartials._modaleReorgScrumLine')
+@include('AppsViews.boards.scrumview.scrumPartials._modaleScrumSprint')
 
 <script>
     var statusPopoverContent = '<a class="btn BtnSelector sprint-table-col-std" style="color:#fff; background-color:#929292;">Libelle2</a>';

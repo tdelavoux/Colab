@@ -14,6 +14,6 @@ class BoardWikiController extends Controller
     
     public function execute($fkBoard)
     {
-        return view('AppsViews.wikiview.wikiboard');
+        return view('AppsViews.boards.wikiview.wikiboard');
     }
 }

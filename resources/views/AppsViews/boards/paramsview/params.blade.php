@@ -5,20 +5,20 @@
 @section('content')
 <div id="content-page" class="content-page-inline option-content-page">
 
-    @include('AppsViews.paramsview.ParamsPartials._paramsMenu')
+    @include('AppsViews.boards.paramsview.ParamsPartials._paramsMenu')
 
     @switch($tab)
         @case('fields')
-            @include('AppsViews.paramsview.ParamsPartials._paramsFields')
+            @include('AppsViews.boards.paramsview.ParamsPartials._paramsFields')
             @break
         @case('access')
-            @include('AppsViews.paramsview.ParamsPartials._paramsAccess')
+            @include('AppsViews.boards.paramsview.ParamsPartials._paramsAccess')
             @break
         @case('mods')
-            @include('AppsViews.paramsview.ParamsPartials._paramsModules')
+            @include('AppsViews.boards.paramsview.ParamsPartials._paramsModules')
             @break
         @default
-            @include('AppsViews.paramsview.ParamsPartials._paramsGeneral')
+            @include('AppsViews.boards.paramsview.ParamsPartials._paramsGeneral')
             @break
     @endswitch
 </div>

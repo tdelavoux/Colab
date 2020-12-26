@@ -14,6 +14,6 @@ class BoardBugsController extends Controller
     
     public function execute($fkBoard)
     {
-        return view('AppsViews.bugsView.bugsboard');
+        return view('AppsViews.boards.bugsView.bugsboard');
     }
 }

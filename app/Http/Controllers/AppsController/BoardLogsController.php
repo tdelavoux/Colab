@@ -14,6 +14,6 @@ class BoardLogsController extends Controller
     
     public function execute($fkBoard)
     {
-        return view('AppsViews.logsView.logsboard');
+        return view('AppsViews.boards.logsView.logsboard');
     }
 }

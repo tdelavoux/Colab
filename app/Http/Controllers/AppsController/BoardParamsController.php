@@ -13,7 +13,7 @@ class  BoardParamsController extends Controller
     }
     
     public function execute($Tab, $fkBoard){
-        return view('AppsViews.paramsview.params')->with('tab', $Tab);
+        return view('AppsViews.boards.paramsview.params')->with('tab', $Tab);
     }
 
 }

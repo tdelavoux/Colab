@@ -5,8 +5,8 @@
 @section('content')
 <div id="content-page" class="content-page-inline option-content-page">
 
-    @include('AppsViews.wikiview.WikiPartials._wikiSide')
-    @include('AppsViews.wikiview.WikiPartials._wikiContent')
+    @include('AppsViews.boards.wikiview.WikiPartials._wikiSide')
+    @include('AppsViews.boards.wikiview.WikiPartials._wikiContent')
 
 </div>
 @stop

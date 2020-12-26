@@ -14,6 +14,6 @@ class BoardChatController extends Controller
     
     public function execute($fkBoard)
     {
-        return view('AppsViews.chatView.chatboard');
+        return view('AppsViews.boards.chatView.chatboard');
     }
 }

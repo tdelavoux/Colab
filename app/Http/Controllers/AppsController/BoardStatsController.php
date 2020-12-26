@@ -14,6 +14,6 @@ class BoardStatsController extends Controller
     
     public function execute($fkBoard)
     {
-        return view('AppsViews.statsView.statsboard');
+        return view('AppsViews.boards.statsView.statsboard');
     }
 }

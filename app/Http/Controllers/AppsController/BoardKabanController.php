@@ -14,6 +14,6 @@ class BoardKabanController extends Controller
     
     public function execute($fkBoard)
     {
-        return view('AppsViews.kabanview.kabanboard');
+        return view('AppsViews.boards.kabanview.kabanboard');
     }
 }
