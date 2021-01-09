@@ -20,7 +20,7 @@
 
                     <div class="form-group">
                         <label>description</label>
-                        <textarea class="form-control" name="description" maxlength="500"></textarea>
+                        <textarea class="form-control limited-area" name="description" maxlength="500"></textarea>
                     </div>
 
                     <div class="form-group">

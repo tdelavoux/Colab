@@ -47,6 +47,21 @@ $('.left-bar-tooltips').tooltip({
     trigger : 'hover'
 });
 
+/* ############################################################
+                GESTION DES Textarea
+############################################################### */
+$('.limited-area').each(function(){
+    var id =  Math.floor(Math.random() * 26) + Date.now() ;
+    $(this).attr('data-id',  '#' + id);
+    $(this).after('<span id="'+ id + '" class="small-text"></span>');
+});
+$('.limited-area').keyup(function(){
+    var max = $(this).attr('maxlength') ? parseInt($(this).attr('maxlength')) : 500;
+    $($(this).attr('data-id')).html((max - $(this).val().length) + ' caractères restants');
+});
+$('.limited-area').trigger('keyup');
+
+
 
 /* ############################################################
                 GESTION DES Color Picker

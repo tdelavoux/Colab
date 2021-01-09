@@ -158,6 +158,13 @@ nav{padding:0.2em !important; }
 .dashboard-empty-img{margin: 0 1em;}
 .btn-line-right{width:100%; text-align: right;}
 
+.project-card{margin:1em; padding:0.5em 1em; border:solid 1px #c4c4c4; min-height: 100px; max-height: 200px; display:flex; flex-direction: column;}
+.project-card-header{display:flex;margin: 0.5em;}
+.project-card-header span{font-size:20px;}
+.project-card-header-color-bloc{width:30px;height:30px;border-radius: 10px;margin: 0 0.5em;}
+.project-card-body{font-size: 14px; color:#929292;margin: 0.5em; flex:1; overflow-y:hidden;}
+.project-card-footer{margin: 0.5em;font-size: 12px; color:#929292;}
+
 /* ######################### MES PROJETS #################################### */
 
 .myprojects-title{background-color:#EBEBEB;display:flex; padding:0.5em 1em; justify-content: space-between;}
