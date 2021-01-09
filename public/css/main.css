@@ -116,8 +116,6 @@ h4{color: #8fa2bf; padding: 0.5em;}
 .prohect-map-title a{color:#828282;}
 .prohect-map-title a:hover{color:#828282;text-decoration: underline;}
 
-
-
 /*
     COLOR SHEME
     #CE7A77 -- top red
@@ -165,6 +163,10 @@ nav{padding:0.2em !important; }
 .myprojects-title{background-color:#EBEBEB;display:flex; padding:0.5em 1em; justify-content: space-between;}
 .myprojects-title h4{font-weight: lighter; padding: 0;}
 .dashboard-project-bio{color:#929292;font-size:15px;margin-bottom: 0;max-width:100%}
+
+.empty-line-bloc{display:flex; flex-direction:column; justify-content: center; align-items: center;}
+.empty-line-bloc img{max-width: 300px;}
+.empty-line-bloc-text{display:flex; flex-direction:column;justify-content: center; align-items: center;}
 
 /* ######################### USER PROFIL #################################### */
 
@@ -348,104 +350,6 @@ nav{padding:0.2em !important; }
 .color-picker:hover {	transform: scale(1.1);}
 .color-project-preview{width:100px;height:100px; margin-top: 1em;}
 
-
-/* ######################## CARTES DES PROJETS ############################### */
-
-.card.card-projet {
-    width:100%;
-    height: 150px;
-    background-color: #fff;
-    background: linear-gradient(#f8f8f8, #fff);
-    box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
-    border-radius: 6px;
-    position: relative;
-    margin: 1.5rem;
-}
-
-.card-projet .project-cards-title {
-  font-size:20px;
-  font-weight: bold;
-}
-
-.card-projet .additional {
-  position: absolute;
-  width: 50px;
-  height: 100%;
-  background: linear-gradient(#dE685E, #EE786E);
-  transition: width 0.4s;
-  overflow: hidden;
-  z-index: 2;
-}
-
-.card-projet.green .additional {
-  background: linear-gradient(#92bCa6, #A2CCB6) !important;
-}
-
-.card-projet:hover .additional {
-  width: 100%;
-  border-radius: 0 5px 5px 0;
-}
-
-.card-projet .additional .more-info {
-  width: 4000px;
-  float: left;
-  position: absolute;
-  left: 75px;
-  height: 100%;
-}
-
-.card-projet .additional .more-info .project-cards-title {
-  color: #fff;
-  margin-bottom: 0;
-}
-
-.card-projet .additional .stats {
-  font-size: 1rem;
-  display: flex;
-  justify-content: start;
-  position: absolute;
-  bottom: 1rem;
-  width: 100%;
-  top: auto;
-  color: #fff;
-}
-
-.card-projet .additional .stats > div {
-  margin-right:  1em;
-  text-align: center;
-}
-
-.card-projet .additional .stats i {
-  display: block;
-}
-
-.card-projet .additional .stats div.title {
-  font-size: 0.75rem;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.card-projet .additional .stats div.value {
-  font-size: 1.5rem;
-  font-weight: bold;
-  line-height: 1.5rem;
-}
-
-.card-projet .additional .stats div.value.infinity {
-  font-size: 2.5rem;
-}
-
-.card-projet .general {
-  width: calc(100% - 50px);
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 50px;
-  z-index: 1;
-  box-sizing: border-box;
-  padding: 1rem;
-  padding-top: 0;
-}
 
 /* ###################### INPUTS ##############################*/
 /* on off button */

@@ -22,9 +22,7 @@ class ProjectController extends Controller
             'description' => 'max:500',
             'hexaColor' => 'required|max:10'
         ]);
-
-        // TODO inserer en BDD
-
+        
         //Get color
         $color = Color::where('hexaCode', $request->hexaColor)->first();
 

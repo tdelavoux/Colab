@@ -10,28 +10,25 @@
                 <h4>Mes Projets</h4>
                 <button class="btn btn-info btn-sm"  data-toggle="modal" data-target="#addProject">Créer un projet</button>
             </div>
+
+            @forelse  ($projects as $projet)
+                <div class="dashboard-project-line">
+                    <span class="dashboard-project-square" style="background-color:{{ $projet->hexaCode }}"></span>
+                    <div class="dashboard-project-group">
+                        <label class="dashboard-tache-name">{{ $projet->libelle }}</label>
+                        <span class="dashboard-project-bio">{{ $projet->description }}</span>
+                    </div>
+                </div>
+            @empty
+            <div class="empty-line-bloc">
+                <div class="empty-line-bloc-text">
+                    <h4>Aucun Projet démarré ! </h4>
+                    <p class="small-text">Créez en un dès maintenant pour booster votre productivité</p>
+                </div>
+                <img src="{{url('/img/empty.jpg')}}" class="dashboard-empty-img">
+            </div>
+            @endforelse
             
-            <div class="dashboard-project-line">
-                <span class="dashboard-project-square" style="background-color:#A5ADDC"></span>
-                <div class="dashboard-project-group">
-                    <label class="dashboard-tache-name">Projet 1</label>
-                    <span class="dashboard-project-bio">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
-                </div>
-            </div>
-            <div class="dashboard-project-line">
-                <span class="dashboard-project-square" style="background-color:#D56060"></span>
-                <div class="dashboard-project-group">
-                    <label class="dashboard-tache-name">Projet 2</label>
-                    <span class="dashboard-project-bio">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
-                </div>
-            </div>
-            <div class="dashboard-project-line">
-                <span class="dashboard-project-square" style="background-color:#9CCC9F"></span>
-                <div class="dashboard-project-group">
-                    <label class="dashboard-tache-name">Projet 3</label>
-                    <span class="dashboard-project-bio">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
-                </div>
-            </div>
         </div>
     </div>
 </div>
