@@ -4,6 +4,8 @@ namespace App\Http\Controllers\AppsController;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Tableau;
+use App\Project;
 
 class BoardScrumController extends Controller
 {
@@ -14,7 +16,9 @@ class BoardScrumController extends Controller
     
     public function execute($fkBoard)
     {
-        return view('AppsViews.boards.scrumview.scrumboard');
+        $board = Tableau::find($fkBoard);
+        $project = Project::find($board['fk_projet']);
+        return view('AppsViews.boards.scrumview.scrumboard')->with('board', $board)->with('project', $project);
     }
 
     public function getEmptyLine(){

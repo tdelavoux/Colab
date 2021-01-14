@@ -35,13 +35,14 @@ class ProjectController extends Controller
         $project->fk_color = $color->id;
         $project->save();
 
-        return redirect()->route('myprojects')->with('confirmMessage', 'Le projet à été créé');
+        return redirect(url()->previous())->with('confirmMessage', 'Le projet à été créé');
     }
 
     public function showOverview($fkProject){
 
         $project = Project::find($fkProject);
-        $tables = Tableau::where('fk_projet', $fkProject)->get();
+        $tables = Tableau::selectRaw('tableau.*, color.hexaCode')->join('color', 'color.id', '=', 'tableau.fk_color')
+            ->where('fk_user_cloture', null)->where('fk_projet', $fkProject)->get();
 
         return view('AppsViews.project.overview')
                     ->with('project', $project)

@@ -51,6 +51,9 @@ Route::group(['prefix' => 'projects'], function(){
 
 /* --------------------- PROJECTS BOARDS -------------------------------------------------------- */
 Route::group(['prefix' => 'board'], function(){
+    Route::post('createBoard', 'AppsController\BoardController@createBoard')->name('board.createBoard');
+
+
     Route::get('wikiView/{fkBoard}', 'AppsController\BoardWikiController@execute')->name('wiki.view');
     Route::get('kabanView/{fkBoard}', 'AppsController\BoardKabanController@execute')->name('kaban.view');
     Route::get('BugsView/{fkBoard}', 'AppsController\BoardBugsController@execute')->name('bugs.view');

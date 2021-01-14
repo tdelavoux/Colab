@@ -95,6 +95,8 @@ $(".color-picker").click(function() {
     $(".colorPickButton").click(function() {
         $(target).val($(this).attr('hexvalue'));
     });
-  $($(this).attr('data-target')).val(1);
+});
+$(".color-picker").each(function(){
+    $($(this).attr('data-target')).val('#55efc4');
 });
 
