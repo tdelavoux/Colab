@@ -67,12 +67,14 @@ $('.limited-area').trigger('keyup');
                 GESTION DES Color Picker
 ############################################################### */
 function loadColors(){
+    var res = null;
     $.ajax({
         url: config.routes.colors,
+        'async': false,
         type:"get",
         success: function (result) {
             console.log("colorPicker has loaded");
-            return  result;
+           return result;
         }
     });
 }
@@ -80,6 +82,7 @@ function loadColors(){
 // ---- Mise en place du color picker avec les données en BDD
 $(".color-picker").colorPick({
     'palette': loadColors(),
+    'initialColor' : '#55efc4',
     'onColorSelected': function() {
         this.element.css({'backgroundColor': this.color, 'color': this.color});
     },
@@ -87,10 +90,11 @@ $(".color-picker").colorPick({
 });
 
   // Mise en input de la valeur Hexa de la couleur sélectionée
-  $(".color-picker").click(function() {
+$(".color-picker").click(function() {
     var target = $(this).attr('data-target');
     $(".colorPickButton").click(function() {
         $(target).val($(this).attr('hexvalue'));
-  })
+    });
+  $($(this).attr('data-target')).val(1);
 });
 

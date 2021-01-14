@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Color;
 use App\Project;
+use App\Tableau;
 
 class ProjectController extends Controller
 {
@@ -35,5 +36,15 @@ class ProjectController extends Controller
         $project->save();
 
         return redirect()->route('myprojects')->with('confirmMessage', 'Le projet à été créé');
+    }
+
+    public function showOverview($fkProject){
+
+        $project = Project::find($fkProject);
+        $tables = Tableau::where('fk_projet', $fkProject)->get();
+
+        return view('AppsViews.project.overview')
+                    ->with('project', $project)
+                    ->with('tables', $tables);
     }
 }

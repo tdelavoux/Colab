@@ -15,7 +15,7 @@
                 <div class="dashboard-project-line">
                     <span class="dashboard-project-square" style="background-color:{{ $projet->hexaCode }}"></span>
                     <div class="dashboard-project-group">
-                        <label class="dashboard-tache-name">{{ $projet->libelle }}</label>
+                        <a href="{{route('project.overview', $projet->id) }}" class="dashboard-tache-name">{{ $projet->libelle }}</a>
                         <span class="dashboard-project-bio">{{ $projet->description }}</span>
                     </div>
                 </div>

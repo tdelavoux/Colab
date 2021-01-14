@@ -34,7 +34,6 @@ Route::get('search', 'AppsController\RechercheController@execute')->name('search
 /* --------------------- MY PROJECTS -------------------------------------------------------- */
 Route::get('myprojects', 'AppsController\MesProjetsController@execute')->name('myprojects');
 
-
 /* --------------------- USER INFOS -------------------------------------------------------- */
 Route::group(['prefix' => 'userprofile'], function(){
     Route::get('userProfile/{Tab}', 'AppsController\UserProfilController@execute')->name('user.personalInfos');
@@ -46,7 +45,8 @@ Route::group(['prefix' => 'userprofile'], function(){
 
 /* --------------------- PROJECTS BOARDS -------------------------------------------------------- */
 Route::group(['prefix' => 'projects'], function(){
-    Route::post('project/createProject', 'AppsController\ProjectController@createProject')->name('project.createProject');
+    Route::post('createProject', 'AppsController\ProjectController@createProject')->name('project.createProject');
+    Route::get('overview/{fkProject}', 'AppsController\ProjectController@showOverview')->name('project.overview');
 });
 
 /* --------------------- PROJECTS BOARDS -------------------------------------------------------- */
