@@ -14,10 +14,11 @@
         <a class="nav-link-left left-bar-tooltips" data-toggle="tooltip" title="Chat" href="{{route('chat.view',$board['id']) }}"><i class="fas fa-comment-dots"></i></a>
         <a class="nav-link-left left-bar-tooltips" data-toggle="tooltip" title="Statistiques" href="{{route('stats.view',$board['id']) }}"><i class="fas fa-chart-bar"></i></a>
         <a class="nav-link-left left-bar-tooltips" data-toggle="tooltip" title="Equipes" href="{{route('team.view',$board['id']) }}"><i class="fas fa-users"></i></a>
+        <a class="nav-link-left left-bar-tooltips" data-toggle="tooltip" title="Paramètres" href="{{route('params.view', ['general', $board['id']]) }}"><i class="fas fa-cogs"></i></a>
     @endisset
 
-    @isset ($project)
-        <a class="nav-link-left left-bar-tooltips" data-toggle="tooltip" title="Paramètres" href="{{route('params.view', ['general', $project['id']]) }}"><i class="fas fa-cogs"></i></a>
-    @endisset
+    {{-- @isset ($project)
+        <a class="nav-link-left left-bar-tooltips" data-toggle="tooltip" title="Paramètres" href="{{route('params.view', ['general', $board['id']]) }}"><i class="fas fa-cogs"></i></a>
+    @endisset --}}
     
 </div>

@@ -4,6 +4,9 @@ namespace App\Http\Controllers\AppsController;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Tableau;
+use App\Project;
+
 
 class BoardTeamController extends Controller
 {
@@ -14,6 +17,8 @@ class BoardTeamController extends Controller
     
     public function execute($fkBoard)
     {
-        return view('AppsViews.boards.teamView.teamboard');
+        $board = Tableau::find($fkBoard);
+        $project = Project::find($board['fk_projet']);
+        return view('AppsViews.boards.teamView.teamboard')->with('board', $board)->with('project', $project);
     }
 }

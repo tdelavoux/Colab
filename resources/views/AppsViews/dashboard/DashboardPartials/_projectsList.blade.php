@@ -1,7 +1,7 @@
 <div class="col-md-12 dashboard-bloc">
     <h2>Mes Projets</h2>
     
-    <div class="row">
+    <div class="row project-card-row">
 
         @forelse ($projects as $projet)
         <a href="{{route('project.overview', $projet['id']) }}" class="col-md-3 project-card">

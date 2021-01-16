@@ -158,7 +158,7 @@ nav{padding:0.2em !important; }
 .dashboard-empty-img{margin: 0 1em;}
 .btn-line-right{width:100%; text-align: right;}
 
-.project-card{margin: 0 0.5em;padding:0;border:solid 1px #c4c4c4; min-height: 100px; max-height: 200px; display:flex;}
+.project-card{margin: 0 0.5em 0.5em 0.5em;padding:0;border:solid 1px #c4c4c4; height: 150px; max-height: 150px; display:flex;}
 .project-card-liseret{width:8px;}
 .project-card-content{ padding:0.5em 1em; display:flex;flex-direction: column; flex:1;}
 .project-card-header{display:flex;margin: 0.5em;}
