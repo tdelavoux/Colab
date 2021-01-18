@@ -5,7 +5,7 @@ namespace App\Http\Controllers\AppsController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use App\Project;
+use App\data\Project;
 
 class DashBoardController extends Controller
 {

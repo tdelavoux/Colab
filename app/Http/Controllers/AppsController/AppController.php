@@ -4,7 +4,7 @@ namespace App\Http\Controllers\AppsController;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Color;
+use App\data\Color;
 
 class AppController extends Controller
 {

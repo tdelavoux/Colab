@@ -58,7 +58,10 @@ Route::group(['prefix' => 'board'], function(){
     Route::get('kabanView/{fkBoard}', 'AppsController\BoardKabanController@execute')->name('kaban.view');
     Route::get('BugsView/{fkBoard}', 'AppsController\BoardBugsController@execute')->name('bugs.view');
     Route::get('TeamView/{fkBoard}', 'AppsController\BoardTeamController@execute')->name('team.view');
+
     Route::get('ChatView/{fkBoard}', 'AppsController\BoardChatController@execute')->name('chat.view');
+    Route::post('ChatView/postMessage', 'AppsController\BoardChatController@postMessage')->name('chat.postMessage');
+
     Route::get('LogsView/{fkBoard}', 'AppsController\BoardLogsController@execute')->name('logs.view');
     Route::get('ParamsView/{Tab}/{fkBoard}', 'AppsController\BoardParamsController@execute')->name('params.view');
     Route::get('StatsView/{fkBoard}', 'AppsController\BoardStatsController@execute')->name('stats.view');

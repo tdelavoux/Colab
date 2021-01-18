@@ -5,9 +5,9 @@ namespace App\Http\Controllers\AppsController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use App\Color;
-use App\Project;
-use App\Tableau;
+use App\data\Color;
+use App\data\Project;
+use App\data\Tableau;
 
 class ProjectController extends Controller
 {

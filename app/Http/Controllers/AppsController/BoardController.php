@@ -4,9 +4,10 @@ namespace App\Http\Controllers\AppsController;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use \App\Project;
-use \App\Tableau;
-use \App\Color;
+use \App\data\Project;
+use \App\data\Tableau;
+use \App\data\Color;
+use \App\data\chat\ChatRoom;
 
 class BoardController extends Controller
 {
@@ -33,6 +34,11 @@ class BoardController extends Controller
         $board->fk_projet     = $request->input('fkProject');
         $board->fk_color      = $color->id;
         $board->save();
+
+        // ----  Initialise the components of project
+        $chat_room = new ChatRoom();
+        $chat_room->fk_tableau = $board->id; 
+        $chat_room->save();
 
         return redirect(url()->previous())->with('confirmMessage', 'Le Tableau à été créé');
     }

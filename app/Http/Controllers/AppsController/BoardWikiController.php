@@ -4,8 +4,8 @@ namespace App\Http\Controllers\AppsController;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Tableau;
-use App\Project;
+use App\data\Tableau;
+use App\data\Project;
 
 class BoardWikiController extends Controller
 {

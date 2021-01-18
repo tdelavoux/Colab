@@ -4,7 +4,7 @@ namespace App\Http\Controllers\AppsController;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Project;
+use App\data\Project;
 use Illuminate\Support\Facades\Auth;
 
 class MesProjetsController extends Controller

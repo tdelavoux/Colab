@@ -4,21 +4,30 @@
 
 @section('content')
 <div id="content-page">
-    <h1 class="prohect-map-title"><i class="fas fa-sitemap"></i><a href="#">Projet 1</a> / <a href="#">Sous Projet 1</a> / <a href="#" style="color:#546bc7">Tableau</a></h1>
+    <h1 class="prohect-map-title"><i class="fas fa-sitemap"></i><a href="">{{$project['libelle']}}</a> / <a href="#">{{$board['libelle']}}</a> / <a style="color:#546bc7">Chat</a></h1>
     
     <hr>
 
     <div class="container">
 
         <!---------------- ZONE DE POST ----------------------------->
-        <div class="row">
-            <div class="chat-express-bloc jumbotron col-md-12">
-                <textarea class="form-control" placeholder="Partager une pensée, une question, un document"></textarea>
-                <div class="btn-line-right">
-                    <button class="btn btn-primary btn-sm mt-05"><i class="far fa-paper-plane"></i>Partager</button>
+        <form action="{{ route('chat.postMessage') }}" method="POST">
+            @csrf
+            <input name="fkChatRoom" value="{{ $chatRoom['id'] }}" type="hidden">
+            <div class="row">
+                <div class="chat-express-bloc jumbotron col-md-12">
+                    <textarea class="form-control limited-area" maxlength="1000" placeholder="Partager une pensée, une question, un document" name="messagePost"></textarea>
+                    <div class="icons-line-post">
+                        <button class="btn link"><i class="far fa-image image-color"></i></button>
+                        <button class="btn link"><i class="fas fa-paperclip"></i></button>
+                        <button class="btn link"><i class="fas fa-user-tag"></i></button>
+                    </div>
+                    <div class="btn-line-right">
+                        <button type="submit" class="btn btn-primary btn-sm mt-05"><i class="far fa-paper-plane"></i>Partager</button>
+                    </div>
                 </div>
             </div>
-        </div>
+        </form>
         <!---------------- FIN ZONE DE POST ------------------------->
     
         <!---------------- ZONE DE CHAT ----------------------------->
