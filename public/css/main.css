@@ -300,6 +300,7 @@ nav{padding:0.2em !important; }
 .chat-card-timer{font-size:12px;color:#929292;}
 .chat-card .card-body{padding-top: 0.2em;}
 .card-body{display:flex; flex-direction: column;}
+.chat-card-post{padding: 1em 0;}
 .card-body-media{padding:0;}
 .chat-reponses{padding-left: 1em;}
 .chat-media-btn-line{display:flex; justify-content: flex-end;}
@@ -307,7 +308,7 @@ nav{padding:0.2em !important; }
 .card-body-media-answer-line{margin-top:0.5em;display:flex;}
 .card-body-media-answer-line-text{flex:1;margin-left:0.5em;}
 .chat-answer-user-name{margin:0 !important;}
-.likes-message{color:#5d8bd1 !important;font-size:12px;}
+.likes-message{color:#5d8bd1 !important;font-size:12px; width:max-content;}
 
 /* ---------------- TEAMS ------------------------------ */
 

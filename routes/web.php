@@ -61,6 +61,9 @@ Route::group(['prefix' => 'board'], function(){
 
     Route::get('ChatView/{fkBoard}', 'AppsController\BoardChatController@execute')->name('chat.view');
     Route::post('ChatView/postMessage', 'AppsController\BoardChatController@postMessage')->name('chat.postMessage');
+    Route::post('ChatView/replyMessage', 'AppsController\BoardChatController@replyMessage')->name('chat.replyMessage');
+    Route::post('ChatView/likePost', 'AppsController\BoardChatController@likePost')->name('chat.likePost');
+    Route::post('ChatView/likePostReply', 'AppsController\BoardChatController@likePostReply')->name('chat.likePostReply');
 
     Route::get('LogsView/{fkBoard}', 'AppsController\BoardLogsController@execute')->name('logs.view');
     Route::get('ParamsView/{Tab}/{fkBoard}', 'AppsController\BoardParamsController@execute')->name('params.view');
