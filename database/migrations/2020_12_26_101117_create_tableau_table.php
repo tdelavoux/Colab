@@ -21,7 +21,7 @@ class CreateTableauTable extends Migration
                 $table->foreign('fk_projet')->references('id')->on('projet');
                 $table->integer('fk_color')->unsigned();
                 $table->foreign('fk_color')->references('id')->on('color');
-                $table->char('dateCloture', 8)->nullable()->default('NULL');
+                $table->timestamp('dateCloture')->nullable();
                 $table->integer('fk_user_cloture')->unsigned()->nullable();
                 $table->foreign('fk_user_cloture')->nullable()->references('id')->on('users');
                 $table->string('description', 500)->nullable()->default('NULL');

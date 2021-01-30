@@ -83,4 +83,3 @@
     $(document).ready(function() {
         $('.img-picker').imagePicker({name: 'images'});
     });
-

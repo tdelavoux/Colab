@@ -19,7 +19,7 @@ class CreateChatRoomTable extends Migration
                 $table->string('libelle', 200)->default('default');
                 $table->integer('fk_tableau')->unsigned();
                 $table->foreign('fk_tableau')->references('id')->on('tableau');
-                $table->char('dateCloture', 8)->nullable()->default('NULL');
+                $table->timestamp('dateCloture')->nullable();
                 $table->integer('fk_user_cloture')->unsigned()->nullable();
                 $table->foreign('fk_user_cloture')->nullable()->references('id')->on('users');
                 $table->timestamp('created_at')->nullable();

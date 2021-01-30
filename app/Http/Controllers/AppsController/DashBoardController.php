@@ -17,7 +17,7 @@ class DashBoardController extends Controller
     public function execute(){
 
         $projects = Project::selectRaw('project.*, color.hexaCode')->join('color', 'color.id', '=', 'project.fk_color')
-                    ->where('fk_user_cloture', null)->where('fk_user', Auth::id())->get();
+                    ->whereNull('fk_user_cloture')->where('fk_user', Auth::id())->get();
 
         return view('AppsViews.dashboard.dashboard')->with('projects', $projects);
     }

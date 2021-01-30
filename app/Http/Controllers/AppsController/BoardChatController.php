@@ -13,9 +13,13 @@ use App\data\chat\ChatPost;
 use App\data\chat\ChatPostReply;
 use App\data\chat\ChatPostLike;
 use App\data\chat\ChatPostReplyLike;
+use App\data\chat\ChatPostAttachment;
 
 class BoardChatController extends Controller
 {
+
+    const IMG_TYPES = array('jpg', 'png', 'gif', 'jpeg');
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -36,6 +40,7 @@ class BoardChatController extends Controller
 
     public function postMessage(Request $request){
 
+
         $validate = $request->validate([
             'fkChatRoom' => 'required|exists:chat_room,id',
             'messagePost' => 'required|max:1000'
@@ -46,6 +51,28 @@ class BoardChatController extends Controller
         $chat_post->libelle = $request->input('messagePost');
         $chat_post->fk_user = Auth::id();
         $chat_post->save();
+
+        $destinationPathImage = env('DIRPOSTIMG');
+        $destinationPathFiles = env('DIRPOSTFILES');
+        foreach($request->allFiles() as $file){
+
+            $post_attachment = new ChatPostAttachment();
+            $post_attachment->fk_chat_post = $chat_post->id;
+
+            if(in_array($file->getClientOriginalExtension(), self::IMG_TYPES)){
+                $name = $chat_post->id . '_' . uniqid() .'.'.$file->getClientOriginalExtension();
+                $file->move($destinationPathImage, $name);
+                $post_attachment->type_attachment = 'IMG';
+            }else{
+                $name = $chat_post->id . '_' . $file->getClientOriginalName();
+                $file->move($destinationPathFiles, $name);
+                $post_attachment->type_attachment = 'FIL';
+            }
+            $post_attachment->attachment = $name;
+            $post_attachment->save();
+            
+
+        }
 
         $chatRoom = ChatRoom::find($chat_post->fk_chat_room);
         $board = Tableau::find($chatRoom->fk_tableau);

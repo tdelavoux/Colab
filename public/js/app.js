@@ -100,3 +100,4 @@ $(".color-picker").each(function(){
     $($(this).attr('data-target')).val('#55efc4');
 });
 
+

@@ -21,7 +21,7 @@ class CreateChatPostTable extends Migration
                 $table->foreign('fk_chat_room')->references('id')->on('chat_room');
                 $table->integer('fk_user')->unsigned();
                 $table->foreign('fk_user')->references('id')->on('users');
-                $table->char('dateCloture', 8)->nullable()->default('NULL');
+                $table->timestamp('dateCloture')->nullable();
                 $table->integer('fk_user_cloture')->unsigned()->nullable();
                 $table->foreign('fk_user_cloture')->nullable()->references('id')->on('users');
                 $table->timestamp('created_at')->nullable();

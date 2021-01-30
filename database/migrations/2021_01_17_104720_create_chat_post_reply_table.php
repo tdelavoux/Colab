@@ -21,7 +21,7 @@ class CreateChatPostReplyTable extends Migration
                 $table->integer('fk_user')->unsigned();
                 $table->foreign('fk_user')->references('id')->on('users');
                 $table->string('reply', 500);
-                $table->char('dateCloture', 8)->nullable()->default('NULL');
+                $table->timestamp('dateCloture')->nullable();
                 $table->integer('fk_user_cloture')->unsigned()->nullable();
                 $table->foreign('fk_user_cloture')->nullable()->references('id')->on('users');
                 $table->timestamp('created_at')->nullable();

@@ -104,7 +104,7 @@ i{margin:0 0.5em;}
 .pb-2{padding-bottom:2em !important;}
 .pb-1{padding-bottom:1em !important;}
 .pb-05{padding-bottom:0.5em !important;}
-
+.flexy{display:flex;align-items:center;}
 .italic{font-style: italic;}
 
 label{font-weight:bold; color:#929292}
@@ -309,6 +309,12 @@ nav{padding:0.2em !important; }
 .card-body-media-answer-line-text{flex:1;margin-left:0.5em;}
 .chat-answer-user-name{margin:0 !important;}
 .likes-message{color:#5d8bd1 !important;font-size:12px; width:max-content;}
+.img-chat-preview{width:300px;}
+.file-row{margin:0;}
+#img-picker-row{padding: 0.2em 0;}
+#document-picker-row{display:flex;flex-direction: column;}
+.files-preview{display:flex;flex-direction: column; margin-top:0.5em;}
+.file-name-display, .file-name-remove{color:#5E5E5E;font-size: 13px;}
 
 /* ---------------- TEAMS ------------------------------ */
 
@@ -369,3 +375,32 @@ nav{padding:0.2em !important; }
 .btn-default.btn-on.active{background-color: #5BB75B;color: white;}
 .btn-default.btn-off.active{background-color: #DA4F49;color: white;}
 .radio-selector{display: none;}
+
+
+/* ############################## Files Picker ##############################*/
+.img-picker{ height: 100px; width:100px;}
+
+/* Bouton d'ajout */
+.img-upload-btn {  position: relative;  overflow: hidden;  padding-top: 95%; color: #333; background-color:#fff; border-color:#ccc;} 
+.img-upload-btn:hover {  background-color:#b0b0b0;} 
+.img-upload-btn input[type=file], .file-upload-btn input[type=file]{ position: absolute; top: 0; right: 0; min-width: 100%; min-height: 100%; font-size: 100px; text-align: right; filter: alpha(opacity=0);
+    opacity: 0; outline: none; background: white;  cursor: inherit;  display: block; } 
+.file-upload-btn{margin-top:0.5em;}
+
+/* Bouton d'ajout */
+.img-upload-btn {  position: relative;  overflow: hidden; color:#5e5d5d} 
+.img-upload-btn input[type=file] { position: absolute; top: 0; right: 0; text-align: right; filter: alpha(opacity=0);
+    opacity: 0; outline: none;  cursor: inherit;  display: block; } 
+.img-upload-btn i {  position: absolute;height: 16px; width: 16px;top: 50%; left: 50%;margin-top: -8px;margin-left: -8px;}
+.img-picker-body{margin: 2em 0}
+.input-file-container {position: relative;width: 225px;} 
+.js .input-file-trigger {display: block;padding: 14px 45px;background: #39D2B4;color: #fff;font-size: 1em;transition: all .4s;cursor: pointer;}
+.js .input-file {position: absolute;top: 0; left: 0;width: 225px;opacity: 0;padding: 14px 0;cursor: pointer;}
+.js .input-file:hover + .input-file-trigger,
+.js .input-file:focus + .input-file-trigger,
+.js .input-file-trigger:hover,
+.js .input-file-trigger:focus { background: #34495E; color: #39D2B4;}
+.file-return {margin: 0;}
+.file-return:not(:empty) {margin: 1em 0;}
+.js .file-return {font-style: italic;font-size: .9em;font-weight: bold;}
+.js .file-return:not(:empty):before {content: "Selected file: ";font-style: normal;font-weight: normal;}

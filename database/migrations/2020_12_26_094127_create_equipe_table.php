@@ -19,7 +19,7 @@ class CreateEquipeTable extends Migration
                 $table->string('libelle', 100);
                 $table->integer('fk_projet')->unsigned();
                 $table->foreign('fk_projet')->references('id')->on('projet');
-                $table->char('dateCloture', 8)->nullable()->default('NULL');
+                $table->timestamp('dateCloture')->nullable();
                 $table->integer('fk_user_cloture')->unsigned()->nullable();
                 $table->foreign('fk_user_cloture')->nullable()->references('id')->on('users');
                 $table->timestamp('created_at')->nullable();

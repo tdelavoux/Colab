@@ -42,7 +42,7 @@ class ProjectController extends Controller
 
         $project = Project::find($fkProject);
         $tables = Tableau::selectRaw('tableau.*, color.hexaCode')->join('color', 'color.id', '=', 'tableau.fk_color')
-            ->where('fk_user_cloture', null)->where('fk_projet', $fkProject)->get();
+            ->whereNull('fk_user_cloture')->where('fk_projet', $fkProject)->get();
 
         return view('AppsViews.project.overview')
                     ->with('project', $project)

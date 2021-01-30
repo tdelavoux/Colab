@@ -5,6 +5,7 @@ namespace App\data\chat;
 use Illuminate\Database\Eloquent\Model;
 use App\data\chat\ChatPostReply;
 use Illuminate\Support\Facades\Auth;
+use App\data\chat\ChatPostAttachment;
 
 
 class ChatPost extends Model
@@ -20,9 +21,11 @@ class ChatPost extends Model
                             ->whereNull('dateCloture')
                             ->get();
         foreach($posts as &$post){
-            $post['replies']    = ChatPostReply::getAllReplyByFkPost($post->id);
-            $post['likes']      = ChatPostLike::getAllLikesByFkPost($post->id);
-            $post['selfLiked']  = ChatPostLike::where('fk_user', Auth::id())->where('fk_chat_post', $post->id)->whereNull('dateCloture')->first() ? 'true' : 'false';
+            $post['replies']        = ChatPostReply::getAllReplyByFkPost($post->id);
+            $post['likes']          = ChatPostLike::getAllLikesByFkPost($post->id);
+            $post['attachImg']      = ChatPostAttachment::getImagesByFkPost($post->id);
+            $post['attachFiles']    = ChatPostAttachment::getFilesByFkPost($post->id);
+            $post['selfLiked']      = ChatPostLike::where('fk_user', Auth::id())->where('fk_chat_post', $post->id)->whereNull('dateCloture')->first() ? 'true' : 'false';
         }
         return $posts;
     }
