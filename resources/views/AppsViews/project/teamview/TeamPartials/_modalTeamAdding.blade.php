@@ -24,12 +24,12 @@
                 </div>
 
                 <div id="showUsers">
-                    <form action="'+ route + '" method="post">
+                    <form action="{{ route('team.addMember') }}" method="post">
                         @csrf
                         <input type="hidden" name="fk_team" value="{{ $fkteam }}" />
                         <input type="hidden" name="fk_user" value="{{ Auth::user()->id }}" />
                         <button  type="submit" class="btn-link user-chating btn-user">
-                            <div class="rounded-circle profile-img-xs admin-target" style="background-image:url('{{ asset(env('DIRUSER')) . '/' . Auth::user()->img }}');background-position: center;background-repeat: no-repeat;background-size: cover;"></div>'+
+                            <div class="rounded-circle profile-img-xs admin-target" style="background-image:url('{{ asset(env('DIRUSER')) . '/' . Auth::user()->img }}');background-position: center;background-repeat: no-repeat;background-size: cover;"></div>
                             <span class="team-user-name"> {{ Auth::user()->name }}  </span>
                         </button>
                     </form>
