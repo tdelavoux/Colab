@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UserTeamProject extends Migration
+class WikiNote extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,17 @@ class UserTeamProject extends Migration
      */
     public function up()
     {
-        if(!Schema::hasTable('user_team_project')){
-            Schema::create('user_team_project', function (Blueprint $table) {
+        if(!Schema::hasTable('wiki_note')){
+            Schema::create('wiki_note', function (Blueprint $table) {
                 $table->id();
-                $table->integer('fk_user')->unsigned();
-                $table->foreign('fk_user')->references('id')->on('users');
-                $table->integer('fk_team_project')->unsigned();
-                $table->foreign('fk_team_project')->references('id')->on('team_project');
+                $table->string('libelle', 50);
+                $table->integer('fk_tableau')->unsigned();
+                $table->foreign('fk_tableau')->references('id')->on('tableau');
                 $table->timestamp('dateCloture')->nullable();
                 $table->integer('fk_user_cloture')->unsigned()->nullable();
                 $table->foreign('fk_user_cloture')->nullable()->references('id')->on('users');
+                $table->timestamp('created_at')->nullable();
+                $table->timestamp('updated_at')->nullable();
             });
         }
     }
@@ -34,6 +35,6 @@ class UserTeamProject extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_team_project');
+        Schema::dropIfExists('wiki_note');
     }
 }
