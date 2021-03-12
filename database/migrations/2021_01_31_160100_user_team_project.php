@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEquipeTable extends Migration
+class UserTeamProject extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,17 @@ class CreateEquipeTable extends Migration
      */
     public function up()
     {
-        if(!Schema::hasTable('equipe')){
-            Schema::create('equipe', function (Blueprint $table) {
+        if(!Schema::hasTable('user_team_project')){
+            Schema::create('user_team_project', function (Blueprint $table) {
                 $table->id();
-                $table->string('libelle', 100);
-                $table->integer('fk_projet')->unsigned();
-                $table->foreign('fk_projet')->references('id')->on('projet');
+                $table->integer('fk_user')->unsigned();
+                $table->foreign('fk_user')->references('id')->on('users');
+                $table->integer('fk_team_project')->unsigned();
+                $table->foreign('fk_team_project')->references('id')->on('team_project');
                 $table->timestamp('dateCloture')->nullable();
                 $table->integer('fk_user_cloture')->unsigned()->nullable();
                 $table->foreign('fk_user_cloture')->nullable()->references('id')->on('users');
-                $table->timestamp('created_at')->nullable();
-                $table->timestamp('updated_at')->nullable();
+                $table->timestamps();
             });
         }
     }
@@ -35,6 +35,6 @@ class CreateEquipeTable extends Migration
      */
     public function down()
     {
-        
+        Schema::dropIfExists('user_team_project');
     }
 }

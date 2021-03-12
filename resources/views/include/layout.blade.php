@@ -31,7 +31,8 @@
         // global app configuration object
         var config = {
             routes: {
-                colors: "{{ route('application.getColors')}}"
+                colors: "{{ route('application.getColors')}}",
+                searchUser: "{{ route('application.searchUser') }}"
             }
         };
     </script>

@@ -13,7 +13,7 @@
         <!---------------- ZONE DE POST ----------------------------->
         <form action="{{ route('chat.postMessage') }}" method="POST"  enctype="multipart/form-data">
             @csrf
-            <input name="fkChatRoom" value="{{ $chatRoom['id'] }}" type="hidden" hidden>
+            <input name="fkChatRoom" value="{{ $chatRoom['id'] }}" type="hidden">
             <div class="row">
                 <div class="chat-express-bloc jumbotron col-md-12">
                     <textarea class="form-control limited-area" maxlength="1000" placeholder="Partager une pensée, une question, un document" name="messagePost"></textarea>

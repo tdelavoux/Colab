@@ -40,7 +40,6 @@ class BoardChatController extends Controller
 
     public function postMessage(Request $request){
 
-
         $validate = $request->validate([
             'fkChatRoom' => 'required|exists:chat_room,id',
             'messagePost' => 'required|max:1000'

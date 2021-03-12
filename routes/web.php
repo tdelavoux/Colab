@@ -47,6 +47,16 @@ Route::group(['prefix' => 'userprofile'], function(){
 Route::group(['prefix' => 'projects'], function(){
     Route::post('createProject', 'AppsController\ProjectController@createProject')->name('project.createProject');
     Route::get('overview/{fkProject}', 'AppsController\ProjectController@showOverview')->name('project.overview');
+
+    /* ------------- Team Managment ------------------- */
+    Route::group(['prefix' => 'TeamView'], function(){
+        Route::post('createTeam', 'AppsController\BoardTeamController@createTeam')->name('team.create');
+        Route::get('{fkProject}', 'AppsController\BoardTeamController@execute')->name('team.view');
+        Route::get('{fkProject}/viewMembers/{fkteam}', 'AppsController\BoardTeamController@viewMembers')->name('team.viewMembers');    
+        Route::post('addMember', 'AppsController\BoardTeamController@addMember')->name('team.addMember');    
+        Route::get('delete/{fkTeamMember}', 'AppsController\BoardTeamController@deleteMember')->name('team.deleteMember');    
+    });
+    
 });
 
 /* --------------------- PROJECTS BOARDS -------------------------------------------------------- */
@@ -57,7 +67,6 @@ Route::group(['prefix' => 'board'], function(){
     Route::get('wikiView/{fkBoard}', 'AppsController\BoardWikiController@execute')->name('wiki.view');
     Route::get('kabanView/{fkBoard}', 'AppsController\BoardKabanController@execute')->name('kaban.view');
     Route::get('BugsView/{fkBoard}', 'AppsController\BoardBugsController@execute')->name('bugs.view');
-    Route::get('TeamView/{fkBoard}', 'AppsController\BoardTeamController@execute')->name('team.view');
 
     Route::get('ChatView/{fkBoard}', 'AppsController\BoardChatController@execute')->name('chat.view');
     Route::post('ChatView/postMessage', 'AppsController\BoardChatController@postMessage')->name('chat.postMessage');
@@ -77,6 +86,7 @@ Route::group(['prefix' => 'board'], function(){
 /* --------------------- Applications Infos -------------------------------------------------------- */
 Route::group(['prefix' => 'Application'], function(){
     Route::get('getColors', 'AppsController\AppController@getColors')->name('application.getColors');
+    Route::post('searchUser', 'AppsController\AppController@searchUser')->name('application.searchUser');
 });
 
  

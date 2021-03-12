@@ -40,7 +40,6 @@ function initListeners(){
             },
             url: $(this).attr('data-target'),
             type:"post",
-            //data:{id:'testouille'},
             success: function (result) {
                 $('#sprints-collum').prepend(result);
             }
