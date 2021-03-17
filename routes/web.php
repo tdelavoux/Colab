@@ -63,24 +63,37 @@ Route::group(['prefix' => 'projects'], function(){
 Route::group(['prefix' => 'board'], function(){
     Route::post('createBoard', 'AppsController\BoardController@createBoard')->name('board.createBoard');
 
+    Route::group(['prefix' => 'wikiView'], function(){
+        Route::get('{fkBoard}', 'AppsController\BoardWikiController@execute')->name('wiki.view');
+        Route::get('{fkBoard}/viewChapter/{fkChapter}', 'AppsController\BoardWikiController@viewChapter')->name('wiki.viewChapter');
+        Route::post('addChapter', 'AppsController\BoardWikiController@addChapter')->name('wiki.addChapter');
+        Route::post('addNote', 'AppsController\BoardWikiController@addNote')->name('wiki.addNote');
+        Route::post('updateNote', 'AppsController\BoardWikiController@updateNote')->name('wiki.updateNote');
+        Route::post('getNoteContent', 'AppsController\BoardWikiController@getNoteContent')->name('wiki.getNoteContent');
+        Route::get('deleteNote/{fkNote}', 'AppsController\BoardWikiController@deleteNote')->name('wiki.deleteNote');
+    });
 
-    Route::get('wikiView/{fkBoard}', 'AppsController\BoardWikiController@execute')->name('wiki.view');
+
     Route::get('kabanView/{fkBoard}', 'AppsController\BoardKabanController@execute')->name('kaban.view');
     Route::get('BugsView/{fkBoard}', 'AppsController\BoardBugsController@execute')->name('bugs.view');
 
-    Route::get('ChatView/{fkBoard}', 'AppsController\BoardChatController@execute')->name('chat.view');
-    Route::post('ChatView/postMessage', 'AppsController\BoardChatController@postMessage')->name('chat.postMessage');
-    Route::post('ChatView/replyMessage', 'AppsController\BoardChatController@replyMessage')->name('chat.replyMessage');
-    Route::post('ChatView/likePost', 'AppsController\BoardChatController@likePost')->name('chat.likePost');
-    Route::post('ChatView/likePostReply', 'AppsController\BoardChatController@likePostReply')->name('chat.likePostReply');
+    Route::group(['prefix' => 'ChatView'], function(){
+        Route::get('{fkBoard}', 'AppsController\BoardChatController@execute')->name('chat.view');
+        Route::post('postMessage', 'AppsController\BoardChatController@postMessage')->name('chat.postMessage');
+        Route::post('replyMessage', 'AppsController\BoardChatController@replyMessage')->name('chat.replyMessage');
+        Route::post('likePost', 'AppsController\BoardChatController@likePost')->name('chat.likePost');
+        Route::post('likePostReply', 'AppsController\BoardChatController@likePostReply')->name('chat.likePostReply');
+    });
 
     Route::get('LogsView/{fkBoard}', 'AppsController\BoardLogsController@execute')->name('logs.view');
     Route::get('ParamsView/{Tab}/{fkBoard}', 'AppsController\BoardParamsController@execute')->name('params.view');
     Route::get('StatsView/{fkBoard}', 'AppsController\BoardStatsController@execute')->name('stats.view');
 
-    Route::get('scrumView/{fkBoard}', 'AppsController\BoardScrumController@execute')->name('scrum.view');
-    Route::post('scrum/getLine', 'AppsController\BoardScrumController@getEmptyLine')->name('scrum.projectLine');
-    Route::post('scrum/getSprint', 'AppsController\BoardScrumController@getEmptySprint')->name('scrum.projectSprint');
+    Route::group(['prefix' => 'scrum'], function(){
+        Route::get('{fkBoard}', 'AppsController\BoardScrumController@execute')->name('scrum.view');
+        Route::post('getLine', 'AppsController\BoardScrumController@getEmptyLine')->name('scrum.projectLine');
+        Route::post('getSprint', 'AppsController\BoardScrumController@getEmptySprint')->name('scrum.projectSprint');
+    });
 });
 
 /* --------------------- Applications Infos -------------------------------------------------------- */

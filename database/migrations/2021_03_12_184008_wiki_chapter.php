@@ -16,11 +16,9 @@ class WikiChapter extends Migration
         if(!Schema::hasTable('wiki_chapter')){
             Schema::create('wiki_chapter', function (Blueprint $table) {
                 $table->id();
-                $table->text('content');
-                $table->integer('fk_user_writer')->unsigned()->nullable();
-                $table->foreign('fk_user_writer')->references('id')->on('users');
-                $table->integer('fk_wiki_chapter')->unsigned();
-                $table->foreign('fk_wiki_chapter')->references('id')->on('wiki_chapter');
+                $table->string('libelle', 50);
+                $table->integer('fk_tableau')->unsigned();
+                $table->foreign('fk_tableau')->references('id')->on('tableau');
                 $table->timestamp('dateCloture')->nullable();
                 $table->integer('fk_user_cloture')->unsigned()->nullable();
                 $table->foreign('fk_user_cloture')->nullable()->references('id')->on('users');

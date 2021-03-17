@@ -16,8 +16,8 @@ class  BoardParamsController extends Controller
     
     public function execute($Tab, $fkBoard){
 
-        $board = Tableau::find($fkBoard);
-        $project = Project::find($board['fk_projet']);
+        $board      = Tableau::find($fkBoard);
+        $project    = Project::find($board['fk_projet']);
         return view('AppsViews.boards.paramsview.params')->with('tab', $Tab)->with('board', $board)->with('project', $project);
     }
 

@@ -3,9 +3,11 @@
 
     <h5 class="bookmark-project-title">{{ $board->libelle }}</h5>
     <ul id="one" class="wiki-menu-list">
-        <li ><a class="option-menu-list-item-link wiki-menu-list-item-link" href="">GENERAL</a></li>
-        <li ><a class="option-menu-list-item-link wiki-menu-list-item-link" href="">MODULES</a></li>
-        <li class="hidden-add-bookmark"><span class="option-menu-list-item-link wiki-menu-list-item-link" href=""><i class="fas fa-bookmark"></i> Nouveau</span></li>
+        @foreach($chapters as $chapter)
+            <li ><a class="option-menu-list-item-link wiki-menu-list-item-link" href="{{ route('wiki.viewChapter', [$board->id, $chapter->id] ) }}">{{ $chapter->libelle }}</a></li>
+        @endforeach
+        
+        <li class="hidden-add-bookmark"><button class="btn option-menu-list-item-link wiki-menu-list-item-link shadow-none" data-toggle="modal" data-target="#chapterAddModal"><i class="fas fa-bookmark"></i> Nouveau</button></li>
 
     </ul>
 
