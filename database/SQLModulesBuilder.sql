@@ -1,0 +1,1 @@
+INSERT INTO team_project_access_tableau(fk_tableau, fk_team_project, visibilty) VALUES (1, 1, 1), (1, 2, 1), (1, 3, 1), (1, 4, 1), (1, 5, 1) 

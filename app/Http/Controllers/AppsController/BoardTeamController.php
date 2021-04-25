@@ -9,6 +9,7 @@ use App\data\Team\UserTeamProject;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use App\data\Project;
+use App\data\Team\TeamProjectAccessTableau;
 use App\User;
 
 
@@ -37,6 +38,9 @@ class BoardTeamController extends Controller
         $team->name = $request->input('teamName');
         $team->fk_project = $request->input('fk_project');
         $team->save();
+
+        //Association des droits sur les projets
+        TeamProjectAccessTableau::initialiseByFkTeam($request->input('fk_project'), $team->id);
         
         return redirect()->route('team.view', ['fkProject' =>  $request->input('fk_project')])->with('confirmMessage', 'Equipe Ajoutée !');
     }
@@ -80,7 +84,6 @@ class BoardTeamController extends Controller
     }
 
     public function deleteMember($fkTeamMember){
-
 
         $tm = UserTeamProject::find($fkTeamMember);
         $tm->dateCloture = Carbon::now();

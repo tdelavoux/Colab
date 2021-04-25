@@ -10,5 +10,25 @@ $('#param-product-owner').click(function(){
 
 });
 
+$('.changeAccess').change(function(){
+    var access          = $(this).val();
+    var route           = $(this).attr('data-route');
+    var fk_team_project = $(this).attr('data-team');
+    var fk_tableau      = $(this).attr('data-tableau');
+    console.log(route);
+    $.ajax({
+        headers: {
+            'X-CSRF-TOKEN': $('input[name="_token"]').val()
+        },
+        url: route,
+        type:"post",
+        data:{access:access, fk_team_project:fk_team_project, fk_tableau:fk_tableau},
+        success: function (result) {
+            if(result === 'OK'){
+                $.notify('Accès mis à jour.', "success");
+            }
+        }
+    });
+});
 
 

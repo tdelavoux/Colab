@@ -1,20 +1,23 @@
 <div class="option-page-body">
     <h2>Informations générales</h2>
     <div class="row">
-        <form class="form-infos col-md-6 p-1">
+        <form class="form-infos col-md-6 p-1"  method="post" action={{ route('params.project.updateGeneral') }}>
+            @csrf
+            <input type="hidden" value="{{ $project->id }}" name="fk_project">
             <div class="form-group">
-                <label><i class="fas fa-pencil-alt"></i>Nom du Tableau / Projet</label>
-                <input type="text" class="form-control" />
+                <label><i class="fas fa-pencil-alt"></i>Nom du Projet</label>
+                <input type="text" class="form-control" name="libelle" value="{{ $project->libelle }}"/>
             </div>
 
             <div class="form-group">
                 <label><i class="fas fa-palette"></i>Couleur du projet</label>
-                <div class="color-picker"></div>
+                <div class="color-picker" data-target="#inputPicker" initialColor="{{ $project->hexaCode }}"></div>
+                <input type="hidden" id="inputPicker" name="hexaColor" value="{{ $project->hexaCode }}">
             </div>
 
             <div class="form-group">
                 <label><i class="far fa-file-alt"></i>Description / objectifs</label>
-                <textarea class="form-control" ></textarea>
+                <textarea class="form-control limited-area" maxlength="500" name="description">{{ $project->description }}</textarea>
             </div>
 
             <div class="form-group">
@@ -32,6 +35,7 @@
         </form>
     </div>
 </div>
+
 
 
 

@@ -5,8 +5,10 @@ namespace App\Http\Controllers\AppsController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use \App\data\Project;
+use App\data\Team\TeamProjectAccessTableau;
 use \App\data\Tableau;
 use \App\data\Color;
+use \App\data\Board\TableauModules;
 use \App\data\chat\ChatRoom;
 
 class BoardController extends Controller
@@ -39,6 +41,10 @@ class BoardController extends Controller
         $chat_room = new ChatRoom();
         $chat_room->fk_tableau = $board->id; 
         $chat_room->save();
+
+        // --- Association des droits sur les projets
+        TeamProjectAccessTableau::initialiseByFkTableau($request->input('fkProject'), $board->id);
+        TableauModules::initialiseBoardMods($board->id);
 
         return redirect(url()->previous())->with('confirmMessage', 'Le Tableau à été créé');
     }

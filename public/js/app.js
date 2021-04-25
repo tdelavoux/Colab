@@ -79,25 +79,29 @@ function loadColors(){
     });
 }
 
-// ---- Mise en place du color picker avec les données en BDD
-$(".color-picker").colorPick({
-    'palette': loadColors(),
-    'initialColor' : '#55efc4',
-    'onColorSelected': function() {
-        this.element.css({'backgroundColor': this.color, 'color': this.color});
-    },
-    'paletteLabel': 'Colors'
-});
-
-  // Mise en input de la valeur Hexa de la couleur sélectionée
-$(".color-picker").click(function() {
-    var target = $(this).attr('data-target');
-    $(".colorPickButton").click(function() {
-        $(target).val($(this).attr('hexvalue'));
+function initColorPickers(){
+    // ---- Mise en place du color picker avec les données en BDD
+    $(".color-picker").each(function(){
+        var initialColor = $(this).attr('initialColor') ? $(this).attr('initialColor') : '#55efc4';
+        $(this).colorPick({
+            'palette': loadColors(),
+            'initialColor' : initialColor,
+            'onColorSelected': function() {
+                this.element.css({'backgroundColor': this.color, 'color': this.color});
+            },
+            'paletteLabel': 'Colors'
+        });
+        $($(this).attr('data-target')).val(initialColor);
     });
-});
-$(".color-picker").each(function(){
-    $($(this).attr('data-target')).val('#55efc4');
-});
+
+    // Mise en input de la valeur Hexa de la couleur sélectionée
+    $(".color-picker").click(function() {
+        var target = $(this).attr('data-target');
+        $(".colorPickButton").click(function() {
+            $(target).val($(this).attr('hexvalue'));
+        });
+    });
+}
+initColorPickers();
 
 

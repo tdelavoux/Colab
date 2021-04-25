@@ -43,7 +43,7 @@ Route::group(['prefix' => 'userprofile'], function(){
     Route::get('updateProfil/resetPic', 'AppsController\UserProfilController@resetPic')->name('user.resetPic');
 });
 
-/* --------------------- PROJECTS BOARDS -------------------------------------------------------- */
+/* --------------------- PROJECTS -------------------------------------------------------- */
 Route::group(['prefix' => 'projects'], function(){
     Route::post('createProject', 'AppsController\ProjectController@createProject')->name('project.createProject');
     Route::get('overview/{fkProject}', 'AppsController\ProjectController@showOverview')->name('project.overview');
@@ -56,10 +56,17 @@ Route::group(['prefix' => 'projects'], function(){
         Route::post('addMember', 'AppsController\BoardTeamController@addMember')->name('team.addMember');    
         Route::get('delete/{fkTeamMember}', 'AppsController\BoardTeamController@deleteMember')->name('team.deleteMember');    
     });
+
+    /* ------------- Params Managment ------------------- */
+    Route::group(['prefix' => 'ProjectParamsView'], function(){
+        Route::get('{Tab}/{fkfkProject}', 'AppsController\ProjectParamsController@execute')->name('params.project.view');
+        Route::post('updateGeneral', 'AppsController\ProjectParamsController@updateGeneral')->name('params.project.updateGeneral');
+        Route::post('updateAccess', 'AppsController\ProjectParamsController@updateAccess')->name('params.project.updateAccess');
+    });
     
 });
 
-/* --------------------- PROJECTS BOARDS -------------------------------------------------------- */
+/* ---------------------  BOARDS -------------------------------------------------------- */
 Route::group(['prefix' => 'board'], function(){
     Route::post('createBoard', 'AppsController\BoardController@createBoard')->name('board.createBoard');
 
@@ -86,7 +93,11 @@ Route::group(['prefix' => 'board'], function(){
     });
 
     Route::get('LogsView/{fkBoard}', 'AppsController\BoardLogsController@execute')->name('logs.view');
-    Route::get('ParamsView/{Tab}/{fkBoard}', 'AppsController\BoardParamsController@execute')->name('params.view');
+
+    Route::group(['prefix' => 'BoardParamsView'], function(){
+        Route::get('{Tab}/{fkBoard}', 'AppsController\BoardParamsController@execute')->name('params.board.view');
+    });
+
     Route::get('StatsView/{fkBoard}', 'AppsController\BoardStatsController@execute')->name('stats.view');
 
     Route::group(['prefix' => 'scrum'], function(){
