@@ -13,7 +13,7 @@ use App\data\Team\TeamProjectAccessTableau;
 use App\User;
 
 
-class BoardTeamController extends Controller
+class ProjectTeamController extends Controller
 {
     public function __construct()
     {

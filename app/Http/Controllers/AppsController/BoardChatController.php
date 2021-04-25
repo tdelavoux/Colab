@@ -14,6 +14,7 @@ use App\data\chat\ChatPostReply;
 use App\data\chat\ChatPostLike;
 use App\data\chat\ChatPostReplyLike;
 use App\data\chat\ChatPostAttachment;
+use App\data\Modules;
 
 class BoardChatController extends Controller
 {
@@ -27,7 +28,8 @@ class BoardChatController extends Controller
     
     public function execute($fkBoard)
     {
-        $board = Tableau::find($fkBoard);
+        $board = Tableau::getTableauInfos($fkBoard);
+        $modules = Modules::getAll();
         $project = Project::find($board['fk_projet']);
         $chatRoom = ChatRoom::where('fk_tableau', $board->id)->first();
         $posts = ChatPost::getAllPostsByFkRoom($chatRoom->id);
@@ -35,7 +37,8 @@ class BoardChatController extends Controller
                     ->with('board', $board)
                     ->with('posts', $posts)
                     ->with('project', $project)
-                    ->with('chatRoom', $chatRoom);
+                    ->with('chatRoom', $chatRoom)
+                    ->with('modules', $modules);
     }
 
     public function postMessage(Request $request){

@@ -1,10 +1,10 @@
 @extends('include.layout')
 
-@section('title_page', 'Bugs Board')
+@section('title_page', 'Issues Board')
 
 @section('content')
 <div id="content-page">
-    <h1 class="prohect-map-title"><i class="fas fa-sitemap"></i><a href="">{{$project['libelle']}}</a> / <a href="#">{{$board['libelle']}}</a> / <a style="color:#546bc7">Bugs</a></h1>
+    <h1 class="prohect-map-title"><i class="fas fa-sitemap"></i><a href="">{{$project['libelle']}}</a> / <a href="#">{{$board['libelle']}}</a> / <a style="color:#546bc7">Issues</a></h1>
 
     <div class="btn-line-right">
         <button class="btn btn-sm btn-success">Ajouter une catégorie</button>

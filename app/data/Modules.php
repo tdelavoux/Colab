@@ -8,5 +8,7 @@ class Modules extends Model
 {
     protected $table = "modules";
 
-
+    public static function getAll(){
+        return self::orderby('id')->get();
+    }
 }

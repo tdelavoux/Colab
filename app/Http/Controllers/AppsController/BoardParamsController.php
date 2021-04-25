@@ -22,8 +22,7 @@ class  BoardParamsController extends Controller
     public function execute($Tab, $fkBoard){
 
         $board      = Tableau::getTableauInfos($fkBoard);
-        $modules    = array();
-        if($Tab === 'mods'){$modules    = Modules::get();}
+        $modules    = Modules::getAll();
         $project    = Project::find($board['fk_projet']);
         return view('AppsViews.boards.paramsview.params')->with('tab', $Tab)->with('board', $board)->with('project', $project)->with('modules', $modules);
     }

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use App\data\Tableau;
 use App\data\Project;
+use App\data\Modules;
 use App\data\wiki\WikiChapter;
 use App\data\wiki\WikiNote;
 use Illuminate\Support\Facades\Auth;
@@ -20,10 +21,11 @@ class BoardWikiController extends Controller
     
     public function execute($fkBoard)
     {
-        $board      = Tableau::find($fkBoard);
+        $board      = Tableau::getTableauInfos($fkBoard);
+        $modules    = Modules::getAll();
         $project    = Project::find($board['fk_projet']);
         $chapters   = WikiChapter::where('fk_tableau', $fkBoard)->whereNull('dateCloture')->get();
-        return view('AppsViews.boards.wikiview.wikiboard')->with('board', $board)->with('project', $project)->with('chapters', $chapters);
+        return view('AppsViews.boards.wikiview.wikiboard')->with('board', $board)->with('project', $project)->with('chapters', $chapters)->with('modules', $modules);
     }
 
     public function viewChapter($fkBoard, $fkChapter){

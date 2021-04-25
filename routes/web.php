@@ -50,11 +50,11 @@ Route::group(['prefix' => 'projects'], function(){
 
     /* ------------- Team Managment ------------------- */
     Route::group(['prefix' => 'TeamView'], function(){
-        Route::post('createTeam', 'AppsController\BoardTeamController@createTeam')->name('team.create');
-        Route::get('{fkProject}', 'AppsController\BoardTeamController@execute')->name('team.view');
-        Route::get('{fkProject}/viewMembers/{fkteam}', 'AppsController\BoardTeamController@viewMembers')->name('team.viewMembers');    
-        Route::post('addMember', 'AppsController\BoardTeamController@addMember')->name('team.addMember');    
-        Route::get('delete/{fkTeamMember}', 'AppsController\BoardTeamController@deleteMember')->name('team.deleteMember');    
+        Route::post('createTeam', 'AppsController\ProjectTeamController@createTeam')->name('team.create');
+        Route::get('{fkProject}', 'AppsController\ProjectTeamController@execute')->name('team.view');
+        Route::get('{fkProject}/viewMembers/{fkteam}', 'AppsController\ProjectTeamController@viewMembers')->name('team.viewMembers');    
+        Route::post('addMember', 'AppsController\ProjectTeamController@addMember')->name('team.addMember');    
+        Route::get('delete/{fkTeamMember}', 'AppsController\ProjectTeamController@deleteMember')->name('team.deleteMember');    
     });
 
     /* ------------- Params Managment ------------------- */
@@ -82,7 +82,7 @@ Route::group(['prefix' => 'board'], function(){
 
 
     Route::get('kabanView/{fkBoard}', 'AppsController\BoardKabanController@execute')->name('kaban.view');
-    Route::get('BugsView/{fkBoard}', 'AppsController\BoardBugsController@execute')->name('bugs.view');
+    Route::get('IssuesView/{fkBoard}', 'AppsController\BoardIssuesController@execute')->name('issues.view');
 
     Route::group(['prefix' => 'ChatView'], function(){
         Route::get('{fkBoard}', 'AppsController\BoardChatController@execute')->name('chat.view');
@@ -100,7 +100,7 @@ Route::group(['prefix' => 'board'], function(){
         Route::post('updateVisibility', 'AppsController\BoardParamsController@updateVisibility')->name('params.board.updateVisibility');
     });
 
-    Route::get('StatsView/{fkBoard}', 'AppsController\BoardStatsController@execute')->name('stats.view');
+    Route::get('StatsView/{fkBoard}', 'AppsController\BoardStatsController@execute')->name('statistiques.view');
 
     Route::group(['prefix' => 'scrum'], function(){
         Route::get('{fkBoard}', 'AppsController\BoardScrumController@execute')->name('scrum.view');

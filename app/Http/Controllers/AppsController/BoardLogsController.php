@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\data\Tableau;
 use App\data\Project;
+use App\data\Modules;
 
 class BoardLogsController extends Controller
 {
@@ -16,8 +17,9 @@ class BoardLogsController extends Controller
     
     public function execute($fkBoard)
     {
-        $board = Tableau::find($fkBoard);
+        $board = Tableau::getTableauInfos($fkBoard);
+        $modules = Modules::getAll();
         $project = Project::find($board['fk_projet']);
-        return view('AppsViews.boards.logsView.logsboard')->with('board', $board)->with('project', $project);
+        return view('AppsViews.boards.logsView.logsboard')->with('board', $board)->with('project', $project)->with('modules', $modules);
     }
 }
