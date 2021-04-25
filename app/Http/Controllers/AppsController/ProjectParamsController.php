@@ -52,11 +52,9 @@ class  ProjectParamsController extends Controller
             'access'                => 'required|integer|max:1|min:0',
         ]);
 
-        $access = TeamProjectAccessTableau::where('fk_tableau', $request->input('fk_tableau'))->where('fk_team_project', $request->input('fk_team_project'))->first();
-        $access->access         = $request->input('access');
-        $access->fk_user_update = Auth::user()->id;
-        $access->updated_at     = Carbon::now();
-        $access->save();
+        TeamProjectAccessTableau::where('fk_tableau', $request->input('fk_tableau'))
+                                ->where('fk_team_project', $request->input('fk_team_project'))
+                                ->update(['access'=> $request->input('access'), 'updated_at' => Carbon::now(), 'fk_user_update' => Auth::user()->id]);
         die('OK');
     }
 

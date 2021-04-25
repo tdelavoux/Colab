@@ -15,7 +15,6 @@ $('.changeAccess').change(function(){
     var route           = $(this).attr('data-route');
     var fk_team_project = $(this).attr('data-team');
     var fk_tableau      = $(this).attr('data-tableau');
-    console.log(route);
     $.ajax({
         headers: {
             'X-CSRF-TOKEN': $('input[name="_token"]').val()
@@ -26,6 +25,26 @@ $('.changeAccess').change(function(){
         success: function (result) {
             if(result === 'OK'){
                 $.notify('Accès mis à jour.', "success");
+            }
+        }
+    });
+});
+
+$('.changeVisibility').change(function(){
+    var visibility      = $(this).val();
+    var route           = $(this).attr('data-route');
+    var fk_tableau      = $(this).attr('data-tableau');
+    var fk_module       = $(this).attr('data-module');
+    $.ajax({
+        headers: {
+            'X-CSRF-TOKEN': $('input[name="_token"]').val()
+        },
+        url: route,
+        type:"post",
+        data:{visibility:visibility, fk_module:fk_module, fk_tableau:fk_tableau},
+        success: function (result) {
+            if(result === 'OK'){
+                $.notify('Visibilité mis à jour.', "success");
             }
         }
     });

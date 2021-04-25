@@ -96,6 +96,8 @@ Route::group(['prefix' => 'board'], function(){
 
     Route::group(['prefix' => 'BoardParamsView'], function(){
         Route::get('{Tab}/{fkBoard}', 'AppsController\BoardParamsController@execute')->name('params.board.view');
+        Route::post('updateGeneral', 'AppsController\BoardParamsController@updateGeneral')->name('params.board.updateGeneral');
+        Route::post('updateVisibility', 'AppsController\BoardParamsController@updateVisibility')->name('params.board.updateVisibility');
     });
 
     Route::get('StatsView/{fkBoard}', 'AppsController\BoardStatsController@execute')->name('stats.view');

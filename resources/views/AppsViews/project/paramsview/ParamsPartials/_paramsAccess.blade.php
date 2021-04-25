@@ -15,12 +15,12 @@
                             <div class="habilitation-body-line">
                                 <span style="color:{{ $table->hexaCode }};"><strong>{{ $table->libelle }} :</strong> Acceder au contenu</span>
                                 <div class="btn-group radio-selector-group" data-toggle="buttons">
-                                    <label class="btn btn-default btn-on btn-xs " data-value="1">
-                                        <input type="radio" name="test[]" value="1" {{ in_array($team->id, $table->access) ? 'checked="checked"' : '' }} class="radio-selector changeAccess"  data-route="{{ route('params.project.updateAccess') }}" data-team="{{ $team->id }}" data-tableau="{{ $table->id }}">
+                                    <label class="btn btn-default btn-on btn-xs ">
+                                        <input type="radio" name="visibility[]" value="1" {{ in_array($team->id, $table->access) ? 'checked="checked"' : '' }} class="radio-selector changeAccess"  data-route="{{ route('params.project.updateAccess') }}" data-team="{{ $team->id }}" data-tableau="{{ $table->id }}">
                                         <i class="fas fa-check"></i>
                                     </label>
-                                    <label class="btn btn-default btn-off btn-xs" data-value="0">
-                                        <input  type="radio" name="test[]" value="0"  {{ !in_array($team->id, $table->access) ? 'checked="checked"' : '' }} class="radio-selector changeAccess"  data-route="{{ route('params.project.updateAccess') }}" data-team="{{ $team->id }}" data-tableau="{{ $table->id }}">
+                                    <label class="btn btn-default btn-off btn-xs">
+                                        <input  type="radio" name="visibility[]" value="0"  {{ !in_array($team->id, $table->access) ? 'checked="checked"' : '' }} class="radio-selector changeAccess"  data-route="{{ route('params.project.updateAccess') }}" data-team="{{ $team->id }}" data-tableau="{{ $table->id }}">
                                         <i class="fas fa-times"></i>
                                     </label>
                                 </div>
