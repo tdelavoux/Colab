@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\data\Tableau;
 use App\data\Project;
 use App\data\Modules;
+use App\data\Team\TeamProjectHabsModulesActions;
 use App\data\Color;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
@@ -19,12 +20,23 @@ class  BoardParamsController extends Controller
         $this->middleware('auth');
     }
     
-    public function execute($Tab, $fkBoard){
+    public function execute($Tab, $fkBoard, $fkTeamProject=null){
 
         $board      = Tableau::getTableauInfos($fkBoard);
-        $modules    = Modules::getAll();
+        if($fkTeamProject){
+            $modules     = Modules::getAllWithActions($fkBoard);
+            $board->habs = TeamProjectHabsModulesActions::where('fk_team_project', $fkTeamProject)->where('habs', 1)->pluck('fk_module_action')->toArray();
+        }else{
+            $modules     = Modules::getAll();
+        }
+        
         $project    = Project::find($board['fk_projet']);
-        return view('AppsViews.boards.paramsview.params')->with('tab', $Tab)->with('board', $board)->with('project', $project)->with('modules', $modules);
+        return view('AppsViews.boards.paramsview.params')
+                ->with('tab', $Tab)
+                ->with('board', $board)
+                ->with('project', $project)
+                ->with('modules', $modules)
+                ->with('fkTeamProject', $fkTeamProject);
     }
 
     public function updateGeneral(Request $request){
@@ -59,6 +71,19 @@ class  BoardParamsController extends Controller
         TableauModules::where('fk_tableau', $request->input('fk_tableau'))
                         ->where('fk_module', $request->input('fk_module'))
                         ->update(['visibility'=> $request->input('visibility'), 'updated_at' => Carbon::now(), 'fk_user_update' => Auth::user()->id]);
+        die('OK');
+    }
+
+    public function updateHabilitations(Request $request){
+        $validate = $request->validate([
+            'fk_ma'         => 'required|exists:modules_actions,id',
+            'fk_team'       => 'required|exists:team_project,id',
+            'habilitation'  => 'required|integer|max:1|min:0',
+        ]);
+
+        TeamProjectHabsModulesActions::where('fk_module_action', $request->input('fk_ma'))
+                        ->where('fk_team_project', $request->input('fk_team'))
+                        ->update(['habs'=> $request->input('habilitation'), 'updated_at' => Carbon::now(), 'fk_user_update' => Auth::user()->id]);
         die('OK');
     }
 

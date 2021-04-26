@@ -40,12 +40,10 @@ class ProjectController extends Controller
 
     public function showOverview($fkProject){
 
-        $project = Project::find($fkProject);
-        $tables = Tableau::selectRaw('tableau.*, color.hexaCode')->join('color', 'color.id', '=', 'tableau.fk_color')
-            ->whereNull('fk_user_cloture')->where('fk_projet', $fkProject)->get();
+        $project = Project::getProjectInfos($fkProject);
+
 
         return view('AppsViews.project.overview')
-                    ->with('project', $project)
-                    ->with('tables', $tables);
+                    ->with('project', $project);
     }
 }

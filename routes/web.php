@@ -95,9 +95,10 @@ Route::group(['prefix' => 'board'], function(){
     Route::get('LogsView/{fkBoard}', 'AppsController\BoardLogsController@execute')->name('logs.view');
 
     Route::group(['prefix' => 'BoardParamsView'], function(){
-        Route::get('{Tab}/{fkBoard}', 'AppsController\BoardParamsController@execute')->name('params.board.view');
+        Route::get('{Tab}/{fkBoard}/{fkTeamProject?}', 'AppsController\BoardParamsController@execute')->name('params.board.view');
         Route::post('updateGeneral', 'AppsController\BoardParamsController@updateGeneral')->name('params.board.updateGeneral');
         Route::post('updateVisibility', 'AppsController\BoardParamsController@updateVisibility')->name('params.board.updateVisibility');
+        Route::post('updateHabilitations', 'AppsController\BoardParamsController@updateHabilitations')->name('params.board.updateHabilitations');
     });
 
     Route::get('StatsView/{fkBoard}', 'AppsController\BoardStatsController@execute')->name('statistiques.view');

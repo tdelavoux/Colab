@@ -13,8 +13,8 @@
     </div>
 
     <div class="container-fluid">
-        @forelse ($tables as $tableau)
-        <a href="{{route('scrum.view', $tableau['id']) }}" class="col-md-3 project-card">
+        @forelse ($project->tableaux as $tableau)
+        <a href="{{ route(strtolower($tableau->moduleDefault) . '.view', $tableau['id']) }}" class="col-md-3 project-card">
             <div class="project-card-liseret" style="background-color:{{ $tableau->hexaCode }}"></div>
             <div class="project-card-content">
                 <div class="project-card-header">

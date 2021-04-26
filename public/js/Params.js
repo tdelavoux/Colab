@@ -51,4 +51,25 @@ $('.changeVisibility').change(function(){
     });
 });
 
+$('.changeHabilitation').change(function(){
+    var habilitation    = $(this).val();
+    var route           = $(this).attr('data-route');
+    var fk_ma           = $(this).attr('data-ma');
+    var fk_team         = $(this).attr('data-team');
+    console.log(route);
+    $.ajax({
+        headers: {
+            'X-CSRF-TOKEN': $('input[name="_token"]').val()
+        },
+        url: route,
+        type:"post",
+        data:{habilitation:habilitation, fk_ma:fk_ma, fk_team:fk_team},
+        success: function (result) {
+            if(result === 'OK'){           
+                $.notify('HAbilitation mis à jour.', "success");
+            }
+        }
+    });
+});
+
 

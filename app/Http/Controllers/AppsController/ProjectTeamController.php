@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use App\data\Project;
 use App\data\Team\TeamProjectAccessTableau;
+use App\data\Team\TeamProjectHabsModulesActions;
 use App\User;
 
 
@@ -39,8 +40,9 @@ class ProjectTeamController extends Controller
         $team->fk_project = $request->input('fk_project');
         $team->save();
 
-        //Association des droits sur les projets
+        //Association des droits sur les projets et les actions
         TeamProjectAccessTableau::initialiseByFkTeam($request->input('fk_project'), $team->id);
+        TeamProjectHabsModulesActions::initialiseByFkTeam($team->id);
         
         return redirect()->route('team.view', ['fkProject' =>  $request->input('fk_project')])->with('confirmMessage', 'Equipe Ajoutée !');
     }
