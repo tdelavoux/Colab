@@ -19,6 +19,8 @@ class CreateTableauTable extends Migration
                 $table->string('libelle', 200);
                 $table->integer('fk_projet')->unsigned();
                 $table->foreign('fk_projet')->references('id')->on('projet');
+                $table->integer('fk_module_default')->unsigned();
+                $table->foreign('fk_module_default')->references('id')->on('modules');
                 $table->integer('fk_color')->unsigned();
                 $table->foreign('fk_color')->references('id')->on('color');
                 $table->timestamp('dateCloture')->nullable();

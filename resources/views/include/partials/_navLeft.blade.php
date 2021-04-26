@@ -10,7 +10,7 @@
         @if(isset($modules))
             @foreach($modules as $mods)
                 @if(in_array($mods->id, $board->modules))
-                <a class="nav-link-left left-bar-tooltips" data-toggle="tooltip" title="{{ $mods->libelle }}" href="{{route(strtolower($mods->libelle).'.view',$board['id']) }}"><i class="{{ $mods->icon }}"></i></a>
+                <a id="module{{ $mods->id }}" class="nav-link-left left-bar-tooltips" data-toggle="tooltip" title="{{ $mods->libelle }}" href="{{route(strtolower($mods->libelle).'.view',$board['id']) }}"><i class="{{ $mods->icon }}"></i></a>
                 @endif
             @endforeach
         @endif

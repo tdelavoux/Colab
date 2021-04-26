@@ -32,16 +32,18 @@ class  BoardParamsController extends Controller
             'libelle'       => 'required|max:100',
             'description'   => 'max:500',
             'hexaColor'     => 'required|max:10',
-            'fk_board'    => 'required|exists:tableau,id'
+            'fk_board'    => 'required|exists:tableau,id',
+            'fk_module_default'    => 'required|exists:modules,id'
         ]);
 
         //Get color
         $color = Color::where('hexaCode', $request->hexaColor)->first();
 
         $tableau = Tableau::find($request->input('fk_board'));
-        $tableau->libelle       = $request->input('libelle');
-        $tableau->description   = $request->input('description');
-        $tableau->fk_color      = $color->id;
+        $tableau->libelle           = $request->input('libelle');
+        $tableau->description       = $request->input('description');
+        $tableau->fk_module_default = $request->input('fk_module_default');
+        $tableau->fk_color          = $color->id;
         $tableau->save();
 
         return redirect(url()->previous())->with('confirmMessage', 'Informations mises à jour');

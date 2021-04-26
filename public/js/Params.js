@@ -44,6 +44,7 @@ $('.changeVisibility').change(function(){
         data:{visibility:visibility, fk_module:fk_module, fk_tableau:fk_tableau},
         success: function (result) {
             if(result === 'OK'){
+                (parseInt(visibility) === 1) ? $('#module'+ fk_module).show() : $('#module'+ fk_module).hide();            
                 $.notify('Visibilité mis à jour.', "success");
             }
         }

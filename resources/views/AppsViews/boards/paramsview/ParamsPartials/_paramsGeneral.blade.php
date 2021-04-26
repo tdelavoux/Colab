@@ -20,6 +20,17 @@
                 <textarea class="form-control limited-area" maxlength="500" name="description">{{ $board->description }}</textarea>
             </div>
 
+            <div class="form-group">
+                <label><i class="fas fa-desktop"></i>Module par défaut</label>
+                <select class="form-control" name="fk_module_default">
+                    @foreach($modules as $mods)
+                        @if(in_array($mods->id, $board->modules))
+                            <option value="{{ $mods->id }}" {{ $board->fk_module_default == $mods->id ? 'selected' : '' }}>{{ $mods->libelle }}</option>
+                        @endif
+                    @endforeach
+                </select>
+            </div>
+
             <div class="w100 center">
                 <button type="submit" class="btn btn-info w100"><i class="far fa-save"></i>SAUVEGARDER</button>
             </div>
