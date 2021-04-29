@@ -30,6 +30,6 @@ class CreateColorTable extends Migration
      */
     public function down()
     {
-        //Schema::dropIfExists('color');
+        Schema::dropIfExists('color');
     }
 }

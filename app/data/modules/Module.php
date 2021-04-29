@@ -1,13 +1,13 @@
 <?php
 
-namespace App\data;
+namespace App\data\Modules;
 
 use Illuminate\Database\Eloquent\Model;
-use App\data\Modules\ModulesActions;
+use App\data\Modules\ModuleAction;
 
-class Modules extends Model
+class Module extends Model
 {
-    protected $table = "modules";
+    protected $table = "module";
 
     public static function getAll(){
         return self::orderby('id')->get();
@@ -16,7 +16,7 @@ class Modules extends Model
     public static function getAllWithActions($fkBoard){
         $modules =  self::orderby('id')->get();
         foreach($modules as &$mod){
-            $mod->actions = ModulesActions::where('fk_module', $mod->id)->get();
+            $mod->actions = ModuleAction::where('fk_module', $mod->id)->get();
         }
         return $modules;
     }

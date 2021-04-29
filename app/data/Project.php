@@ -4,8 +4,8 @@ namespace App\data;
 
 use Illuminate\Database\Eloquent\Model;
 use App\data\Team\TeamProject;
-use App\data\Tableau;
-use App\data\Team\TeamProjectAccessTableau;
+use App\data\Board\Board;
+use App\data\Team\TeamProjectAccessBoard;
 
 class Project extends Model
 {
@@ -13,7 +13,7 @@ class Project extends Model
 
 
     public static function getProjectInfos($fkProject){
-        $project                = self::join('color',  'color.id', '=', 'project.fk_color')
+        $project                = self::leftjoin('color',  'color.id', '=', 'project.fk_color')
                                         ->select('project.*', 'color.hexaCode')
                                         ->find($fkProject);
 
@@ -21,14 +21,14 @@ class Project extends Model
                                                 ->whereNull('dateCloture')
                                                 ->get();
 
-        $project->tableaux      = Tableau::join('color',  'color.id', '=', 'tableau.fk_color')
-                                            ->join('modules',  'modules.id', '=', 'tableau.fk_module_default')
-                                            ->select('tableau.*', 'color.hexaCode', 'modules.libelle as moduleDefault')
+        $project->boards      = Board::leftjoin('color',  'color.id', '=', 'board.fk_color')
+                                            ->join('module',  'module.id', '=', 'board.fk_module_default')
+                                            ->select('board.*', 'color.hexaCode', 'module.libelle as moduleDefault')
                                             ->where('fk_projet', $project->id)
-                                            ->whereNull('dateCloture')->get();
+                                            ->whereNull('board.dateCloture')->get();
 
-        foreach($project->tableaux as &$tableau){
-            $tableau->access = TeamProjectAccessTableau::where('fk_tableau', $tableau->id)->where('access', 1)->pluck('fk_team_project')->toArray();
+        foreach($project->boards as &$board){
+            $board->access = TeamProjectAccessBoard::where('fk_board', $board->id)->where('access', 1)->pluck('fk_team_project')->toArray();
         }
         return $project;
     }

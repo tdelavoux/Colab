@@ -4,10 +4,10 @@ namespace App\Http\Controllers\AppsController;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\data\Tableau;
+use App\data\Board\Board;
 use App\data\Project;
 use App\data\Color;
-use App\data\Team\TeamProjectAccessTableau;
+use App\data\Team\TeamProjectAccessBoard;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
@@ -48,13 +48,13 @@ class  ProjectParamsController extends Controller
     public function updateAccess(Request $request){
         $validate = $request->validate([
             'fk_team_project'       => 'required|exists:team_project,id',
-            'fk_tableau'            => 'required|exists:tableau,id',
+            'fk_board'            => 'required|exists:board,id',
             'access'                => 'required|integer|max:1|min:0',
         ]);
 
-        TeamProjectAccessTableau::where('fk_tableau', $request->input('fk_tableau'))
+        TeamProjectAccessBoard::where('fk_board', $request->input('fk_board'))
                                 ->where('fk_team_project', $request->input('fk_team_project'))
-                                ->update(['access'=> $request->input('access'), 'updated_at' => Carbon::now(), 'fk_user_update' => Auth::user()->id]);
+                                ->update(['access'=> $request->input('access'), 'updated_at' => Carbon::now());
         die('OK');
     }
 

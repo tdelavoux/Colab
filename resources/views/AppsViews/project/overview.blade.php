@@ -13,15 +13,15 @@
     </div>
 
     <div class="container-fluid">
-        @forelse ($project->tableaux as $tableau)
-        <a href="{{ route(strtolower($tableau->moduleDefault) . '.view', $tableau['id']) }}" class="col-md-3 project-card">
-            <div class="project-card-liseret" style="background-color:{{ $tableau->hexaCode }}"></div>
+        @forelse ($project->boards as $tab)
+        <a href="{{ route(strtolower($tab->moduleDefault) . '.view', $tab['id']) }}" class="col-md-3 project-card">
+            <div class="project-card-liseret" style="background-color:{{ $tab->hexaCode }}"></div>
             <div class="project-card-content">
                 <div class="project-card-header">
-                    <span style="color:{{ $tableau->hexaCode }}">{{ $tableau->libelle }}</span>
+                    <span style="color:{{ $tab->hexaCode }}">{{ $tab->libelle }}</span>
                 </div>
                 <div class="project-card-body">
-                    {{ $tableau->description }}
+                    {{ $tab->description }}
                 </div>
                 <div class="project-card-footer">
                     <span><i class="fas fa-chalkboard"></i> 4</span>

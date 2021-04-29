@@ -1,4 +1,4 @@
-INSERT INTO modules (libelle, icon, description) VALUES 
+INSERT INTO module (libelle, icon, description) VALUES 
 ('Wiki', 'fas fa-book-reader', 'Notes partagées sur le projet'),
 ('Logs', 'fas fa-bars', 'Affichage des logs des actions réalisées'),
 ('Scrum', 'far fa-window-maximize', 'Gestionnaire de projet Scrum'),

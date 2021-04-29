@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Form;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use App\data\Tableau;
+use App\data\Board\Board;
 use App\data\Project;
 use App\data\chat\ChatRoom;
 use App\data\chat\ChatPost;
@@ -14,7 +14,7 @@ use App\data\chat\ChatPostReply;
 use App\data\chat\ChatPostLike;
 use App\data\chat\ChatPostReplyLike;
 use App\data\chat\ChatPostAttachment;
-use App\data\Modules;
+use App\data\Modules\Module;
 
 class BoardChatController extends Controller
 {
@@ -28,10 +28,10 @@ class BoardChatController extends Controller
     
     public function execute($fkBoard)
     {
-        $board = Tableau::getTableauInfos($fkBoard);
-        $modules = Modules::getAll();
+        $board = Board::getBoardInfos($fkBoard);
+        $modules = Module::getAll();
         $project = Project::find($board['fk_projet']);
-        $chatRoom = ChatRoom::where('fk_tableau', $board->id)->first();
+        $chatRoom = ChatRoom::where('fk_board', $board->id)->first();
         $posts = ChatPost::getAllPostsByFkRoom($chatRoom->id);
         return view('AppsViews.boards.chatView.chatboard')
                     ->with('board', $board)
@@ -77,7 +77,7 @@ class BoardChatController extends Controller
         }
 
         $chatRoom = ChatRoom::find($chat_post->fk_chat_room);
-        $board = Tableau::find($chatRoom->fk_tableau);
+        $board = Board::find($chatRoom->fk_board);
         
         return redirect()->route('chat.view', [$board->id])->with('confirmMessage', 'Post validé !');
     }
@@ -97,7 +97,7 @@ class BoardChatController extends Controller
 
         $chat_post = ChatPost::find($chat_post_reply->fk_chat_post);
         $chatRoom = ChatRoom::find($chat_post->fk_chat_room);
-        $board = Tableau::find($chatRoom->fk_tableau);
+        $board = Board::find($chatRoom->fk_board);
         
         return redirect()->route('chat.view', [$board->id])->with('confirmMessage', 'Réponse soumise !');
     }

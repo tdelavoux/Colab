@@ -11,7 +11,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <input type="hidden" name="fk_tableau" value="{{ $board->id }}">
+                    <input type="hidden" name="fk_board" value="{{ $board->id }}">
                     <div class="form-group">
                         <label>Titre du chapitre</label>
                         <input class="form-control" name="name" maxlength="50"/>

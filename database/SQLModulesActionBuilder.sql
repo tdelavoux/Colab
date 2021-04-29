@@ -1,4 +1,4 @@
-INSERT INTO modules_actions (fk_module, libelle, action) VALUES 
+INSERT INTO module_action (fk_module, libelle, action) VALUES 
 (1, 'Accès au contenu', 'read'),
 
 (2, 'Accès au contenu', 'read'),

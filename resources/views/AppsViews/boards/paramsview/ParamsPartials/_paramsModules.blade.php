@@ -9,11 +9,11 @@
                 @if($mod->id !== $board->fk_module_default)
                     <div class="btn-group radio-selector-group" id="status" data-toggle="buttons">
                         <label class="btn btn-default btn-on btn-xs">
-                            <input type="radio" name="visibility[]" value="1" {{ in_array($mod->id, $board->modules) ? 'checked="checked"' : '' }} class="radio-selector changeVisibility"  data-route="{{ route('params.board.updateVisibility') }}"  data-tableau="{{ $board->id }}" data-module="{{ $mod->id }}">
+                            <input type="radio" name="visibility[]" value="1" {{ in_array($mod->id, $board->modules) ? 'checked="checked"' : '' }} class="radio-selector changeVisibility"  data-route="{{ route('params.board.updateVisibility') }}"  data-board="{{ $board->id }}" data-module="{{ $mod->id }}">
                             <i class="far fa-eye"></i>
                         </label>
                         <label class="btn btn-default btn-off btn-xs ">
-                            <input type="radio" name="visibility[]" value="0" {{ !in_array($mod->id, $board->modules) ? 'checked="checked"' : '' }} class="radio-selector changeVisibility"  data-route="{{ route('params.board.updateVisibility') }}"  data-tableau="{{ $board->id }}" data-module="{{ $mod->id }}">
+                            <input type="radio" name="visibility[]" value="0" {{ !in_array($mod->id, $board->modules) ? 'checked="checked"' : '' }} class="radio-selector changeVisibility"  data-route="{{ route('params.board.updateVisibility') }}"  data-board="{{ $board->id }}" data-module="{{ $mod->id }}">
                             <i class="far fa-eye-slash"></i>
                         </label>
                     </div>

@@ -20,9 +20,9 @@ class CreateProjectTable extends Migration
                 $table->integer('fk_user')->unsigned();
                 $table->foreign('fk_user')->references('id')->on('users');
                 $table->integer('fk_color')->unsigned();
-                $table->foreign('fk_color')->references('id')->on('color');
-                $table->timestamp('dateCloture')->nullable();
+                $table->foreign('fk_color')->references('id')->on('color'); 
                 $table->string('description', 500)->nullable()->default('NULL');
+                $table->timestamp('dateCloture')->nullable();
                 $table->integer('fk_user_cloture')->nullable()->unsigned();
                 $table->foreign('fk_user_cloture')->references('users')->on('id')->onDelete('set null');
                 $table->timestamp('created_at')->nullable();
@@ -38,6 +38,6 @@ class CreateProjectTable extends Migration
      */
     public function down()
     {
-        //Schema::dropIfExists('project');
+        Schema::dropIfExists('project');
     }
 }

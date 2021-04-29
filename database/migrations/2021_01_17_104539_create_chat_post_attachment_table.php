@@ -22,7 +22,7 @@ class CreateChatPostAttachmentTable extends Migration
                 $table->char('type_attachment', 3);
                 $table->timestamp('dateCloture')->nullable();
                 $table->integer('fk_user_cloture')->unsigned()->nullable();
-                $table->foreign('fk_user_cloture')->nullable()->references('id')->on('users');
+                $table->foreign('fk_user_cloture')->nullable()->references('id')->on('users');                
                 $table->timestamp('created_at')->nullable();
                 $table->timestamp('updated_at')->nullable();
             });

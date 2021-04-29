@@ -4,8 +4,8 @@ namespace App\data\Modules;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ModulesActions extends Model
+class ModuleAction extends Model
 {
-    protected $table = "modules_actions";
+    protected $table = "module_action";
 
 }

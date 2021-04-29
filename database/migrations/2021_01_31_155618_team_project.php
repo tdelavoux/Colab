@@ -23,8 +23,9 @@ class TeamProject extends Migration
                 $table->foreign('fk_project')->references('id')->on('project');
                 $table->timestamp('dateCloture')->nullable();
                 $table->integer('fk_user_cloture')->unsigned()->nullable();
-                $table->foreign('fk_user_cloture')->nullable()->references('id')->on('users');
-                $table->timestamps();
+                $table->foreign('fk_user_cloture')->nullable()->references('id')->on('users');                
+                $table->timestamp('created_at')->nullable();
+                $table->timestamp('updated_at')->nullable();
             });
         }
     }

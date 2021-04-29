@@ -4,25 +4,24 @@ namespace App\data\team;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
-use App\Data\Modules\ModulesActions;
+use App\Data\Modules\ModuleAction;
 use Carbon\Carbon;
 
-class TeamProjectHabsModulesActions extends Model
+class TeamProjectHabsModuleAction extends Model
 {
-    protected $table = "team_project_habs_modules_actions";
+    protected $table = "team_project_habs_module_action";
     protected $primaryKey = null;
     public $incrementing = false;
 
     public static function initialiseByFkTeam($fkTeam){
-        $modulesActions  = ModulesActions::get();
+        $modulesActions  = ModuleAction::get();
         foreach($modulesActions as $ma){
-            $hab = new TeamProjectHabsModulesActions();
+            $hab = new TeamProjectHabsModuleAction();
             $hab->fk_module_action = $ma->id;
             $hab->fk_team_project = $fkTeam;
             $hab->habs = 1;
             $hab->created_at = Carbon::now();
             $hab->updated_at = Carbon::now();
-            $hab->fk_user_update = Auth::user()->id;
             $hab->save();
         }
     }

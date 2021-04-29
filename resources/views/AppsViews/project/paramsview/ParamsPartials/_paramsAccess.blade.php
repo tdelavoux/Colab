@@ -11,16 +11,16 @@
                         <span class="collapse-arrrow" ><i class="fas fa-chevron-right"></i></span>      
                     </div>
                     <div class="habilitation-bloc-body collapse" id="habs_{{$team->id }}">
-                        @foreach($project->tableaux as $table)
+                        @foreach($project->boards as $table)
                             <div class="habilitation-body-line">
                                 <span style="color:{{ $table->hexaCode }};"><strong>{{ $table->libelle }} :</strong> Acceder au contenu</span>
                                 <div class="btn-group radio-selector-group" data-toggle="buttons">
                                     <label class="btn btn-default btn-on btn-xs ">
-                                        <input type="radio" name="visibility[]" value="1" {{ in_array($team->id, $table->access) ? 'checked="checked"' : '' }} class="radio-selector changeAccess"  data-route="{{ route('params.project.updateAccess') }}" data-team="{{ $team->id }}" data-tableau="{{ $table->id }}">
+                                        <input type="radio" name="visibility[]" value="1" {{ in_array($team->id, $table->access) ? 'checked="checked"' : '' }} class="radio-selector changeAccess"  data-route="{{ route('params.project.updateAccess') }}" data-team="{{ $team->id }}" data-board="{{ $table->id }}">
                                         <i class="fas fa-check"></i>
                                     </label>
                                     <label class="btn btn-default btn-off btn-xs">
-                                        <input  type="radio" name="visibility[]" value="0"  {{ !in_array($team->id, $table->access) ? 'checked="checked"' : '' }} class="radio-selector changeAccess"  data-route="{{ route('params.project.updateAccess') }}" data-team="{{ $team->id }}" data-tableau="{{ $table->id }}">
+                                        <input  type="radio" name="visibility[]" value="0"  {{ !in_array($team->id, $table->access) ? 'checked="checked"' : '' }} class="radio-selector changeAccess"  data-route="{{ route('params.project.updateAccess') }}" data-team="{{ $team->id }}" data-board="{{ $table->id }}">
                                         <i class="fas fa-times"></i>
                                     </label>
                                 </div>

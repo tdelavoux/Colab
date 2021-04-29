@@ -5,9 +5,9 @@ namespace App\Http\Controllers\AppsController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
-use App\data\Tableau;
+use App\data\Board\Board;
 use App\data\Project;
-use App\data\Modules;
+use App\data\Modules\Module;
 use App\data\wiki\WikiChapter;
 use App\data\wiki\WikiNote;
 use Illuminate\Support\Facades\Auth;
@@ -21,17 +21,17 @@ class BoardWikiController extends Controller
     
     public function execute($fkBoard)
     {
-        $board      = Tableau::getTableauInfos($fkBoard);
-        $modules    = Modules::getAll();
+        $board      = Board::getBoardInfos($fkBoard);
+        $modules    = Module::getAll();
         $project    = Project::find($board['fk_projet']);
-        $chapters   = WikiChapter::where('fk_tableau', $fkBoard)->whereNull('dateCloture')->get();
+        $chapters   = WikiChapter::where('fk_board', $fkBoard)->whereNull('dateCloture')->get();
         return view('AppsViews.boards.wikiview.wikiboard')->with('board', $board)->with('project', $project)->with('chapters', $chapters)->with('modules', $modules);
     }
 
     public function viewChapter($fkBoard, $fkChapter){
-        $board          = Tableau::find($fkBoard);
+        $board          = Board::find($fkBoard);
         $project        = Project::find($board['fk_projet']);
-        $chapters       = WikiChapter::where('fk_tableau', $fkBoard)->whereNull('dateCloture')->get();
+        $chapters       = WikiChapter::where('fk_board', $fkBoard)->whereNull('dateCloture')->get();
         $chapterInfos   = WikiChapter::find($fkChapter);
         $notes          = WikiNote::getAllNotesByChapter($fkChapter);
 
@@ -47,15 +47,15 @@ class BoardWikiController extends Controller
 
         $validate = $request->validate([
             'name' => 'required|max:50',
-            'fk_tableau' => 'required|integer|exists:tableau,id',
+            'fk_board' => 'required|integer|exists:board,id',
         ]);
 
         $chapter = new WikiChapter();
         $chapter->libelle = $request->input('name');
-        $chapter->fk_tableau = $request->input('fk_tableau');
+        $chapter->fk_board = $request->input('fk_board');
         $chapter->save();
         
-        return redirect()->route('wiki.viewChapter', ['fkBoard' => $request->input('fk_tableau'), 'fkChapter' => $chapter->id])->with('confirmMessage', 'Nouveau Chapitre Ajoutée !');
+        return redirect()->route('wiki.viewChapter', ['fkBoard' => $request->input('fk_board'), 'fkChapter' => $chapter->id])->with('confirmMessage', 'Nouveau Chapitre Ajoutée !');
     }
 
     public function addNote(Request $request){
@@ -98,7 +98,7 @@ class BoardWikiController extends Controller
 
         $chapter = WikiChapter::find($note->fk_wiki_chapter);
 
-        return redirect()->route('wiki.viewChapter', ['fkBoard' => $chapter->fk_tableau, 'fkChapter' => $chapter->id])->with('confirmMessage', 'Note supprimée !');
+        return redirect()->route('wiki.viewChapter', ['fkBoard' => $chapter->fk_board, 'fkChapter' => $chapter->id])->with('confirmMessage', 'Note supprimée !');
     }
 
     public function getNoteContent(Request $request){

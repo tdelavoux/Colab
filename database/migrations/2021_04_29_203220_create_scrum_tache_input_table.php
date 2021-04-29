@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateChatPostTagTable extends Migration
+class CreateScrumTacheInputTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateChatPostTagTable extends Migration
      */
     public function up()
     {
-        if(!Schema::hasTable('chat_post_tag')){
-            Schema::create('chat_post_tag', function (Blueprint $table) {
-                $table->id();
-                $table->integer('fk_chat_post')->unsigned();
-                $table->foreign('fk_chat_post')->references('id')->on('chat_post');
-                $table->integer('fk_user')->unsigned();
-                $table->foreign('fk_user')->references('id')->on('users');
+        if(!Schema::hasTable('scrum_tache_input')){
+            Schema::create('scrum_tache_input', function (Blueprint $table) {
+                $table->integer('fk_scrum_tache')->unsigned();
+                $table->foreign('fk_scrum_tache')->references('id')->on('scrum_tache'); 
+                $table->integer('fk_scrum_input')->unsigned();
+                $table->foreign('fk_scrum_input')->references('id')->on('scrum_input'); 
                 $table->timestamp('dateCloture')->nullable();
                 $table->integer('fk_user_cloture')->unsigned()->nullable();
                 $table->foreign('fk_user_cloture')->nullable()->references('id')->on('users');                
@@ -36,6 +35,6 @@ class CreateChatPostTagTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('chat_post_tag');
+        Schema::dropIfExists('scrum_tache_input');
     }
 }

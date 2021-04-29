@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableauTable extends Migration
+class CreateScrumSprintTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,17 @@ class CreateTableauTable extends Migration
      */
     public function up()
     {
-        if(!Schema::hasTable('tableau')){
-            Schema::create('tableau', function (Blueprint $table) {
+        if(!Schema::hasTable('scrum_sprint')){
+            Schema::create('scrum_sprint', function (Blueprint $table) {
                 $table->id();
-                $table->string('libelle', 200);
-                $table->integer('fk_projet')->unsigned();
-                $table->foreign('fk_projet')->references('id')->on('projet');
-                $table->integer('fk_module_default')->unsigned();
-                $table->foreign('fk_module_default')->references('id')->on('modules');
+                $table->integer('fk_board')->unsigned();
+                $table->foreign('fk_board')->references('id')->on('board');
                 $table->integer('fk_color')->unsigned();
                 $table->foreign('fk_color')->references('id')->on('color');
+                $table->string('libelle' , 100);
                 $table->timestamp('dateCloture')->nullable();
                 $table->integer('fk_user_cloture')->unsigned()->nullable();
-                $table->foreign('fk_user_cloture')->nullable()->references('id')->on('users');
-                $table->string('description', 500)->nullable()->default('NULL');
+                $table->foreign('fk_user_cloture')->nullable()->references('id')->on('users');                
                 $table->timestamp('created_at')->nullable();
                 $table->timestamp('updated_at')->nullable();
             });
@@ -40,6 +37,6 @@ class CreateTableauTable extends Migration
      */
     public function down()
     {
-        //Schema::dropIfExists('tableau');
+        Schema::dropIfExists('scrum_sprint');
     }
 }

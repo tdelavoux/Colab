@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\data\Color;
 use App\data\Project;
-use App\data\Tableau;
+use App\data\Board\Board;
 
 class ProjectController extends Controller
 {
@@ -41,7 +41,6 @@ class ProjectController extends Controller
     public function showOverview($fkProject){
 
         $project = Project::getProjectInfos($fkProject);
-
 
         return view('AppsViews.project.overview')
                     ->with('project', $project);
