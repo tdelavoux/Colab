@@ -36,8 +36,6 @@ $('body').on('click', function (e) {
     });
 });
 
-
-
 /* ############################################################
                 GESTION DES TOOLTIPS
 ############################################################### */
@@ -99,6 +97,7 @@ function initColorPickers(){
         var target = $(this).attr('data-target');
         $(".colorPickButton").click(function() {
             $(target).val($(this).attr('hexvalue'));
+            $(target).trigger('change');
         });
     });
 }

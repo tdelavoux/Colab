@@ -5,7 +5,6 @@ namespace App\data\Board;
 use Illuminate\Database\Eloquent\Model;
 use App\Data\Modules\Module;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Auth;
 
 class BoardModule extends Model
 {

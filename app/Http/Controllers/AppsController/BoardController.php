@@ -24,7 +24,7 @@ class BoardController extends Controller
             'BoardName'     => 'required|max:100',
             'description'   => 'max:500',
             'fkProject'     => 'required',
-            'hexaColor'     => 'required|max:10'
+            'hexaColor'     => 'required|max:7|min:7|exists:color,hexaCode'
         ]);
         
         //Get color

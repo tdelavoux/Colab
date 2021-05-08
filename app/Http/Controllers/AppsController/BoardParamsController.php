@@ -10,6 +10,8 @@ use App\data\Project;
 use App\data\Modules\Module;
 use App\data\Team\TeamProjectHabsModuleAction;
 use App\data\Color;
+use App\data\Input\TypeInput;
+use App\data\Input\ScrumInput;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
@@ -29,7 +31,7 @@ class  BoardParamsController extends Controller
         }else{
             $modules     = Module::getAll();
         }
-        
+
         $project    = Project::find($board['fk_projet']);
         return view('AppsViews.boards.paramsview.params')
                 ->with('tab', $Tab)
@@ -39,11 +41,35 @@ class  BoardParamsController extends Controller
                 ->with('fkTeamProject', $fkTeamProject);
     }
 
+    public function executeFields($Tab, $fkBoard, $Mod=null){
+
+        $board      = Board::getBoardInfos($fkBoard);
+        $modules     = Module::getAll();
+
+        $typeFields = TypeInput::whereNull('dateCloture')->get();
+
+        $fields     = ScrumInput::getAllByBoard($fkBoard);
+        
+        $project    = Project::find($board['fk_projet']);
+        return view('AppsViews.boards.paramsview.params')
+                ->with('tab', $Tab)
+                ->with('board', $board)
+                ->with('project', $project)
+                ->with('modules', $modules)
+                ->with('fields', $fields)
+                ->with('Mod', $Mod)
+                ->with('typeFields', $typeFields);
+    }
+
+    /*#################################################################################
+    #                               AJAX ACTIONS
+    ###################################################################################*/
+
     public function updateGeneral(Request $request){
         $validate = $request->validate([
             'libelle'       => 'required|max:100',
             'description'   => 'max:500',
-            'hexaColor'     => 'required|max:10',
+            'hexaColor'     => 'required|max:7|min:7|exists:color,hexaCode',
             'fk_board'    => 'required|exists:board,id',
             'fk_module_default'    => 'required|exists:module,id'
         ]);
@@ -83,8 +109,10 @@ class  BoardParamsController extends Controller
 
         TeamProjectHabsModuleAction::where('fk_module_action', $request->input('fk_ma'))
                         ->where('fk_team_project', $request->input('fk_team'))
-                        ->update(['habs'=> $request->input('habilitation'), 'updated_at' => Carbon::now());
+                        ->update(['habs'=> $request->input('habilitation'), 'updated_at' => Carbon::now()]);
         die('OK');
     }
+
+    
 
 }

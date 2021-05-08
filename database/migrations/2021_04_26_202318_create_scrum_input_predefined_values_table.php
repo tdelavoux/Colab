@@ -18,7 +18,7 @@ class CreateScrumInputPredefinedValuesTable extends Migration
                 $table->id();
                 $table->integer('fk_scrum_input')->unsigned();
                 $table->foreign('fk_scrum_input')->references('id')->on('scrum_input');
-                $table->integer('fk_color')->unsigned();
+                $table->integer('fk_color')->nullable()->unsigned();
                 $table->foreign('fk_color')->references('id')->on('color');
                 $table->boolean('clothing_step');
                 $table->string('value');

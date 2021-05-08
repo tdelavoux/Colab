@@ -21,7 +21,7 @@ class ProjectController extends Controller
         $validate = $request->validate([
             'projectName' => 'required|max:100',
             'description' => 'max:500',
-            'hexaColor' => 'required|max:10'
+            'hexaColor' => 'required|max:7|min:7|exists:color,hexaCode'
         ]);
         
         //Get color

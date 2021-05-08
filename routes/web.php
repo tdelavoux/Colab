@@ -95,10 +95,21 @@ Route::group(['prefix' => 'board'], function(){
     Route::get('LogsView/{fkBoard}', 'AppsController\BoardLogsController@execute')->name('logs.view');
 
     Route::group(['prefix' => 'BoardParamsView'], function(){
-        Route::get('{Tab}/{fkBoard}/{fkTeamProject?}', 'AppsController\BoardParamsController@execute')->name('params.board.view');
+        Route::get('menu/{Tab}/{fkBoard}/{fkTeamProject?}', 'AppsController\BoardParamsController@execute')->name('params.board.view');
         Route::post('updateGeneral', 'AppsController\BoardParamsController@updateGeneral')->name('params.board.updateGeneral');
         Route::post('updateVisibility', 'AppsController\BoardParamsController@updateVisibility')->name('params.board.updateVisibility');
         Route::post('updateHabilitations', 'AppsController\BoardParamsController@updateHabilitations')->name('params.board.updateHabilitations');
+
+        Route::group(['prefix' => 'fields'], function(){
+            Route::get('{Tab}/{fkBoard}/{Mod?}', 'AppsController\BoardParamsController@executeFields')->name('params.board.fieldsview');
+            Route::post('addScrumField', 'AppsController\InputController@addScrumField')->name('params.board.addScrumField');
+            Route::post('addPredefinedValue', 'AppsController\InputController@addPredefinedValue')->name('params.board.addPredefinedValue');
+            Route::post('updateColor', 'AppsController\InputController@updateColor')->name('params.board.updateColor');
+            Route::post('updateClothingStep', 'AppsController\InputController@updateClothingStep')->name('params.board.updateClothingStep');
+            Route::get('closeInput/{fkBoardInput}/board/{fkBoard}', 'AppsController\InputController@closeInput')->name('params.board.closeInput');
+            Route::post('closePredefinedValue}', 'AppsController\InputController@closePredefinedValue')->name('params.board.closePredefinedValue');
+        });
+        
     });
 
     Route::get('StatsView/{fkBoard}', 'AppsController\BoardStatsController@execute')->name('statistiques.view');

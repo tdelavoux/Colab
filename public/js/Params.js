@@ -66,10 +66,55 @@ $('.changeHabilitation').change(function(){
         data:{habilitation:habilitation, fk_ma:fk_ma, fk_team:fk_team},
         success: function (result) {
             if(result === 'OK'){           
-                $.notify('HAbilitation mis à jour.', "success");
+                $.notify('Habilitation mis à jour.', "success");
             }
         }
     });
 });
 
+$('#addFieldBtn').click(function(){
+   $('#addFieldForm').attr('action', $(this).attr('data-route'));
+});
 
+$('.addPredefinedValueBtn').click(function(){
+    $('#addFieldValue').attr('action', $(this).attr('data-route'));
+    $('#fkScrumInput').val($(this).attr('data-field'));
+});
+
+$('.colorPickerPdfVal').change(function(){
+    var route               = $(this).attr('data-route');
+    var hexaColor           = $(this).val();
+    var fkPredefinedValue   = $(this).attr('data-input');
+    $.ajax({
+        headers: {
+            'X-CSRF-TOKEN': $('input[name="_token"]').val()
+        },
+        url: route,
+        type:"post",
+        data:{hexaColor:hexaColor, fkPredefinedValue:fkPredefinedValue},
+        success: function (result) {
+            if(result === 'OK'){           
+                $.notify('Couleur mis à jour.', "success");
+            }
+        }
+    });
+});
+
+$('.clothingStepBtn').click(function(){
+    var clothing_step       = $(this).is(':checked') ? 1 : 0;
+    var route               = $(this).attr('data-route');
+    var fkPredefinedValue   = $(this).attr('data-input');
+    $.ajax({
+        headers: {
+            'X-CSRF-TOKEN': $('input[name="_token"]').val()
+        },
+        url: route,
+        type:"post",
+        data:{clothing_step:clothing_step, fkPredefinedValue:fkPredefinedValue},
+        success: function (result) {
+            if(result === 'OK'){           
+                $.notify('Etape de cloture mis à jour.', "success");
+            }
+        }
+    });
+});
